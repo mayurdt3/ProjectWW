@@ -2,47 +2,47 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-10-23T00:59:27 IST" name="Default suite" finished-at="2023-10-23T00:59:51 IST" duration-ms="23236">
+  <suite started-at="2023-10-23T11:47:58 IST" name="Suite" finished-at="2023-10-23T11:48:37 IST" duration-ms="38391">
     <groups>
     </groups>
-    <test started-at="2023-10-23T00:59:27 IST" name="Default test" finished-at="2023-10-23T00:59:51 IST" duration-ms="23236">
+    <test started-at="2023-10-23T11:47:58 IST" name="Carwash" finished-at="2023-10-23T11:48:37 IST" duration-ms="38391">
       <class name="testpacakage.TestCarwash">
-        <test-method is-config="true" signature="objectmethod()[pri:0, instance:testpacakage.TestCarwash@7d0b7e3c]" started-at="2023-10-23T00:59:27 IST" name="objectmethod" finished-at="2023-10-23T00:59:27 IST" duration-ms="51" status="PASS">
+        <test-method is-config="true" signature="objectmethod()[pri:0, instance:testpacakage.TestCarwash@6e9175d8]" started-at="2023-10-23T11:47:58 IST" name="objectmethod" finished-at="2023-10-23T11:47:58 IST" duration-ms="49" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- objectmethod -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:testpacakage.TestCarwash@7d0b7e3c]" started-at="2023-10-23T00:59:27 IST" name="setUp" finished-at="2023-10-23T00:59:30 IST" duration-ms="2384" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testpacakage.TestCarwash@6e9175d8]" started-at="2023-10-23T11:47:58 IST" name="setUp" finished-at="2023-10-23T11:48:01 IST" duration-ms="3269" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="startReporter()[pri:0, instance:testpacakage.TestCarwash@7d0b7e3c]" started-at="2023-10-23T00:59:30 IST" name="startReporter" finished-at="2023-10-23T00:59:30 IST" duration-ms="192" status="PASS">
+        <test-method is-config="true" signature="startReporter()[pri:0, instance:testpacakage.TestCarwash@6e9175d8]" started-at="2023-10-23T11:48:01 IST" name="startReporter" finished-at="2023-10-23T11:48:02 IST" duration-ms="201" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startReporter -->
-        <test-method signature="PaymentTest()[pri:0, instance:testpacakage.TestCarwash@7d0b7e3c]" started-at="2023-10-23T00:59:30 IST" name="PaymentTest" finished-at="2023-10-23T00:59:50 IST" duration-ms="19720" status="PASS">
+        <test-method signature="PaymentTest()[pri:0, instance:testpacakage.TestCarwash@6e9175d8]" started-at="2023-10-23T11:48:02 IST" name="PaymentTest" finished-at="2023-10-23T11:48:36 IST" duration-ms="34083" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- PaymentTest -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpacakage.TestCarwash@7d0b7e3c]" started-at="2023-10-23T00:59:50 IST" name="testResult" finished-at="2023-10-23T00:59:50 IST" duration-ms="3" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpacakage.TestCarwash@6e9175d8]" started-at="2023-10-23T11:48:36 IST" name="testResult" finished-at="2023-10-23T11:48:36 IST" duration-ms="6" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=PaymentTest status=SUCCESS method=TestCarwash.PaymentTest()[pri:0, instance:testpacakage.TestCarwash@7d0b7e3c] output={null}]]]>
+                <![CDATA[[TestResult name=PaymentTest status=SUCCESS method=TestCarwash.PaymentTest()[pri:0, instance:testpacakage.TestCarwash@6e9175d8] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResult -->
-        <test-method is-config="true" signature="close()[pri:0, instance:testpacakage.TestCarwash@7d0b7e3c]" started-at="2023-10-23T00:59:50 IST" name="close" finished-at="2023-10-23T00:59:50 IST" duration-ms="383" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:testpacakage.TestCarwash@6e9175d8]" started-at="2023-10-23T11:48:36 IST" name="close" finished-at="2023-10-23T11:48:36 IST" duration-ms="386" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-        <test-method is-config="true" signature="closereporter()[pri:0, instance:testpacakage.TestCarwash@7d0b7e3c]" started-at="2023-10-23T00:59:50 IST" name="closereporter" finished-at="2023-10-23T00:59:51 IST" duration-ms="475" status="PASS">
+        <test-method is-config="true" signature="closereporter()[pri:0, instance:testpacakage.TestCarwash@6e9175d8]" started-at="2023-10-23T11:48:36 IST" name="closereporter" finished-at="2023-10-23T11:48:37 IST" duration-ms="364" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closereporter -->
       </class> <!-- testpacakage.TestCarwash -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Carwash -->
+  </suite> <!-- Suite -->
 </testng-results>
