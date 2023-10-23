@@ -9,16 +9,14 @@ import java.util.Properties;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
-
-
-import carwash.base.BaseClass;
-
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
+import base.BaseClass;
+
 public class ConfigFileReader extends BaseClass {
-	WebDriver driver;
+	//WebDriver driver;
 
 	public ConfigFileReader(WebDriver driver) {
 		this.driver = driver;

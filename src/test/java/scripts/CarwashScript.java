@@ -8,14 +8,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.internal.BaseTestMethod;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
-import carwash.base.BaseClass;
+import base.BaseClass;
 import carwash.base.CarWash;
 import configuration.ConfigFileReader;
 import utility.Utility;
@@ -38,7 +34,7 @@ public class CarwashScript extends BaseClass  {
 	public static String  getAmmount(String s) {
 		  int dollarIndex = s.indexOf('$');
 	        if (dollarIndex != -1) {
-	            String carString = s.substring(dollarIndex + 1).trim();
+	            String AmountString = s.substring(dollarIndex + 1).trim();
 	           // System.out.println(carString);
 
 //		  String[] parts = s.split("\\$");
@@ -47,15 +43,13 @@ public class CarwashScript extends BaseClass  {
 //	            String text = parts[0].trim(); // "Amount"
 //	            String number = parts[1].trim();
 	           
-	return carString;
+	return AmountString;
   }
 			return s;
 
 
 	}
-//	public static void main(String[] args) {
-//		getAmmount("Amount:  $4");
-//	}
+
 
 	public boolean isPaymentSuccessfull() {
 
@@ -70,10 +64,10 @@ public class CarwashScript extends BaseClass  {
 		}
 
 		return false;
-	}
+	} 
 
 
-//@Test (priority = 0)
+@Test (priority = 0)
 	public void VerifylaunchUrl() {
 		boolean a;
 		driver.get(prop.getProperty("carWashUrl"));
@@ -83,13 +77,13 @@ public class CarwashScript extends BaseClass  {
 			a = false;
 		}
 
-		test = extent.createTest("Verify Full payment cycle");
+		test = extent.createTest("Verify Car wash payment cycle");
 		Assert.assertTrue(a);
 		test.log(Status.INFO, "Launching the App");
 
 	}
 
-	//@Test(priority = 0)
+	@Test(priority = 1)
 	public void VerifySelectAmount(String amount) {
 		util.waitForVisibilityOfElement(carwash.manualAmount);
 		Assert.assertTrue(carwash.payUsingManualpayment(amount));
@@ -99,7 +93,7 @@ public class CarwashScript extends BaseClass  {
 		test.log(Status.INFO, "navigate to PaymentGateWay");
 	}
 
-	//@Test(priority = 0)
+	@Test(priority = 2)
 	public void verifyEntercardDetails() {
 		carwash.enterCardNum(prop.getProperty("CardNo"));
 		carwash.enterCardExpiryDate(prop.getProperty("CardExpiry"));
@@ -121,7 +115,7 @@ public class CarwashScript extends BaseClass  {
 	
 	}
 
-	//@Test
+	@Test (priority = 2)
 	public void verifyAmount() {
 		// carwash.selectDoneAfterCountdown();
 		carwash.selectDoneAfterSomeTime();
@@ -136,27 +130,8 @@ public class CarwashScript extends BaseClass  {
 	
 		return isPaymentSuccessfull();
 	}
-//	@Test
-//	public void Payment() {
-//
-//		VerifylaunchUrl();
-//		VerifySelectAmount();
-//		verifyEntercardDetails();
-//		try {
-//			util.waitUntillVisibilityof(carwash.carwashLogo);
-//			test.log(Status.INFO, "navigate to payment success page");
-//
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//			e.printStackTrace();
-//		}
-//		util.waitUntillVisibilityof(carwash.timer);
-//		verifySuccessfulPayment();
-//		
-//		test.log(Status.INFO, "Payment is successful");
-//
-//		verifyNavigateToReceipt();
-//
-//	}
+	
+	
+
 
 }

@@ -22,18 +22,50 @@ import scripts.CarwashScript;
 public class TestCarwash extends BaseTest {
 
 	@Test
-	public void PaymentTest() {
+	public void CarwashPaymentTest() {
 		CarwashScript carwashObject = new CarwashScript(driver);
 		carwashObject.VerifylaunchUrl();
 		carwashObject.VerifySelectAmount(prop.getProperty("Amount"));
 		carwashObject.verifyEntercardDetails();
 		carwashObject.verifyCountdownPage();
-	
 		carwashObject.verifySuccessfulPayment();
-
 		carwashObject.verifyAmount();
-
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//@Test
 	public void Payment() {
 		CarwashScript carwashObject = new CarwashScript(driver);

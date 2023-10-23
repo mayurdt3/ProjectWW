@@ -30,20 +30,21 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
-import carwash.base.BaseClass;
+import base.BaseClass;
 import carwash.base.CarWash;
 import configuration.ConfigFileReader;
 import scripts.CarwashScript;
+import scripts.WeVendScript;
 import utility.Utility;
 
 public class BaseTest extends BaseClass {
 
-	public ConfigFileReader prop;
-	public Utility util;
-	
+//	public ConfigFileReader prop;
+//	public Utility util;
+//	
 
 
-	@BeforeClass
+	@BeforeTest
 	public void startReporter() {
 		String directory = System.getProperty("user.dir") + "//ExtentReports//";
 		spark = new ExtentSparkReporter(directory + "ExtentReport" + timeStamp()+".html" );
@@ -104,6 +105,7 @@ public class BaseTest extends BaseClass {
 		prop = new ConfigFileReader(driver);
 		carwash = new CarWash(driver);
 		CarwashScript carwashObject = new  CarwashScript(driver);
+		WeVendScript wevendobject =new WeVendScript(driver);
 	}
 
 	public String timeStamp() {
@@ -133,7 +135,7 @@ public class BaseTest extends BaseClass {
 		}
 	}
 
-	@AfterClass
+	@AfterTest
 	public void closereporter() {
 		extent.flush();
 	}

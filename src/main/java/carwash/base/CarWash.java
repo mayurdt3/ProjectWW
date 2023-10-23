@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import base.BaseClass;
 import configuration.ConfigFileReader;
 import utility.Utility;
 
@@ -155,7 +156,10 @@ public class CarWash extends BaseClass {
 	public boolean verifyHompageUrl() throws IOException {
 		return driver.getTitle().equals(prop.getProperty("HomepagePageTitle"));
 	}
-
+/**
+ * 
+ * @param cardNum
+ */
 	public void enterCardNum(String cardNum) {
 		util.waitForVisibilityOfElement(cardNumber);
 		cardNumber.sendKeys(cardNum);
