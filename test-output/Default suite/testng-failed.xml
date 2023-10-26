@@ -3,17 +3,21 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testpacakage.TestCarwash">
+      <class name="testpackage.TestCarwash">
         <methods>
-          <include name="objectmethod"/>
-          <include name="testResult"/>
-          <include name="startReporter"/>
-          <include name="close"/>
-          <include name="setUp"/>
           <include name="closereporter"/>
-          <include name="PaymentTest"/>
+          <include name="verifySuccessfulPaymentPage"/>
+          <include name="startReporter"/>
+          <include name="testResult"/>
+          <include name="verifylaunchCarWash"/>
+          <include name="close"/>
+          <include name="verifyPaymentGatewaypage"/>
+          <include name="objectmethod"/>
+          <include name="setUp"/>
+          <include name="verifyAmountSelection"/>
+          <include name="verifyCountdownTimerPage"/>
         </methods>
-      </class> <!-- testpacakage.TestCarwash -->
+      </class> <!-- testpackage.TestCarwash -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

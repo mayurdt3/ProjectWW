@@ -1,4 +1,4 @@
-package testpacakage;
+package testpackage;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -23,7 +23,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
 import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
+
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
@@ -33,21 +33,34 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 import base.BaseClass;
 import carwash.base.CarWash;
 import configuration.ConfigFileReader;
-import scripts.CarwashScript;
-import scripts.WeVendScript;
+import configuration.ExcelFleReader;
 import utility.Utility;
+import weVendStore.base.WevendStore;
 
+/**
+ * Base test class serving as the foundation for all test classes.
+ * 
+ * This class provides common setup and teardown methods, EctentRrport
+ * configuration, Logs, screenshot on failure configuration and flush methods,
+ * property Configuration and Utilities that are shared across multiple test
+ * cases. It follows the Test Automation Framework design pattern, promoting
+ * code reusability and maintainability.
+ * 
+ * @author Mayur Takalikar
+ *
+ *         Usage: 1. Extend this class when creating specific test classes for
+ *         different test scenarios. 2. Implement test cases by defining methods
+ *         that perform specific actions and verifications. 3. Organize your
+ *         test cases into specific test classes, each focusing on a particular
+ *         application.
+ * 
+ */
 public class BaseTest extends BaseClass {
 
-//	public ConfigFileReader prop;
-//	public Utility util;
-//	
-
-
-	@BeforeTest
+	@BeforeSuite
 	public void startReporter() {
 		String directory = System.getProperty("user.dir") + "//ExtentReports//";
-		spark = new ExtentSparkReporter(directory + "ExtentReport" + timeStamp()+".html" );
+		spark = new ExtentSparkReporter(directory + "ExtentReport" + timeStamp() + ".html");
 		extent = new ExtentReports();
 		extent.attachReporter(spark);
 
@@ -87,11 +100,11 @@ public class BaseTest extends BaseClass {
 
 		} else if (result.getStatus() == ITestResult.SUCCESS) {
 			test.log(Status.PASS, MarkupHelper.createLabel(result.getName() + " PASS", ExtentColor.GREEN));
-			//test.pass(result.getName());
+			// test.pass(result.getName());
 		} else if (result.getStatus() == ITestResult.SKIP) {
-			
+
 			test.log(Status.SKIP, MarkupHelper.createLabel(result.getName() + " SKIP", ExtentColor.YELLOW));
-			//test.skip(result.getName());
+			// test.skip(result.getName());
 		} else {
 
 		}
@@ -103,9 +116,10 @@ public class BaseTest extends BaseClass {
 
 		util = new Utility(driver);
 		prop = new ConfigFileReader(driver);
+		excel = new ExcelFleReader();
 		carwash = new CarWash(driver);
-		CarwashScript carwashObject = new  CarwashScript(driver);
-		WeVendScript wevendobject =new WeVendScript(driver);
+		wevend = new WevendStore(driver);
+
 	}
 
 	public String timeStamp() {
@@ -127,22 +141,21 @@ public class BaseTest extends BaseClass {
 		try {
 			FileHandler.copy(ss.getScreenshotAs(OutputType.FILE), new File(directory + timeStamp() + ".png"));
 		} catch (WebDriverException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	@AfterTest
-	public void closereporter() {
-		extent.flush();
 	}
 
 	@AfterClass
 	public void close() {
 
-		 driver.quit();
+		driver.quit();
 	}
+
+	@AfterSuite
+	public void closereporter() {
+		extent.flush();
+	}
+
 }

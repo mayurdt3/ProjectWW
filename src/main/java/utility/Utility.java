@@ -17,7 +17,20 @@ import base.BaseClass;
 
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.FluentWait;
-
+/**
+ * Utility class providing a collection of common utility methods.
+ * 
+ * This class contains a variety of utility methods that can be used across the application
+ * for performing common tasks, such as differet kind of waits, date or time stamp, string processing, mathematical operations,
+ * and more.
+ * @author Mayur takalikar
+ * 
+ * Usage:
+ * 1. Utilize utility methods in this class for common utility tasks.
+ * 2. Create an instance of Utility class to access the utility common methods.
+ * 
+ *  
+ */
 public class Utility extends BaseClass {
 	WebDriver driver;
 

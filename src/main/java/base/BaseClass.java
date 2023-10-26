@@ -8,20 +8,27 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 import carwash.base.CarWash;
 import configuration.ConfigFileReader;
-
+import configuration.ExcelFleReader;
+import paymentGatway.base.PaymentGateway;
 import utility.Utility;
 import weVendStore.base.WevendStore;
 /**
+ * This class provides a foundation for all page classes. It contains
+ * common properties and object variables of all the classes that are 
+ * used across multiple classes of the application.
  * 
- * @author Mayur
- * info of class
+ * @author Mayur Takaliar
+ * Usage:
+ * 1. Extend this class when creating specific page classes for different web pages.
+ * 2. Implement page-specific elements and methods in the derived classes.
+ * 3. Reuse common methods and elements from this base class in the derived page classes.  
  *
  */
 public class BaseClass {
 
 	public WebDriver driver;
 	public ConfigFileReader prop;
-	//public ConfigFileReader config;
+	public ExcelFleReader excel;
 	public Utility util;
 
 	protected static ExtentReports extent;
@@ -30,6 +37,6 @@ public class BaseClass {
 
 	
 	public CarWash carwash;
-	public WevendStore wvStore;
-
+	public WevendStore wevend ;
+	protected PaymentGateway pay;
 }

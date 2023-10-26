@@ -6,17 +6,29 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import base.BaseClass;
-
+/**
+ * ConfigFileReader class for reading and managing application configuration settings.
+ * This class provides methods to read and parse configuration files, typically in formats like
+ * properties (key-value pairs) It allows easy access to configuration parameters
+ * used by the application, centralizing configuration management for improved maintainability.
+ *
+ * @author Mayur Takalikar
+ *
+ * * Usage:
+ * 1. Create an instance of ConfigFileReader to read and access configuration settings.
+ * 2. Load the configuration file using methods like initializeProperty.
+ * 3. Access configuration parameters using methods like getProperty, setProperty and initializeDriver etc.
+ */
 public class ConfigFileReader extends BaseClass {
-	//WebDriver driver;
+	WebDriver driver;
+	
 
 	public ConfigFileReader(WebDriver driver) {
 		this.driver = driver;
@@ -82,12 +94,7 @@ public class ConfigFileReader extends BaseClass {
 
 	}
 
-	public String readExcel(int sheetVal, int row, int column) throws IOException {
-		FileInputStream stream = new FileInputStream(System.getProperty("user.dir") + "//TestData.xlsx");
-		XSSFWorkbook workbook = new XSSFWorkbook(stream);
-		XSSFSheet sheet = workbook.getSheetAt(sheetVal);
-		String s = sheet.getRow(row).getCell(column).getStringCellValue();
-		System.out.println(s);
-		return s;
-	}
+	
+	
+	
 }
