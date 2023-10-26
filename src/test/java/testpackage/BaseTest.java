@@ -8,19 +8,21 @@ import java.time.format.DateTimeFormatter;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.io.FileHandler;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentReports;
 
@@ -29,6 +31,7 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.beust.jcommander.Parameter;
 
 import base.BaseClass;
 import carwash.base.CarWash;
@@ -56,7 +59,11 @@ import weVendStore.base.WevendStore;
  * 
  */
 public class BaseTest extends BaseClass {
-
+	/**
+	 * This method used for configuring Extent Reports before TestNG suite
+	 * execution. This method is responsible for setting up and configuring Extent
+	 * Reports to prepare for generating detailed and organized test reports.
+	 */
 	@BeforeSuite
 	public void startReporter() {
 		String directory = System.getProperty("user.dir") + "//ExtentReports//";
@@ -79,12 +86,14 @@ public class BaseTest extends BaseClass {
 	}
 
 	@BeforeClass
-	public void setUp() {
+	@Parameters("browser")
+	public void setUp(String browser) {
 
-		ChromeOptions op = new ChromeOptions();
-		op.addArguments("--remote-allow-origins=*");
-		driver = new ChromeDriver(op);
-
+		try {
+			initializeDriver(browser);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
@@ -119,6 +128,26 @@ public class BaseTest extends BaseClass {
 		excel = new ExcelFleReader();
 		carwash = new CarWash(driver);
 		wevend = new WevendStore(driver);
+
+	}
+
+	public WebDriver initializeDriver(String browserName) throws IOException {
+
+		if (browserName.equalsIgnoreCase("chrome")) {
+			driver = new ChromeDriver();
+		} else if (browserName.equals("firefox")) {
+			driver = new FirefoxDriver();
+		} else if (browserName.equals("ie")) {
+
+			driver = new InternetExplorerDriver();
+		} else {
+			System.out.println(browserName + " is not a valid browser");
+		}
+
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().window().maximize();
+
+		return driver;
 
 	}
 

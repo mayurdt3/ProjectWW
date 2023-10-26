@@ -74,25 +74,6 @@ public class ConfigFileReader extends BaseClass {
 	
 	
 
-	public WebDriver initializeDriver(String browserName) throws IOException {
-
-		if (browserName.equalsIgnoreCase("chrome")) {
-			driver = new ChromeDriver();
-		} else if (browserName.equals("firefox")) {			
-			driver = new FirefoxDriver();
-		} else if (browserName.equals("ie")) {
-			
-			driver = new InternetExplorerDriver();
-		} else {
-			System.out.println(browserName + " is not a valid browser");
-		}
-
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.manage().window().maximize();
-
-		return driver;
-
-	}
 
 	
 	
