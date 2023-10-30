@@ -1,41 +1,29 @@
 package testpackage;
 
-import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
-import java.time.Instant;
-import java.time.format.DateTimeFormatter;
-
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.io.FileHandler;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
-
 import com.aventstack.extentreports.ExtentReports;
-
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import com.beust.jcommander.Parameter;
-
 import base.BaseClass;
 import carwash.base.CarWash;
-import configuration.ConfigFileReader;
+import configuration.ConfigUtil;
 import configuration.ExcelFleReader;
 import utility.Utility;
 import weVendStore.base.WevendStore;
@@ -59,15 +47,21 @@ import weVendStore.base.WevendStore;
  * 
  */
 public class BaseTest extends BaseClass {
+	protected static ExtentTest test;
 	/**
 	 * This method used for configuring Extent Reports before TestNG suite
 	 * execution. This method is responsible for setting up and configuring Extent
 	 * Reports to prepare for generating detailed and organized test reports.
 	 */
+	
+	
+
+	
 	@BeforeSuite
 	public void startReporter() {
+		prop = new ConfigUtil(driver);
 		String directory = System.getProperty("user.dir") + "//ExtentReports//";
-		spark = new ExtentSparkReporter(directory + "ExtentReport" + timeStamp() + ".html");
+		spark = new ExtentSparkReporter(directory + "ExtentReport" + prop.getTimeStamp() + ".html");
 		extent = new ExtentReports();
 		extent.attachReporter(spark);
 
@@ -85,15 +79,17 @@ public class BaseTest extends BaseClass {
 		spark.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a'('zzz')'");
 	}
 
+	/**
+	 * Initialize the WebDriver and configure browser settings for test execution.
+	 * 
+	 * @param browser
+	 */
 	@BeforeClass
 	@Parameters("browser")
 	public void setUp(String browser) {
-
-		try {
-			initializeDriver(browser);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		// public void setUp() {
+		// String browser = "chrome";
+		initializeDriver(browser);
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
@@ -101,11 +97,18 @@ public class BaseTest extends BaseClass {
 
 	}
 
+	/**
+	 * 
+	 * Handles test result status and logs it in the test report.
+	 * 
+	 * @param result
+	 */
 	@AfterMethod
 	public void testResult(ITestResult result) {
+		
 		if (result.getStatus() == ITestResult.FAILURE) {
 			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + " FAIL", ExtentColor.RED));
-			takeSS();
+			prop.takeSS();
 
 		} else if (result.getStatus() == ITestResult.SUCCESS) {
 			test.log(Status.PASS, MarkupHelper.createLabel(result.getName() + " PASS", ExtentColor.GREEN));
@@ -120,68 +123,64 @@ public class BaseTest extends BaseClass {
 
 	}
 
+	/**
+	 * Initialize object instances. This method initializes utility, configuration
+	 * reader, Excel file reader, and page object instances.
+	 *
+	 */
+
 	@BeforeClass
 	public void objectmethod() {
 
 		util = new Utility(driver);
-		prop = new ConfigFileReader(driver);
+		prop = new ConfigUtil(driver);
 		excel = new ExcelFleReader();
 		carwash = new CarWash(driver);
 		wevend = new WevendStore(driver);
-
 	}
 
-	public WebDriver initializeDriver(String browserName) throws IOException {
-
-		if (browserName.equalsIgnoreCase("chrome")) {
+	/**
+	 * This method will take a string as browser name and returns WebDriver object
+	 * reference for the selected browser
+	 * 
+	 * @param browserName
+	 * @return
+	 * @throws IOException
+	 */
+	public WebDriver initializeDriver(String browser) {
+		switch (browser.toLowerCase()) {
+		case "chrome":
 			driver = new ChromeDriver();
-		} else if (browserName.equals("firefox")) {
+			break;
+		case "firefox":
 			driver = new FirefoxDriver();
-		} else if (browserName.equals("ie")) {
-
+			break;
+		case "ie":
 			driver = new InternetExplorerDriver();
-		} else {
-			System.out.println(browserName + " is not a valid browser");
+			break;
+		case "edge":
+			driver = new EdgeDriver();
+			break;
+		default:
+			throw new IllegalArgumentException("Unsupported browser: " + browser);
 		}
-
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		driver.manage().window().maximize();
-
 		return driver;
-
 	}
 
-	public String timeStamp() {
-		Instant timestamp = Instant.now();
 
-		// Define a custom timestamp format pattern
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy,MM,dd HH.mm.ss.SSS");
-
-		// Format the timestamp as a string
-		String timestampString = timestamp.atZone(java.time.ZoneId.systemDefault()).format(formatter);
-
-		return timestampString;
-
-	}
-
-	public void takeSS() {
-		String directory = System.getProperty("user.dir") + "//ScreenShot//SS ";
-		TakesScreenshot ss = (TakesScreenshot) driver;
-		try {
-			FileHandler.copy(ss.getScreenshotAs(OutputType.FILE), new File(directory + timeStamp() + ".png"));
-		} catch (WebDriverException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
+	/**
+	 * This method will close the browser Instance After execution of each test
+	 * Class
+	 */
 	@AfterClass
 	public void close() {
 
 		driver.quit();
 	}
 
+	/**
+	 * This Method Will Flush the report and create the .html file
+	 */
 	@AfterSuite
 	public void closereporter() {
 		extent.flush();

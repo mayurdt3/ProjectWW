@@ -7,7 +7,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 import carwash.base.CarWash;
-import configuration.ConfigFileReader;
+import configuration.ConfigUtil;
 import configuration.ExcelFleReader;
 import paymentGatway.base.PaymentGateway;
 import utility.Utility;
@@ -26,17 +26,17 @@ import weVendStore.base.WevendStore;
  */
 public class BaseClass {
 
-	public WebDriver driver;
-	public ConfigFileReader prop;
-	public ExcelFleReader excel;
-	public Utility util;
+	protected WebDriver driver;
+	protected ConfigUtil prop;
+	protected ExcelFleReader excel;
+	protected Utility util;
 
 	protected static ExtentReports extent;
 	protected static ExtentTest test;
 	protected static ExtentSparkReporter spark;
 
 	
-	public CarWash carwash;
-	public WevendStore wevend ;
+	protected CarWash carwash;
+	protected WevendStore wevend ;
 	protected PaymentGateway pay;
 }

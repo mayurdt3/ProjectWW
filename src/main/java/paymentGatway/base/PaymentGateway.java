@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import base.BaseClass;
-import configuration.ConfigFileReader;
+
 import configuration.ExcelFleReader;
 import utility.Utility;
 /**
@@ -20,9 +20,9 @@ import utility.Utility;
  * 
  */
 public class PaymentGateway extends BaseClass{
- public PaymentGateway(WebDriver driver) {
+	
+	public PaymentGateway(WebDriver driver) {
 	 this.driver= driver;
-		prop = new ConfigFileReader(driver);
 		util = new Utility(driver);
 		excel = new ExcelFleReader();
 		PageFactory.initElements(driver, this);
@@ -30,25 +30,39 @@ public class PaymentGateway extends BaseClass{
  
 
 	@FindBy(id = "cardNum")
-	public WebElement cardNumber;
+	private WebElement cardNumber;
 
 	@FindBy(id = "validTill")
-	public WebElement cardExpiryDate;
+	private WebElement cardExpiryDate;
 
 	@FindBy(id = "cvv")
-	public WebElement cardCvv;
+	private WebElement cardCvv;
 
-	
+	/**
+	 * This method used to Enters the card number in Card number text field
+	 * 	
+	 * @param cardNum
+	 */
 	public void enterCardNum(String cardNum) {
 		util.waitForVisibilityOfElement(cardNumber);
 		cardNumber.sendKeys(cardNum);
 	}
-
+	
+	/**
+	 * This method used to Enters the card ExpiryDate in cardExpiryDate text field
+	 * 	
+	 * @param cardNum
+	 */
 	public void enterCardExpiryDate(String string) {
 		util.waitForVisibilityOfElement(cardExpiryDate);
 		cardExpiryDate.sendKeys(string);
 	}
 
+	/**
+	 * This method used to Enters the card CVV number in cvv text field
+	 * 
+	 * @param string
+	 */
 	public void enterCardCvv(String string) {
 		util.waitForVisibilityOfElement(cardCvv);
 		cardCvv.sendKeys(string);

@@ -2,16 +2,16 @@
 <testng-results ignored="2" total="12" passed="10" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-10-26T15:42:50 IST" name="Suite" finished-at="2023-10-26T15:43:47 IST" duration-ms="57127">
+  <suite started-at="2023-10-30T23:53:59 IST" name="Suite" finished-at="2023-10-30T23:54:48 IST" duration-ms="49504">
     <groups>
     </groups>
-    <test started-at="2023-10-26T15:42:50 IST" name="Wevend" finished-at="2023-10-26T15:43:47 IST" duration-ms="57127">
+    <test started-at="2023-10-30T23:53:59 IST" name="Wevend" finished-at="2023-10-30T23:54:48 IST" duration-ms="49504">
       <class name="testpackage.TestCarwash">
-        <test-method is-config="true" signature="objectmethod()[pri:0, instance:testpackage.TestCarwash@6bbe85a8]" started-at="2023-10-26T15:42:50 IST" name="objectmethod" finished-at="2023-10-26T15:42:51 IST" duration-ms="1098" status="PASS">
+        <test-method is-config="true" signature="objectmethod()[pri:0, instance:testpackage.TestCarwash@19e4653c]" started-at="2023-10-30T23:54:20 IST" name="objectmethod" finished-at="2023-10-30T23:54:20 IST" duration-ms="164" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- objectmethod -->
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:testpackage.TestCarwash@6bbe85a8]" started-at="2023-10-26T15:42:51 IST" name="setUp" finished-at="2023-10-26T15:42:56 IST" duration-ms="4528" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:testpackage.TestCarwash@19e4653c]" started-at="2023-10-30T23:54:20 IST" name="setUp" finished-at="2023-10-30T23:54:22 IST" duration-ms="1437" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,96 +22,96 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifylaunchCarWash()[pri:1, instance:testpackage.TestCarwash@6bbe85a8]" started-at="2023-10-26T15:42:56 IST" name="verifylaunchCarWash" finished-at="2023-10-26T15:42:57 IST" duration-ms="1571" status="PASS">
+        <test-method signature="verifylaunchCarWash()[pri:1, instance:testpackage.TestCarwash@19e4653c]" started-at="2023-10-30T23:54:22 IST" name="verifylaunchCarWash" finished-at="2023-10-30T23:54:23 IST" duration-ms="770" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifylaunchCarWash -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestCarwash@6bbe85a8]" started-at="2023-10-26T15:42:57 IST" name="testResult" finished-at="2023-10-26T15:42:57 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestCarwash@19e4653c]" started-at="2023-10-30T23:54:23 IST" name="testResult" finished-at="2023-10-30T23:54:23 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifylaunchCarWash status=SUCCESS method=TestCarwash.verifylaunchCarWash()[pri:1, instance:testpackage.TestCarwash@6bbe85a8] output={null}]]]>
+                <![CDATA[[TestResult name=verifylaunchCarWash status=SUCCESS method=TestCarwash.verifylaunchCarWash()[pri:1, instance:testpackage.TestCarwash@19e4653c] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResult -->
-        <test-method signature="verifyAmountSelection()[pri:2, instance:testpackage.TestCarwash@6bbe85a8]" started-at="2023-10-26T15:42:57 IST" name="verifyAmountSelection" finished-at="2023-10-26T15:43:04 IST" duration-ms="6724" status="PASS">
+        <test-method signature="verifyAmountSelection()[pri:0, instance:testpackage.TestCarwash@19e4653c]" started-at="2023-10-30T23:54:23 IST" name="verifyAmountSelection" finished-at="2023-10-30T23:54:25 IST" depends-on-methods="testpackage.TestCarwash.verifylaunchCarWash" duration-ms="1995" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAmountSelection -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestCarwash@6bbe85a8]" started-at="2023-10-26T15:43:04 IST" name="testResult" finished-at="2023-10-26T15:43:04 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestCarwash@19e4653c]" started-at="2023-10-30T23:54:25 IST" name="testResult" finished-at="2023-10-30T23:54:25 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyAmountSelection status=SUCCESS method=TestCarwash.verifyAmountSelection()[pri:2, instance:testpackage.TestCarwash@6bbe85a8] output={null}]]]>
+                <![CDATA[[TestResult name=verifyAmountSelection status=SUCCESS method=TestCarwash.verifyAmountSelection()[pri:0, instance:testpackage.TestCarwash@19e4653c] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResult -->
-        <test-method signature="verifyPaymentGatewaypage()[pri:3, instance:testpackage.TestCarwash@6bbe85a8]" started-at="2023-10-26T15:43:04 IST" name="verifyPaymentGatewaypage" finished-at="2023-10-26T15:43:05 IST" duration-ms="1087" status="PASS">
+        <test-method signature="verifyPaymentGatewaypage()[pri:0, instance:testpackage.TestCarwash@19e4653c]" started-at="2023-10-30T23:54:25 IST" name="verifyPaymentGatewaypage" finished-at="2023-10-30T23:54:25 IST" depends-on-methods="testpackage.TestCarwash.verifyAmountSelection" duration-ms="442" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyPaymentGatewaypage -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestCarwash@6bbe85a8]" started-at="2023-10-26T15:43:05 IST" name="testResult" finished-at="2023-10-26T15:43:05 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestCarwash@19e4653c]" started-at="2023-10-30T23:54:25 IST" name="testResult" finished-at="2023-10-30T23:54:25 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyPaymentGatewaypage status=SUCCESS method=TestCarwash.verifyPaymentGatewaypage()[pri:3, instance:testpackage.TestCarwash@6bbe85a8] output={null}]]]>
+                <![CDATA[[TestResult name=verifyPaymentGatewaypage status=SUCCESS method=TestCarwash.verifyPaymentGatewaypage()[pri:0, instance:testpackage.TestCarwash@19e4653c] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResult -->
-        <test-method signature="verifyCountdownTimerPage()[pri:4, instance:testpackage.TestCarwash@6bbe85a8]" started-at="2023-10-26T15:43:05 IST" name="verifyCountdownTimerPage" finished-at="2023-10-26T15:43:19 IST" duration-ms="13901" status="PASS">
+        <test-method signature="verifyCountdownTimerPage()[pri:0, instance:testpackage.TestCarwash@19e4653c]" started-at="2023-10-30T23:54:25 IST" name="verifyCountdownTimerPage" finished-at="2023-10-30T23:54:48 IST" depends-on-methods="testpackage.TestCarwash.verifyPaymentGatewaypage" duration-ms="22822" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyCountdownTimerPage -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestCarwash@6bbe85a8]" started-at="2023-10-26T15:43:19 IST" name="testResult" finished-at="2023-10-26T15:43:19 IST" duration-ms="2" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verifyCountdownTimerPage status=SUCCESS method=TestCarwash.verifyCountdownTimerPage()[pri:4, instance:testpackage.TestCarwash@6bbe85a8] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testResult -->
-        <test-method signature="verifySuccessfulPaymentPage()[pri:5, instance:testpackage.TestCarwash@6bbe85a8]" started-at="2023-10-26T15:43:19 IST" name="verifySuccessfulPaymentPage" finished-at="2023-10-26T15:43:32 IST" duration-ms="12915" status="PASS">
+        <test-method signature="verifySuccessfulPaymentPage()[pri:0, instance:testpackage.TestCarwash@19e4653c]" started-at="2023-10-30T23:54:48 IST" name="verifySuccessfulPaymentPage" finished-at="2023-10-30T23:54:48 IST" depends-on-methods="testpackage.TestCarwash.verifyCountdownTimerPage" duration-ms="95" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifySuccessfulPaymentPage -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestCarwash@6bbe85a8]" started-at="2023-10-26T15:43:32 IST" name="testResult" finished-at="2023-10-26T15:43:32 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestCarwash@19e4653c]" started-at="2023-10-30T23:54:48 IST" name="testResult" finished-at="2023-10-30T23:54:48 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifySuccessfulPaymentPage status=SUCCESS method=TestCarwash.verifySuccessfulPaymentPage()[pri:5, instance:testpackage.TestCarwash@6bbe85a8] output={null}]]]>
+                <![CDATA[[TestResult name=verifyCountdownTimerPage status=SUCCESS method=TestCarwash.verifyCountdownTimerPage()[pri:0, instance:testpackage.TestCarwash@19e4653c] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResult -->
-        <test-method is-config="true" signature="close()[pri:0, instance:testpackage.TestCarwash@6bbe85a8]" started-at="2023-10-26T15:43:32 IST" name="close" finished-at="2023-10-26T15:43:33 IST" duration-ms="537" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:testpackage.TestCarwash@19e4653c]" started-at="2023-10-30T23:54:48 IST" name="close" finished-at="2023-10-30T23:54:48 IST" duration-ms="267" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestCarwash@19e4653c]" started-at="2023-10-30T23:54:48 IST" name="testResult" finished-at="2023-10-30T23:54:48 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifySuccessfulPaymentPage status=SUCCESS method=TestCarwash.verifySuccessfulPaymentPage()[pri:0, instance:testpackage.TestCarwash@19e4653c] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testResult -->
       </class> <!-- testpackage.TestCarwash -->
       <class name="testpackage.TestWevendStore">
-        <test-method is-config="true" signature="startReporter()[pri:0, instance:testpackage.TestWevendStore@2034b64c]" started-at="2023-10-26T15:42:50 IST" name="startReporter" finished-at="2023-10-26T15:42:50 IST" duration-ms="432" status="PASS">
+        <test-method is-config="true" signature="startReporter()[pri:0, instance:testpackage.TestWevendStore@202b0582]" started-at="2023-10-30T23:53:58 IST" name="startReporter" finished-at="2023-10-30T23:53:59 IST" duration-ms="222" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startReporter -->
-        <test-method is-config="true" signature="objectmethod()[pri:0, instance:testpackage.TestWevendStore@2034b64c]" started-at="2023-10-26T15:42:50 IST" name="objectmethod" finished-at="2023-10-26T15:42:51 IST" duration-ms="1098" status="PASS">
+        <test-method is-config="true" signature="objectmethod()[pri:0, instance:testpackage.TestWevendStore@202b0582]" started-at="2023-10-30T23:53:59 IST" name="objectmethod" finished-at="2023-10-30T23:53:59 IST" duration-ms="770" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- objectmethod -->
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:testpackage.TestWevendStore@2034b64c]" started-at="2023-10-26T15:42:51 IST" name="setUp" finished-at="2023-10-26T15:42:56 IST" duration-ms="4532" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:testpackage.TestWevendStore@202b0582]" started-at="2023-10-30T23:53:59 IST" name="setUp" finished-at="2023-10-30T23:54:02 IST" duration-ms="2472" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -122,86 +122,86 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="VerifyWevendLaunch()[pri:0, instance:testpackage.TestWevendStore@2034b64c]" started-at="2023-10-26T15:42:56 IST" name="VerifyWevendLaunch" finished-at="2023-10-26T15:42:57 IST" duration-ms="1353" status="PASS">
+        <test-method signature="VerifyWevendLaunch()[pri:0, instance:testpackage.TestWevendStore@202b0582]" started-at="2023-10-30T23:54:02 IST" name="VerifyWevendLaunch" finished-at="2023-10-30T23:54:03 IST" duration-ms="947" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyWevendLaunch -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestWevendStore@2034b64c]" started-at="2023-10-26T15:42:57 IST" name="testResult" finished-at="2023-10-26T15:42:57 IST" duration-ms="20" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestWevendStore@202b0582]" started-at="2023-10-30T23:54:03 IST" name="testResult" finished-at="2023-10-30T23:54:03 IST" duration-ms="8" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyWevendLaunch status=SUCCESS method=TestWevendStore.VerifyWevendLaunch()[pri:0, instance:testpackage.TestWevendStore@2034b64c] output={null}]]]>
+                <![CDATA[[TestResult name=VerifyWevendLaunch status=SUCCESS method=TestWevendStore.VerifyWevendLaunch()[pri:0, instance:testpackage.TestWevendStore@202b0582] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResult -->
-        <test-method signature="VerifyAddTocart()[pri:1, instance:testpackage.TestWevendStore@2034b64c]" started-at="2023-10-26T15:42:57 IST" name="VerifyAddTocart" finished-at="2023-10-26T15:43:02 IST" duration-ms="5177" status="PASS">
+        <test-method signature="VerifyAddTocart()[pri:0, instance:testpackage.TestWevendStore@202b0582]" started-at="2023-10-30T23:54:03 IST" name="VerifyAddTocart" finished-at="2023-10-30T23:54:06 IST" depends-on-methods="testpackage.TestWevendStore.VerifyWevendLaunch" duration-ms="3541" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyAddTocart -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestWevendStore@2034b64c]" started-at="2023-10-26T15:43:02 IST" name="testResult" finished-at="2023-10-26T15:43:02 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestWevendStore@202b0582]" started-at="2023-10-30T23:54:06 IST" name="testResult" finished-at="2023-10-30T23:54:06 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyAddTocart status=SUCCESS method=TestWevendStore.VerifyAddTocart()[pri:1, instance:testpackage.TestWevendStore@2034b64c] output={null}]]]>
+                <![CDATA[[TestResult name=VerifyAddTocart status=SUCCESS method=TestWevendStore.VerifyAddTocart()[pri:0, instance:testpackage.TestWevendStore@202b0582] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResult -->
-        <test-method signature="VerifyCheckoutPage()[pri:2, instance:testpackage.TestWevendStore@2034b64c]" started-at="2023-10-26T15:43:02 IST" name="VerifyCheckoutPage" finished-at="2023-10-26T15:43:06 IST" duration-ms="3119" status="PASS">
+        <test-method signature="VerifyCheckoutPage()[pri:0, instance:testpackage.TestWevendStore@202b0582]" started-at="2023-10-30T23:54:06 IST" name="VerifyCheckoutPage" finished-at="2023-10-30T23:54:09 IST" depends-on-methods="testpackage.TestWevendStore.VerifyAddTocart" duration-ms="2281" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyCheckoutPage -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestWevendStore@2034b64c]" started-at="2023-10-26T15:43:06 IST" name="testResult" finished-at="2023-10-26T15:43:06 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestWevendStore@202b0582]" started-at="2023-10-30T23:54:09 IST" name="testResult" finished-at="2023-10-30T23:54:09 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyCheckoutPage status=SUCCESS method=TestWevendStore.VerifyCheckoutPage()[pri:2, instance:testpackage.TestWevendStore@2034b64c] output={null}]]]>
+                <![CDATA[[TestResult name=VerifyCheckoutPage status=SUCCESS method=TestWevendStore.VerifyCheckoutPage()[pri:0, instance:testpackage.TestWevendStore@202b0582] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResult -->
-        <test-method signature="VerifyPaymentgatway()[pri:3, instance:testpackage.TestWevendStore@2034b64c]" started-at="2023-10-26T15:43:06 IST" name="VerifyPaymentgatway" finished-at="2023-10-26T15:43:38 IST" duration-ms="32253" status="PASS">
+        <test-method signature="VerifyPaymentgatway()[pri:0, instance:testpackage.TestWevendStore@202b0582]" started-at="2023-10-30T23:54:09 IST" name="VerifyPaymentgatway" finished-at="2023-10-30T23:54:13 IST" depends-on-methods="testpackage.TestWevendStore.VerifyCheckoutPage" duration-ms="4204" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyPaymentgatway -->
-        <test-method signature="VerifySuccessPage()[pri:4, instance:testpackage.TestWevendStore@2034b64c]" started-at="2023-10-26T15:43:38 IST" name="VerifySuccessPage" finished-at="2023-10-26T15:43:47 IST" duration-ms="8812" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestWevendStore@202b0582]" started-at="2023-10-30T23:54:13 IST" name="testResult" finished-at="2023-10-30T23:54:13 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyPaymentgatway status=SUCCESS method=TestWevendStore.VerifyPaymentgatway()[pri:0, instance:testpackage.TestWevendStore@202b0582] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testResult -->
+        <test-method signature="VerifySuccessPage()[pri:0, instance:testpackage.TestWevendStore@202b0582]" started-at="2023-10-30T23:54:13 IST" name="VerifySuccessPage" finished-at="2023-10-30T23:54:20 IST" depends-on-methods="testpackage.TestWevendStore.VerifyPaymentgatway" duration-ms="6892" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifySuccessPage -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestWevendStore@2034b64c]" started-at="2023-10-26T15:43:38 IST" name="testResult" finished-at="2023-10-26T15:43:38 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestWevendStore@202b0582]" started-at="2023-10-30T23:54:20 IST" name="testResult" finished-at="2023-10-30T23:54:20 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyPaymentgatway status=SUCCESS method=TestWevendStore.VerifyPaymentgatway()[pri:3, instance:testpackage.TestWevendStore@2034b64c] output={null}]]]>
+                <![CDATA[[TestResult name=VerifySuccessPage status=SUCCESS method=TestWevendStore.VerifySuccessPage()[pri:0, instance:testpackage.TestWevendStore@202b0582] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResult -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:testpackage.TestWevendStore@2034b64c]" started-at="2023-10-26T15:43:47 IST" name="testResult" finished-at="2023-10-26T15:43:47 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=VerifySuccessPage status=SUCCESS method=TestWevendStore.VerifySuccessPage()[pri:4, instance:testpackage.TestWevendStore@2034b64c] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testResult -->
-        <test-method is-config="true" signature="close()[pri:0, instance:testpackage.TestWevendStore@2034b64c]" started-at="2023-10-26T15:43:47 IST" name="close" finished-at="2023-10-26T15:43:47 IST" duration-ms="690" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:testpackage.TestWevendStore@202b0582]" started-at="2023-10-30T23:54:20 IST" name="close" finished-at="2023-10-30T23:54:20 IST" duration-ms="319" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-        <test-method is-config="true" signature="closereporter()[pri:0, instance:testpackage.TestWevendStore@2034b64c]" started-at="2023-10-26T15:43:47 IST" name="closereporter" finished-at="2023-10-26T15:43:48 IST" duration-ms="643" status="PASS">
+        <test-method is-config="true" signature="closereporter()[pri:0, instance:testpackage.TestWevendStore@202b0582]" started-at="2023-10-30T23:54:48 IST" name="closereporter" finished-at="2023-10-30T23:54:49 IST" duration-ms="305" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closereporter -->

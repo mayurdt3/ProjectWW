@@ -2,34 +2,30 @@ package carwash.base;
 
 import java.io.IOException;
 
-
-import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
-import com.aventstack.extentreports.Status;
+
 
 import base.BaseClass;
-import configuration.ConfigFileReader;
-import paymentGatway.base.PaymentGateway;
+import configuration.ConfigUtil;
+
+
 import utility.Utility;
 
-
 /**
- * This class encapsulates the elements, actions, and functionality related to a 'Car Wash' web application.
+ * This class encapsulates the elements, actions, and functionality related to a
+ * 'Car Wash' web application.
  * 
  * @author Mayur Takalikar.
  *
- * Usage:
- * 1. Create an instance of this class to interact with the web page.
- * 2. Implement actions and verifications relevant to the applications functionality.
+ *         Usage: 1. Create an instance of this class to interact with the web
+ *         page. 2. Implement actions and verifications relevant to the
+ *         applications functionality.
  * 
  */
 
@@ -43,9 +39,9 @@ public class CarWash extends BaseClass {
 	 */
 	public CarWash(WebDriver driver) {
 		this.driver = driver;
-		prop = new ConfigFileReader(driver);
+		prop = new ConfigUtil(driver);
 		util = new Utility(driver);
-		
+
 		PageFactory.initElements(driver, this);
 	}
 
@@ -54,31 +50,31 @@ public class CarWash extends BaseClass {
 	 */
 
 	@FindBy(xpath = "//div[@class='amount_option']")
-	public List<WebElement> amountOptions;
+	protected List<WebElement> amountOptions;
 
 	@FindBy(xpath = "//div[@class='manual_amount']")
-	public WebElement manualAmount;
+	protected WebElement manualAmount;
 
 	@FindBy(xpath = "//button[@class='arrow-btn decrement-btn']")
-	public WebElement decrementBtn;
+	protected WebElement decrementBtn;
 
 	@FindBy(xpath = "//button[@class='arrow-btn increment-btn']")
-	public WebElement incrementBtn;
+	protected WebElement incrementBtn;
 
 	@FindBy(xpath = "//button[@class='button false blue']")
-	public WebElement payBtn;
+	protected WebElement payBtn;
 
 	@FindBy(xpath = "//footer//img")
-	public WebElement footerLogo;
+	protected WebElement footerLogo;
 
 	@FindBy(className = "timer")
-	public WebElement timer;
+	protected WebElement timer;
 
 	@FindBy(xpath = "//header//img")
-	public WebElement carwashLogo;
+	protected WebElement carwashLogo;
 
-//	@FindBy(id = "cardNum")
-//	public WebElement cardNumber;
+	@FindBy(id = "cardNum")
+	protected WebElement cardNumber;
 //
 //	@FindBy(id = "validTill")
 //	public WebElement cardExpiryDate;
@@ -86,49 +82,56 @@ public class CarWash extends BaseClass {
 //	@FindBy(id = "cvv")
 //	public WebElement cardCvv;
 
+	@FindBy(id = "//div[text()='Select Payment Method']")
+	protected WebElement paymentMethodText;
+
 	@FindBy(xpath = "//a[@href='/paymentprocessing']")
-	public WebElement authorize;
+	protected WebElement authorize;
 
 	@FindBy(xpath = "//div[class='paymentSelectHeading mt-5 mb-3']")
-	public WebElement gatwayHederText;
+	protected WebElement gatwayHederText;
 
 	@FindBy(xpath = "//div[@class='timer']//span[1]")
-	public WebElement timerInMin;
+	protected WebElement timerInMin;
 
 	@FindBy(xpath = "//div[@class='timer']//span[3]")
-	public WebElement timerInsec;
+	protected WebElement timerInsec;
+
+	@FindBy(xpath = "//b[text()='Message from the Device:']//following-sibling::br")
+	protected WebElement messageFromeDevice;
 
 	@FindBy(xpath = "//button[text()='Done']")
-	public WebElement doneBtn;
+	protected WebElement doneBtn;
 
 	@FindBy(xpath = "//h1[text()='Thank you!']")
-	public WebElement thankYoumessage;
+	protected WebElement thankYoumessage;
 
 	@FindBy(xpath = "//li[1]")
-	public WebElement orderId;
+	protected WebElement orderId;
 
 	@FindBy(xpath = "//li[2]")
-	public WebElement billAmount;
+	protected WebElement billAmount;
 
 	@FindBy(xpath = "//input[@name='contact']")
-	public WebElement mobileNoTextBoxt;
+	protected WebElement mobileNoTextBoxt;
 
 	@FindBy(xpath = "//input[@name='emailId']")
-	public WebElement emailIdTextBoxt;
+	protected WebElement emailIdTextBoxt;
 
 	@FindBy(xpath = "//button[@class='receipt_btn']")
-	public WebElement getReceiptBtn;
+	protected WebElement getReceiptBtn;
 
 	/******** methods *********/
 
+	
 	/**
-	 * User will select Amount from the quick payment options and click on pay btn
+	 * This method will select Amount from the quick payment options and click on pay button
 	 * 
 	 * @param expectedAmount
 	 * @return
 	 */
 	public boolean PayUsingQuickpaymentOption(String expectedAmount) {
-		// test = extent.createTest("Pay Using manual payment option");
+		
 		try {
 			for (WebElement amountOption : amountOptions) {
 				String a = amountOption.getText();
@@ -148,15 +151,13 @@ public class CarWash extends BaseClass {
 	}
 
 	/**
-	 * User will select Amount manually using increment buttons and click on pay
-	 * btn.
+	 * This Method will select Amount manually using increment buttons and click on pay button
 	 *
 	 * @param expectedAmount
 	 * @return
 	 */
 	public boolean payUsingManualpayment(String expectedAmount) {// 4.25
-		// test = extent.createTest("Pay Using manual payment option");
-
+		
 		try {
 			if ((manualAmount.getText().contains(expectedAmount))) {
 				ClickOnPayBtn();
@@ -165,6 +166,7 @@ public class CarWash extends BaseClass {
 				incrementBtn.click();
 				if (payBtn.getText().contains(expectedAmount)) {
 					ClickOnPayBtn();
+					// util.waitForVisibilityOfElement(carwash.cardNumber);
 					break;
 				}
 			}
@@ -172,11 +174,18 @@ public class CarWash extends BaseClass {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		return false;
 	}
 	
-	
+	/**
+	 * This method returns the string containing selected Amount text
+	 */
+	public String getSelectedAmount() {
+		
+		util.waitForVisibilityOfElement(manualAmount);
+		return manualAmount.getText();
+	}
+
 	/**
 	 * This method click on pay Button
 	 */
@@ -185,27 +194,51 @@ public class CarWash extends BaseClass {
 		util.waitForElementToBeClickable(payBtn);
 		try {
 			payBtn.click();
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	/**
-	 * Verifies the launch of the application and returns a boolean value
+	 * This method verifies the launch of the application and returns a boolean value
 	 * 
 	 * @return
 	 * @throws IOException
 	 */
 	public boolean verifyHompageUrl() throws IOException {
-		return driver.getTitle().equals(prop.getProperty("HomepagePageTitle"));
+		
+		util.waitForUrlToLoad(prop.getProperty("carWashUrl"));
+		return driver.getCurrentUrl().equals(prop.getProperty("carWashUrl"));
 	}
+	
+	
+	/**
+	 * check successful navigation to payment gateway page
+	 * @return
+	 */
+	public boolean verifyNavigateToPaymentGateway() {
+		util.waitForVisibilityOfElement(authorize);
+		return authorize.isDisplayed();
+	}
+	
+	/**
+	 * check authorize button is enabled 
+	 * @return
+	 */
+	public boolean isAuthorizebtnEnabled() {
+		util.waitForElementToBeClickable(authorize);
+		return authorize.isEnabled();
+	}
+
 	/**
 	 * This method click on Authorize Button present on payment gateway page
 	 */
 	public void selectAuthorizeBtn() {
+		
 		util.waitForElementToBeClickable(authorize);
 		authorize.click();
+		util.waitForVisibilityOfElement(timer);
+
 	}
 
 	/**
@@ -214,23 +247,103 @@ public class CarWash extends BaseClass {
 	 * @return
 	 */
 	public String getcountdownTime() {
+		
 		String countdownTime = timerInMin.getText() + ":" + timerInsec.getText();
 		return countdownTime;
 	}
-	
-	
+//
+//	/**
+//	 * This method verifies the launch of Car wash application
+//	 */
+//	public void VerifylaunchUrl() {
+//		
+//		boolean a;
+//		driver.get(prop.getProperty("carWashUrl"));
+//		util.waitForUrlToLoad(driver, prop.getProperty("carWashUrl"));
+//		if (driver.getTitle().equals(prop.getProperty("CarwashHomepagePageTitle"))) {
+//			a = true;
+//		} else {
+//			a = false;
+//		}
+//		test = extent.createTest("Verify 'Car Wash' payment cycle");
+//		Assert.assertTrue(a);
+//		test.log(Status.INFO, "'Car Wash' application launched sucessfully");
+//
+//	}
+//
+	/**
+	 * This method verifies the Selection of given amount using manual selection
+	 * method
+	 * @param amount
+	 */
+//	public void VerifySelectAmount(String amount) {
+//		
+//		util.waitForVisibilityOfElement(driver, manualAmount);
+//		Assert.assertTrue(payUsingManualpayment(amount));
+//		test.log(Status.INFO, "Amount selected");
+//		util.waitForVisibilityOfElement(driver, authorize);
+//		Assert.assertEquals(driver.getTitle(), prop.getProperty("PaymentPageTitle"));
+//		test.log(Status.PASS, "Navigate to 'Payment GateWay' successfuly");
+//	}
+//
+	/**
+	 * This method Verifies the Payment gateway page Functionality
+	 */
+//	public void verifyEntercardDetails() {
+//		
+//		PaymentGateway pay = new PaymentGateway(driver);
+//		pay.enterCardNum(prop.getProperty("CardNo"));
+//		pay.enterCardExpiryDate(prop.getProperty("CardExpiry"));
+//		pay.enterCardCvv(prop.getProperty("CardCvv"));
+//		test.log(Status.INFO, "Card detail entered");
+//		selectAuthorizeBtn();
+//	}
+//
+	/**
+	 * This method verifies the navigation to the count down page.
+	 */
+//	public void verifyNavigationToCountdownPage() {
+//
+//		try {
+//			util.waitForVisibilityOfElement(driver, carwashLogo);
+//			util.waitForVisibilityOfElement(driver, timer);
+//			if (carwashLogo.isDisplayed()) {
+//				test.log(Status.PASS, "Navigate to 'Payment Success' page Successfuly");
+//			}
+//		} catch (Exception e) {
+//			test.log(Status.FAIL, "Failed to navigat to 'payment success' page");
+//			e.printStackTrace();
+//		}
+//
+//	}
 
+	/**
+	 * This method Verifies if successful payment message is displayed.
+	 */
+//	public void verifySuccessfulPayment() {
+//		
+//		try {
+//			if (timer.isDisplayed()) {
+//				test.log(Status.PASS, "Payment successful, and Timer countdown started");
+//			}
+//		} catch (Exception e) {
+//			test.log(Status.FAIL, "Payment Unsuccessful");
+//			e.printStackTrace();
+//
+//		}
+//	}
+//
 	/**
 	 * this method will wait till timer time becomes "04:55" and then will click on
 	 * Done Button. * @return
 	 */
 	public boolean selectDoneAfterSomeTime() {
+		
 		try {
-
 			while (!(getcountdownTime().equals("04:55"))) {
 			}
 			doneBtn.click();
-
+			util.waitForElementWithFrequency(billAmount, 20, 2);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -238,149 +351,127 @@ public class CarWash extends BaseClass {
 		}
 	}
 
+	
 	/**
 	 * this method will wait till timer count down is over. and then will click on
 	 * Done Button. * @return
 	 */
-
 	public boolean selectDoneAfterCountdown() {
+		
 		try {
-
 			while (!(getcountdownTime().equals("00:00"))) {
 				Thread.sleep(5000);
 			}
 			if (getcountdownTime().equals("00:00")) {
 				doneBtn.click();
-
 			}
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
-
 	}
-/**
- * Thos method verifies the launch of Car wash application
- */
-	public void VerifylaunchUrl() {
-		boolean a;
-		driver.get(prop.getProperty("carWashUrl"));
-		util.waitForUrlToLoad(prop.getProperty("carWashUrl"));
-		if (driver.getTitle().equals(prop.getProperty("CarwashHomepagePageTitle"))) {
-			a = true;
-		} else {
-			a = false;
-		}
-		test = extent.createTest("Verify Car wash payment cycle");
-		Assert.assertTrue(a);
-		test.log(Status.INFO, "Application launched sucessfully");
-		
-		
-	}
-/**
- * This method verifies the Selection of given amount using manual selection method
- * @param amount
- */
-	public void VerifySelectAmount(String amount) {
-		util.waitForVisibilityOfElement(manualAmount);
-		Assert.assertTrue(payUsingManualpayment(amount));
-		test.log(Status.INFO, "Amount selected");
-		util.waitForVisibilityOfElement(authorize);
-		Assert.assertEquals(driver.getTitle(), prop.getProperty("PaymentPageTitle"));
-		test.log(Status.INFO, "navigate to PaymentGateWay");
-	}
-
+//
+//	/**
+//	 * This method Verifies the bill is generated with same amount as the Amount
+//	 * selected before payment.
+//	 */
+//	public void verifyAmount() {
+//	
+//		if (selectDoneAfterSomeTime()) {
+//			test.log(Status.PASS, "Click on 'Done' button after '5' seconds");
+//		} else {
+//			test.log(Status.FAIL, "Failed to Click on Done button after 5 seconds");
+//		}
+//		if (getBillAmmount().equals(prop.getProperty("Amount"))) {
+//			test.log(Status.PASS, "Ammount selected before payment and Bill-amount is same");
+//		} else {
+//			test.log(Status.FAIL, "Ammount selected before payment and Bill-amount is different");
+//		}
+//		Assert.assertEquals(getBillAmmount(), prop.getProperty("Amount"));
+//	}
+	
 	/**
-	 * This method Verifies the Payment gateway page Functionality
+	 * check if Logo is displayed
+	 * @return
 	 */
-	public void verifyEntercardDetails() {
-		PaymentGateway pay = new PaymentGateway(driver);
-		pay.enterCardNum(prop.getProperty("CardNo"));
-		pay.enterCardExpiryDate(prop.getProperty("CardExpiry"));
-		pay.enterCardCvv(prop.getProperty("CardCvv"));
-		selectAuthorizeBtn();
+	public boolean isLogoDispayed() {
+		return carwashLogo.isDisplayed();
+	}
+	
+	/**
+	 * checks if Bill Amount is displayed
+	 * @return
+	 */
+	public boolean isBillAmmountDisplayed() {
+		return billAmount.isDisplayed();
+	}
+	
+	/**
+	 * checks if Order ID is Displayed
+	 * @return
+	 */
+	public boolean isOrderIdDisplayed() {
+		return orderId.isDisplayed();
+	}
+	
+	/**
+	 * Retrieves the Order ID
+	 * @return
+	 */
+	public String getOrderId() {
+		return orderId.getText();
 	}
 
 	/**
-	 * This method verifies the navigation to the count down page.
+	 * This method will return a string value by removing text before "$" sign from
+	 * the Bill Amount
 	 * 
+	 * @return
 	 */
-	public void verifyNavigationToCountdownPage() {
-
-		try {
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-			wait.until(ExpectedConditions.visibilityOf(carwashLogo));
-			wait.until(ExpectedConditions.visibilityOf(timer));
-			if(carwashLogo.isDisplayed()) {
-			test.log(Status.PASS, "Successfuly navigate to payment success page");
-			}
-		} catch (Exception e) {
-			test.log(Status.FAIL, "Failed to navigat to payment success page");
-			e.printStackTrace();
-		}
-
-	}
-
-	/**
-	 * This method Verifies if successful payment message is displayed.
-	 */
-	public void verifySuccessfulPayment() {
-		try {
-			if (timer.isDisplayed()) {
-				test.log(Status.PASS, "Payment done Successfuly and Timer countdown started");
-			}
-		} catch (Exception e) {
-			test.log(Status.FAIL, "Payment Unsuccessful");
-			e.printStackTrace();
-			
-		}
-	}
-
-	/**
-	 * This method Verifies the bill is generated with same amount as the Amount selected before payment.
-	 */
-	public void verifyAmount() {
-		// carwash.selectDoneAfterCountdown();
-		if(selectDoneAfterSomeTime()){
-		test.log(Status.PASS, "Click on Done button after 5 seconds");
-		}else {
-			test.log(Status.FAIL, "Failed to Click on Done button after 5 seconds");
-		}
-			
-		util.waitForElementWithFrequency(billAmount, 20, 2);
-		//System.out.println(getAmmount(billAmount.getText()));
-		if(getAmmount(billAmount.getText()).equals(prop.getProperty("Amount"))) {
-			test.log(Status.PASS, "Ammount selected before payment and Bill amount is same");
-		}
-		else {
-			test.log(Status.FAIL, "Ammount selected before payment and Bill amount is different");
-		}
-		Assert.assertEquals(getAmmount(billAmount.getText()),prop.getProperty("Amount"));
-	}
-	
-
-	
-/**
- * This method will return a string value by removing text before "$" sign from the given string
- * @param s
- * @return
- */
-	public static String getAmmount(String s) {
+	public String getBillAmmount() {
+		String s = billAmount.getText();
 		int dollarIndex = s.indexOf('$');
 		if (dollarIndex != -1) {
-			String AmountString = s.substring(dollarIndex + 1).trim();
-			// System.out.println(carString);
-
-//		  String[] parts = s.split("\\$");
-//	        
+			String AmountString = s.substring(dollarIndex + 1).trim();	
+//		  String[] parts = s.split("\\$");        
 //	        if (parts.length == 2) {
 //	            String text = parts[0].trim(); // "Amount"
 //	            String number = parts[1].trim();
-
 			return AmountString;
 		}
 		return s;
-
 	}
+	
+	/**
+	 * Check if Thank You message is Displayed
+	 * @return
+	 */
+	public boolean isThankYouMessageDisplayed() {
+		return thankYoumessage.isDisplayed();
+	}
+
+	//not working
+	public String getMessageFormDevice() {
+		return messageFromeDevice.getText();
+	}
+
+	//not working
+	public String getDeviceMessageValeforKey(String datakey) {
+		String message = getMessageFormDevice();
+		message = message.replace("{", "").replace("}", "");
+
+		String[] jsonData = message.split("\",\""); // ","
+		// System.out.println(jsonData.length);
+		for (String keyValue : jsonData) {
+			if (keyValue.contains(datakey)) {
+				String[] data = keyValue.split("\":\"");
+				// System.out.println("key: " + data[0]);
+				System.out.println("Value: " + data[1]);
+				return data[1];
+			}
+		}
+		return null;
+	}
+
 }

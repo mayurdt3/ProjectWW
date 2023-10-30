@@ -4,21 +4,6 @@
   <test thread-count="5" name="Wevend(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="testpackage.TestCarwash">
-        <methods>
-          <include name="closereporter"/>
-          <include name="verifySuccessfulPaymentPage"/>
-          <include name="startReporter"/>
-          <include name="testResult"/>
-          <include name="verifylaunchCarWash"/>
-          <include name="close"/>
-          <include name="verifyPaymentGatewaypage"/>
-          <include name="objectmethod"/>
-          <include name="setUp"/>
-          <include name="verifyAmountSelection"/>
-          <include name="verifyCountdownTimerPage"/>
-        </methods>
-      </class> <!-- testpackage.TestCarwash -->
       <class name="testpackage.TestWevendStore">
         <methods>
           <include name="closereporter"/>
