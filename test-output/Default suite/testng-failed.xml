@@ -12,7 +12,6 @@
           <include name="verifylaunchCarWash"/>
           <include name="close"/>
           <include name="verifyPaymentGatewaypage"/>
-          <include name="objectmethod"/>
           <include name="setUp"/>
           <include name="verifyAmountSelection"/>
           <include name="verifyCountdownTimerPage"/>

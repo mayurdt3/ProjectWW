@@ -4,21 +4,21 @@
   <test thread-count="5" name="Wevend(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="testpackage.TestWevendStore">
+      <class name="testpackage.TestCarwash">
         <methods>
           <include name="closereporter"/>
-          <include name="VerifySuccessPage"/>
+          <include name="verifySuccessfulPaymentPage"/>
           <include name="startReporter"/>
           <include name="testResult"/>
+          <include name="verifylaunchCarWash"/>
           <include name="close"/>
-          <include name="VerifyAddTocart"/>
+          <include name="verifyPaymentGatewaypage"/>
           <include name="objectmethod"/>
-          <include name="VerifyPaymentgatway"/>
           <include name="setUp"/>
-          <include name="VerifyCheckoutPage"/>
-          <include name="VerifyWevendLaunch"/>
+          <include name="verifyAmountSelection"/>
+          <include name="verifyCountdownTimerPage"/>
         </methods>
-      </class> <!-- testpackage.TestWevendStore -->
+      </class> <!-- testpackage.TestCarwash -->
     </classes>
   </test> <!-- Wevend(failed) -->
 </suite> <!-- Failed suite [Suite] -->
