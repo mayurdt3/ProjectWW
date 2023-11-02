@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="2" total="12" passed="10" failed="0" skipped="0">
+<testng-results ignored="2" total="12" passed="8" failed="1" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-11-01T09:57:58 IST" name="Suite" finished-at="2023-11-01T09:58:56 IST" duration-ms="57182">
+  <suite started-at="2023-11-02T11:22:22 IST" name="Suite" finished-at="2023-11-02T11:23:49 IST" duration-ms="86766">
     <groups>
     </groups>
-    <test started-at="2023-11-01T09:57:58 IST" name="Wevend" finished-at="2023-11-01T09:58:56 IST" duration-ms="57182">
+    <test started-at="2023-11-02T11:22:22 IST" name="Wevend" finished-at="2023-11-02T11:23:49 IST" duration-ms="86766">
       <class name="com.Remosys.Wevend.TestLayer.TestWevendStore">
-        <test-method is-config="true" signature="startReporter()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4]" started-at="2023-11-01T09:57:58 IST" name="startReporter" finished-at="2023-11-01T09:57:58 IST" duration-ms="198" status="PASS">
+        <test-method is-config="true" signature="startReporter()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0]" started-at="2023-11-02T11:22:22 IST" name="startReporter" finished-at="2023-11-02T11:22:22 IST" duration-ms="270" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startReporter -->
-        <test-method is-config="true" signature="objectmethod()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4]" started-at="2023-11-01T09:57:58 IST" name="objectmethod" finished-at="2023-11-01T09:57:59 IST" duration-ms="730" status="PASS">
+        <test-method is-config="true" signature="objectmethod()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0]" started-at="2023-11-02T11:22:22 IST" name="objectmethod" finished-at="2023-11-02T11:22:23 IST" duration-ms="854" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- objectmethod -->
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4]" started-at="2023-11-01T09:57:59 IST" name="setUp" finished-at="2023-11-01T09:58:02 IST" duration-ms="2343" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0]" started-at="2023-11-02T11:22:23 IST" name="setUp" finished-at="2023-11-02T11:22:26 IST" duration-ms="2931" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -26,96 +26,96 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="VerifyWevendLaunch()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4]" started-at="2023-11-01T09:58:02 IST" name="VerifyWevendLaunch" finished-at="2023-11-01T09:58:03 IST" duration-ms="996" status="PASS">
+        <test-method signature="VerifyWevendLaunch()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0]" started-at="2023-11-02T11:22:26 IST" name="VerifyWevendLaunch" finished-at="2023-11-02T11:22:28 IST" duration-ms="1949" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyWevendLaunch -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4]" started-at="2023-11-01T09:58:03 IST" name="testResult" finished-at="2023-11-01T09:58:03 IST" duration-ms="5" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0]" started-at="2023-11-02T11:22:28 IST" name="testResult" finished-at="2023-11-02T11:22:28 IST" duration-ms="10" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyWevendLaunch status=SUCCESS method=TestWevendStore.VerifyWevendLaunch()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4] output={null}]]]>
+                <![CDATA[[TestResult name=VerifyWevendLaunch status=SUCCESS method=TestWevendStore.VerifyWevendLaunch()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResult -->
-        <test-method signature="VerifyAddTocart()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4]" started-at="2023-11-01T09:58:03 IST" name="VerifyAddTocart" finished-at="2023-11-01T09:58:06 IST" depends-on-methods="com.Remosys.Wevend.TestLayer.TestWevendStore.VerifyWevendLaunch" duration-ms="3577" status="PASS">
+        <test-method signature="VerifyAddTocart()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0]" started-at="2023-11-02T11:22:28 IST" name="VerifyAddTocart" finished-at="2023-11-02T11:22:32 IST" depends-on-methods="com.Remosys.Wevend.TestLayer.TestWevendStore.VerifyWevendLaunch" duration-ms="3531" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyAddTocart -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4]" started-at="2023-11-01T09:58:06 IST" name="testResult" finished-at="2023-11-01T09:58:06 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0]" started-at="2023-11-02T11:22:32 IST" name="testResult" finished-at="2023-11-02T11:22:32 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyAddTocart status=SUCCESS method=TestWevendStore.VerifyAddTocart()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4] output={null}]]]>
+                <![CDATA[[TestResult name=VerifyAddTocart status=SUCCESS method=TestWevendStore.VerifyAddTocart()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResult -->
-        <test-method signature="VerifyCheckoutPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4]" started-at="2023-11-01T09:58:06 IST" name="VerifyCheckoutPage" finished-at="2023-11-01T09:58:08 IST" depends-on-methods="com.Remosys.Wevend.TestLayer.TestWevendStore.VerifyAddTocart" duration-ms="2180" status="PASS">
+        <test-method signature="VerifyCheckoutPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0]" started-at="2023-11-02T11:22:32 IST" name="VerifyCheckoutPage" finished-at="2023-11-02T11:22:34 IST" depends-on-methods="com.Remosys.Wevend.TestLayer.TestWevendStore.VerifyAddTocart" duration-ms="2242" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyCheckoutPage -->
-        <test-method signature="VerifyPaymentgatway()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4]" started-at="2023-11-01T09:58:08 IST" name="VerifyPaymentgatway" finished-at="2023-11-01T09:58:14 IST" depends-on-methods="com.Remosys.Wevend.TestLayer.TestWevendStore.VerifyCheckoutPage" duration-ms="5770" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0]" started-at="2023-11-02T11:22:34 IST" name="testResult" finished-at="2023-11-02T11:22:34 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyCheckoutPage status=SUCCESS method=TestWevendStore.VerifyCheckoutPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testResult -->
+        <test-method signature="VerifyPaymentgatway()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0]" started-at="2023-11-02T11:22:34 IST" name="VerifyPaymentgatway" finished-at="2023-11-02T11:22:38 IST" depends-on-methods="com.Remosys.Wevend.TestLayer.TestWevendStore.VerifyCheckoutPage" duration-ms="4434" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyPaymentgatway -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4]" started-at="2023-11-01T09:58:08 IST" name="testResult" finished-at="2023-11-01T09:58:08 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0]" started-at="2023-11-02T11:22:38 IST" name="testResult" finished-at="2023-11-02T11:22:38 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyCheckoutPage status=SUCCESS method=TestWevendStore.VerifyCheckoutPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4] output={null}]]]>
+                <![CDATA[[TestResult name=VerifyPaymentgatway status=SUCCESS method=TestWevendStore.VerifyPaymentgatway()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResult -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4]" started-at="2023-11-01T09:58:14 IST" name="testResult" finished-at="2023-11-01T09:58:14 IST" duration-ms="2" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=VerifyPaymentgatway status=SUCCESS method=TestWevendStore.VerifyPaymentgatway()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testResult -->
-        <test-method signature="VerifySuccessPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4]" started-at="2023-11-01T09:58:14 IST" name="VerifySuccessPage" finished-at="2023-11-01T09:58:25 IST" depends-on-methods="com.Remosys.Wevend.TestLayer.TestWevendStore.VerifyPaymentgatway" duration-ms="11419" status="PASS">
+        <test-method signature="VerifySuccessPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0]" started-at="2023-11-02T11:22:38 IST" name="VerifySuccessPage" finished-at="2023-11-02T11:22:47 IST" depends-on-methods="com.Remosys.Wevend.TestLayer.TestWevendStore.VerifyPaymentgatway" duration-ms="8888" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifySuccessPage -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4]" started-at="2023-11-01T09:58:25 IST" name="testResult" finished-at="2023-11-01T09:58:25 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0]" started-at="2023-11-02T11:22:47 IST" name="testResult" finished-at="2023-11-02T11:22:47 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifySuccessPage status=SUCCESS method=TestWevendStore.VerifySuccessPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4] output={null}]]]>
+                <![CDATA[[TestResult name=VerifySuccessPage status=SUCCESS method=TestWevendStore.VerifySuccessPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResult -->
-        <test-method is-config="true" signature="close()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4]" started-at="2023-11-01T09:58:25 IST" name="close" finished-at="2023-11-01T09:58:26 IST" duration-ms="450" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0]" started-at="2023-11-02T11:22:47 IST" name="close" finished-at="2023-11-02T11:22:48 IST" duration-ms="468" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-        <test-method is-config="true" signature="closereporter()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4]" started-at="2023-11-01T09:58:56 IST" name="closereporter" finished-at="2023-11-01T09:58:56 IST" duration-ms="500" status="PASS">
+        <test-method is-config="true" signature="closereporter()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0]" started-at="2023-11-02T11:23:49 IST" name="closereporter" finished-at="2023-11-02T11:23:50 IST" duration-ms="702" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closereporter -->
       </class> <!-- com.Remosys.Wevend.TestLayer.TestWevendStore -->
       <class name="com.Remosys.Wevend.TestLayer.TestCarwash">
-        <test-method is-config="true" signature="objectmethod()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-01T09:58:26 IST" name="objectmethod" finished-at="2023-11-01T09:58:26 IST" duration-ms="154" status="PASS">
+        <test-method is-config="true" signature="objectmethod()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-02T11:22:48 IST" name="objectmethod" finished-at="2023-11-02T11:22:48 IST" duration-ms="115" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- objectmethod -->
-        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-01T09:58:26 IST" name="setUp" finished-at="2023-11-01T09:58:28 IST" duration-ms="1495" status="PASS">
+        <test-method is-config="true" signature="setUp(java.lang.String)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-02T11:22:48 IST" name="setUp" finished-at="2023-11-02T11:22:49 IST" duration-ms="1256" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -126,11 +126,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifylaunchCarWash()[pri:1, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-01T09:58:28 IST" name="verifylaunchCarWash" finished-at="2023-11-01T09:58:28 IST" duration-ms="832" status="PASS">
+        <test-method signature="verifylaunchCarWash()[pri:1, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-02T11:22:49 IST" name="verifylaunchCarWash" finished-at="2023-11-02T11:22:50 IST" duration-ms="930" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifylaunchCarWash -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-01T09:58:28 IST" name="testResult" finished-at="2023-11-01T09:58:28 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-02T11:22:50 IST" name="testResult" finished-at="2023-11-02T11:22:50 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -141,11 +141,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResult -->
-        <test-method signature="verifyAmountSelection()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-01T09:58:28 IST" name="verifyAmountSelection" finished-at="2023-11-01T09:58:30 IST" depends-on-methods="com.Remosys.Wevend.TestLayer.TestCarwash.verifylaunchCarWash" duration-ms="2015" status="PASS">
+        <test-method signature="verifyAmountSelection()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-02T11:22:50 IST" name="verifyAmountSelection" finished-at="2023-11-02T11:22:53 IST" depends-on-methods="com.Remosys.Wevend.TestLayer.TestCarwash.verifylaunchCarWash" duration-ms="2876" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAmountSelection -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-01T09:58:30 IST" name="testResult" finished-at="2023-11-01T09:58:30 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-02T11:22:53 IST" name="testResult" finished-at="2023-11-02T11:22:53 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -156,11 +156,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResult -->
-        <test-method signature="verifyPaymentGatewaypage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-01T09:58:30 IST" name="verifyPaymentGatewaypage" finished-at="2023-11-01T09:58:31 IST" depends-on-methods="com.Remosys.Wevend.TestLayer.TestCarwash.verifyAmountSelection" duration-ms="460" status="PASS">
+        <test-method signature="verifyPaymentGatewaypage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-02T11:22:53 IST" name="verifyPaymentGatewaypage" finished-at="2023-11-02T11:22:53 IST" depends-on-methods="com.Remosys.Wevend.TestLayer.TestCarwash.verifyAmountSelection" duration-ms="396" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyPaymentGatewaypage -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-01T09:58:31 IST" name="testResult" finished-at="2023-11-01T09:58:31 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-02T11:22:53 IST" name="testResult" finished-at="2023-11-02T11:22:53 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -171,40 +171,131 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResult -->
-        <test-method signature="verifyCountdownTimerPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-01T09:58:31 IST" name="verifyCountdownTimerPage" finished-at="2023-11-01T09:58:55 IST" depends-on-methods="com.Remosys.Wevend.TestLayer.TestCarwash.verifyPaymentGatewaypage" duration-ms="24223" status="PASS">
+        <test-method signature="verifyCountdownTimerPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-02T11:22:53 IST" name="verifyCountdownTimerPage" finished-at="2023-11-02T11:23:49 IST" depends-on-methods="com.Remosys.Wevend.TestLayer.TestCarwash.verifyPaymentGatewaypage" duration-ms="55454" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=118.0.5993.118)
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [94491ffd7ad4166148dd386ef8f1d9df, findElement {using=xpath, value=//h1[text()='Thank you!']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 118.0.5993.118, chrome: {chromedriverVersion: 118.0.5993.70 (e52f33f30b91..., userDataDir: C:\Users\Soft\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50662}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50662/devtoo..., se:cdpVersion: 118.0.5993.118, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 94491ffd7ad4166148dd386ef8f1d9df]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=118.0.5993.118)
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [94491ffd7ad4166148dd386ef8f1d9df, findElement {using=xpath, value=//h1[text()='Thank you!']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 118.0.5993.118, chrome: {chromedriverVersion: 118.0.5993.70 (e52f33f30b91..., userDataDir: C:\Users\Soft\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50662}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50662/devtoo..., se:cdpVersion: 118.0.5993.118, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 94491ffd7ad4166148dd386ef8f1d9df
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy17.isDisplayed(Unknown Source)
+at com.Remosys.WeVend.PageLayer.CarWash.isThankYouMessageDisplayed(CarWash.java:448)
+at com.Remosys.Wevend.TestLayer.TestCarwash.verifyCountdownTimerPage(TestCarwash.java:132)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyCountdownTimerPage -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-01T09:58:55 IST" name="testResult" finished-at="2023-11-01T09:58:55 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-02T11:23:49 IST" name="testResult" finished-at="2023-11-02T11:23:49 IST" duration-ms="8" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=verifyCountdownTimerPage status=SUCCESS method=TestCarwash.verifyCountdownTimerPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0] output={null}]]]>
+                <![CDATA[[TestResult name=verifyCountdownTimerPage status=FAILURE method=TestCarwash.verifyCountdownTimerPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testResult -->
-        <test-method signature="verifySuccessfulPaymentPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-01T09:58:55 IST" name="verifySuccessfulPaymentPage" finished-at="2023-11-01T09:58:55 IST" depends-on-methods="com.Remosys.Wevend.TestLayer.TestCarwash.verifyCountdownTimerPage" duration-ms="95" status="PASS">
+        <test-method signature="verifySuccessfulPaymentPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-02T11:23:49 IST" name="verifySuccessfulPaymentPage" finished-at="2023-11-02T11:23:49 IST" depends-on-methods="com.Remosys.Wevend.TestLayer.TestCarwash.verifyCountdownTimerPage" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TestCarwash.verifySuccessfulPaymentPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TestCarwash.verifySuccessfulPaymentPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifySuccessfulPaymentPage -->
-        <test-method is-config="true" signature="close()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-01T09:58:55 IST" name="close" finished-at="2023-11-01T09:58:56 IST" duration-ms="372" status="PASS">
+        <test-method is-config="true" signature="close()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-02T11:23:49 IST" name="close" finished-at="2023-11-02T11:23:49 IST" duration-ms="343" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- close -->
-        <test-method is-config="true" signature="testResult(org.testng.ITestResult)[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0]" started-at="2023-11-01T09:58:55 IST" name="testResult" finished-at="2023-11-01T09:58:55 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verifySuccessfulPaymentPage status=SUCCESS method=TestCarwash.verifySuccessfulPaymentPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testResult -->
       </class> <!-- com.Remosys.Wevend.TestLayer.TestCarwash -->
     </test> <!-- Wevend -->
   </suite> <!-- Suite -->

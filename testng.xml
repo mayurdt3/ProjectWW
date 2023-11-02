@@ -4,8 +4,8 @@
 	<test thread-count="5" name="Wevend">
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="com.Remosys.Wevend.TestLayer.TestWevendStore" />
-			<class name="com.Remosys.Wevend.TestLayer.TestCarwash" />
+		<class name="com.Remosys.Wevend.TestLayer.TestWevendStore" />
+		<class name="com.Remosys.Wevend.TestLayer.TestCarwash" />
 		</classes>
 	</test> <!--Test -->
 </suite> <!--Suite -->

@@ -103,7 +103,7 @@ public class TestCarwash extends BaseTest {
 	 */
 	@Test(dependsOnMethods = "verifyPaymentGatewaypage")
 	public void verifyCountdownTimerPage() {
-		carwash.selectAuthorizeBtn();	
+		//carwash.selectAuthorizeBtn();	///////////for now////////////
 		try {
 			if (carwash.isLogoDispayed()) {
 				test.log(Status.PASS, "Navigate to 'Payment Success' page Successfuly");

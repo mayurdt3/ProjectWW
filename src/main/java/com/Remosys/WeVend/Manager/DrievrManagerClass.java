@@ -52,39 +52,6 @@ public class DrievrManagerClass extends BaseClass{
 		return driver;
 	}
 	
-	/**
-	 * Generates a timestamp in a custom format as a string.
-	 *
-	 * @return A string for current timestamp 
-	 */
-	public String getTimeStamp() {
-		Instant timestamp = Instant.now();
-
-		// Define a custom timestamp format pattern
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy,MM,dd HH.mm.ss.SSS");
-
-		// Format the timestamp as a string
-		String timestampString = timestamp.atZone(java.time.ZoneId.systemDefault()).format(formatter);
-
-		return timestampString;
-
-	}
-	
-
-	/**
-	 * configure take screenshot
-	 */
-	public void takeSS() {
-		String directory = System.getProperty("user.dir") + "//ScreenShot//SS ";
-		TakesScreenshot ss = (TakesScreenshot) driver;
-		try {
-			FileHandler.copy(ss.getScreenshotAs(OutputType.FILE), new File(directory + getTimeStamp() + ".png"));
-		} catch (WebDriverException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 	
 	
 }

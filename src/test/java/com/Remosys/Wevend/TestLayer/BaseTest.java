@@ -57,9 +57,9 @@ public class BaseTest extends BaseClass{
 	@BeforeSuite
 	public void startReporter() {
 		
-		manager = new DrievrManagerClass(driver);
+		util = new Utility();
 		String directory = System.getProperty("user.dir") + "//ExtentReports//";
-		spark = new ExtentSparkReporter(directory + "ExtentReport" + manager.getTimeStamp() + ".html");
+		spark = new ExtentSparkReporter(directory + "ExtentReport" + util.getTimeStamp() + ".html");
 		extent = new ExtentReports();
 		extent.attachReporter(spark);
 
@@ -109,7 +109,7 @@ public class BaseTest extends BaseClass{
 		
 		if (result.getStatus() == ITestResult.FAILURE) {
 			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + " FAIL", ExtentColor.RED));
-			manager.takeSS();
+			util.takeSS(driver);
 
 		} else if (result.getStatus() == ITestResult.SUCCESS) {
 			test.log(Status.PASS, MarkupHelper.createLabel(result.getName() + " PASS", ExtentColor.GREEN));

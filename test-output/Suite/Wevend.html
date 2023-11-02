@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Wevend</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>10/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>8/1/1</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Nov 01 09:57:58 IST 2023</td>
+<td>Started on:</td><td>Thu Nov 02 11:22:22 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>57 seconds (57182 ms)</td>
+<tr><td>Total time:</td><td>86 seconds (86766 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,104 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.Remosys.Wevend.TestLayer.TestCarwash.verifyCountdownTimerPage()'><b>verifyCountdownTimerPage</b><br>Test class: com.Remosys.Wevend.TestLayer.TestCarwash</td>
+<td><div><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=118.0.5993.118)
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.7&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [94491ffd7ad4166148dd386ef8f1d9df, findElement {using=xpath, value=//h1[text()=&apos;Thank you!&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 118.0.5993.118, chrome: {chromedriverVersion: 118.0.5993.70 (e52f33f30b91..., userDataDir: C:\Users\Soft\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50662}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50662/devtoo..., se:cdpVersion: 118.0.5993.118, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 94491ffd7ad4166148dd386ef8f1d9df
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy17.isDisplayed(Unknown Source)
+	at com.Remosys.WeVend.PageLayer.CarWash.isThankYouMessageDisplayed(CarWash.java:448)
+	at com.Remosys.Wevend.TestLayer.TestCarwash.verifyCountdownTimerPage(TestCarwash.java:132)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace247629591", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace247629591'><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=118.0.5993.118)
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.7&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [94491ffd7ad4166148dd386ef8f1d9df, findElement {using=xpath, value=//h1[text()=&apos;Thank you!&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 118.0.5993.118, chrome: {chromedriverVersion: 118.0.5993.70 (e52f33f30b91..., userDataDir: C:\Users\Soft\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50662}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50662/devtoo..., se:cdpVersion: 118.0.5993.118, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 94491ffd7ad4166148dd386ef8f1d9df
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:602)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:359)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy17.isDisplayed(Unknown Source)
+	at com.Remosys.WeVend.PageLayer.CarWash.isThankYouMessageDisplayed(CarWash.java:448)
+	at com.Remosys.Wevend.TestLayer.TestCarwash.verifyCountdownTimerPage(TestCarwash.java:132)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>55</td>
+<td>com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -75,15 +173,30 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<td title='com.Remosys.Wevend.TestLayer.TestWevendStore.VerifyPaymentgatway()'><b>VerifyPaymentgatway</b><br>Test class: com.Remosys.Wevend.TestLayer.TestWevendStore</td>
+<td></td>
+<td>4</td>
+<td>com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0</td></tr>
+<tr>
 <td title='com.Remosys.Wevend.TestLayer.TestWevendStore.VerifyWevendLaunch()'><b>VerifyWevendLaunch</b><br>Test class: com.Remosys.Wevend.TestLayer.TestWevendStore</td>
 <td></td>
-<td>0</td>
-<td>com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4</td></tr>
+<td>1</td>
+<td>com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0</td></tr>
+<tr>
+<td title='com.Remosys.Wevend.TestLayer.TestWevendStore.VerifyCheckoutPage()'><b>VerifyCheckoutPage</b><br>Test class: com.Remosys.Wevend.TestLayer.TestWevendStore</td>
+<td></td>
+<td>2</td>
+<td>com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0</td></tr>
 <tr>
 <td title='com.Remosys.Wevend.TestLayer.TestWevendStore.VerifyAddTocart()'><b>VerifyAddTocart</b><br>Test class: com.Remosys.Wevend.TestLayer.TestWevendStore</td>
 <td></td>
 <td>3</td>
-<td>com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4</td></tr>
+<td>com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0</td></tr>
+<tr>
+<td title='com.Remosys.Wevend.TestLayer.TestCarwash.verifylaunchCarWash()'><b>verifylaunchCarWash</b><br>Test class: com.Remosys.Wevend.TestLayer.TestCarwash</td>
+<td></td>
+<td>0</td>
+<td>com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0</td></tr>
 <tr>
 <td title='com.Remosys.Wevend.TestLayer.TestCarwash.verifyAmountSelection()'><b>verifyAmountSelection</b><br>Test class: com.Remosys.Wevend.TestLayer.TestCarwash</td>
 <td></td>
@@ -92,38 +205,49 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.Remosys.Wevend.TestLayer.TestWevendStore.VerifySuccessPage()'><b>VerifySuccessPage</b><br>Test class: com.Remosys.Wevend.TestLayer.TestWevendStore</td>
 <td></td>
-<td>11</td>
-<td>com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4</td></tr>
-<tr>
-<td title='com.Remosys.Wevend.TestLayer.TestCarwash.verifySuccessfulPaymentPage()'><b>verifySuccessfulPaymentPage</b><br>Test class: com.Remosys.Wevend.TestLayer.TestCarwash</td>
-<td></td>
-<td>0</td>
-<td>com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0</td></tr>
-<tr>
-<td title='com.Remosys.Wevend.TestLayer.TestWevendStore.VerifyPaymentgatway()'><b>VerifyPaymentgatway</b><br>Test class: com.Remosys.Wevend.TestLayer.TestWevendStore</td>
-<td></td>
-<td>5</td>
-<td>com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4</td></tr>
+<td>8</td>
+<td>com.Remosys.Wevend.TestLayer.TestWevendStore@543295b0</td></tr>
 <tr>
 <td title='com.Remosys.Wevend.TestLayer.TestCarwash.verifyPaymentGatewaypage()'><b>verifyPaymentGatewaypage</b><br>Test class: com.Remosys.Wevend.TestLayer.TestCarwash</td>
 <td></td>
 <td>0</td>
 <td>com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
 <tr>
-<td title='com.Remosys.Wevend.TestLayer.TestCarwash.verifyCountdownTimerPage()'><b>verifyCountdownTimerPage</b><br>Test class: com.Remosys.Wevend.TestLayer.TestCarwash</td>
-<td></td>
-<td>24</td>
-<td>com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0</td></tr>
-<tr>
-<td title='com.Remosys.Wevend.TestLayer.TestCarwash.verifylaunchCarWash()'><b>verifylaunchCarWash</b><br>Test class: com.Remosys.Wevend.TestLayer.TestCarwash</td>
-<td></td>
+<td title='com.Remosys.Wevend.TestLayer.TestCarwash.verifySuccessfulPaymentPage()'><b>verifySuccessfulPaymentPage</b><br>Test class: com.Remosys.Wevend.TestLayer.TestCarwash</td>
+<td><div><pre>java.lang.Throwable: Method TestCarwash.verifySuccessfulPaymentPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace617304845", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace617304845'><pre>java.lang.Throwable: Method TestCarwash.verifySuccessfulPaymentPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
 <td>0</td>
 <td>com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0</td></tr>
-<tr>
-<td title='com.Remosys.Wevend.TestLayer.TestWevendStore.VerifyCheckoutPage()'><b>VerifyCheckoutPage</b><br>Test class: com.Remosys.Wevend.TestLayer.TestWevendStore</td>
-<td></td>
-<td>2</td>
-<td>com.Remosys.Wevend.TestLayer.TestWevendStore@563f38c4</td></tr>
 </table><p>
 </body>
 </html>

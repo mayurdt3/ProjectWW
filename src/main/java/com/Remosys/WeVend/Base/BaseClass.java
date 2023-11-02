@@ -29,11 +29,12 @@ public class BaseClass {
 
 	public WebDriver driver;
 	
+	//Definition of object references for utilities  
 	public ExcelFileReader excel;
 	public Utility util;
 	public ConfigUtil prop;
 	
-	
+	//Definition of object references for page layer
 	public CarWash carwash;
 	public WevendStore wevend ;
 	public PaymentGateway pay;

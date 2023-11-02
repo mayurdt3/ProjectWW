@@ -1,11 +1,20 @@
-package com.Remosys.WeVend.utility;
+ package com.Remosys.WeVend.utility;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
+import java.time.Instant;
+import java.time.format.DateTimeFormatter;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -33,6 +42,46 @@ public class Utility  {
 		 * public Utility(WebDriver driver) { this.driver = driver; }
 		 */
 
+	
+	
+	
+	
+	
+
+	/**
+	 * Generates a timestamp in a custom format as a string.
+	 *
+	 * @return A string for current timestamp 
+	 */
+	public String getTimeStamp() {
+		Instant timestamp = Instant.now();
+
+		// Define a custom timestamp format pattern
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy,MM,dd HH.mm.ss.SSS");
+
+		// Format the timestamp as a string
+		String timestampString = timestamp.atZone(java.time.ZoneId.systemDefault()).format(formatter);
+
+		return timestampString;
+
+	}
+	
+
+	/**
+	 * configure take screenshot
+	 */
+	public void takeSS(WebDriver driver) {
+		String directory = System.getProperty("user.dir") + "//ScreenShot//SS ";
+		TakesScreenshot ss = (TakesScreenshot) driver;
+		try {
+			FileHandler.copy(ss.getScreenshotAs(OutputType.FILE), new File(directory + getTimeStamp() + ".png"));
+		} catch (WebDriverException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	/**
 	 * Converts a WebElement into a By locator object.
 	 * 

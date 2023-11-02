@@ -149,7 +149,7 @@ public class TestWevendStore extends BaseTest {
 		try {
 			wevend.clickOnProceed();
 		} catch (Exception e) {
-
+e.printStackTrace();
 		}
 		Assert.assertEquals(driver.getTitle(), excel.getExcelvalueForKey("PayemtGatwayPageTitle"));
 		test.log(Status.PASS, "Navigate to 'Payment Gateway' page sucessfully");
