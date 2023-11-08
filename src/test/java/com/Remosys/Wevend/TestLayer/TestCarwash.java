@@ -44,7 +44,7 @@ public class TestCarwash extends BaseTest {
 
 			e.printStackTrace();
 		}
-		if (driver.getTitle().equals(excel.getExcelvalueForKey("CarwashHomepagePageTitle"))) {
+		if (driver.getTitle().equals(excel.getExcelvalueForKey(0,"CarwashHomepagePageTitle"))) {
 			a = true;
 		} else {
 			a = false;
@@ -63,7 +63,7 @@ public class TestCarwash extends BaseTest {
 	@Test(dependsOnMethods = "verifylaunchCarWash")
 	public void verifyAmountSelection() {
 		try {
-		carwash.payUsingManualpayment(excel.getExcelvalueForKey("Amount"));
+		carwash.payUsingManualpayment(excel.getExcelvalueForKey(0,"Amount"));
 		}
 		catch (Exception e) {
 		e.printStackTrace();
@@ -83,11 +83,11 @@ public class TestCarwash extends BaseTest {
 
 		PaymentGateway pay = new PaymentGateway(driver);
 		try {
-			Assert.assertEquals(driver.getTitle(), excel.getExcelvalueForKey("PayemtGatwayPageTitle"));
+			Assert.assertEquals(driver.getTitle(), excel.getExcelvalueForKey(0,"PayemtGatwayPageTitle"));
 			test.log(Status.PASS, "Navigate to 'Payment Gateway' page sucessfully");
-			pay.enterCardNum(excel.getExcelvalueForKey("CardNo"));
-			pay.enterCardExpiryDate(excel.getExcelvalueForKey("CardExpiry"));
-			pay.enterCardCvv(excel.getExcelvalueForKey("CardCvv"));
+			pay.enterCardNum(excel.getExcelvalueForKey(0,"CardNo"));
+			pay.enterCardExpiryDate(excel.getExcelvalueForKey(0,"CardExpiry"));
+			pay.enterCardCvv(excel.getExcelvalueForKey(0,"CardCvv"));
 		} catch (Exception e) {
 			test.log(Status.INFO, "Failed to enter Card detail");
 		}
@@ -103,7 +103,7 @@ public class TestCarwash extends BaseTest {
 	 */
 	@Test(dependsOnMethods = "verifyPaymentGatewaypage")
 	public void verifyCountdownTimerPage() {
-		//carwash.selectAuthorizeBtn();	///////////for now////////////
+		carwash.selectAuthorizeBtn();
 		try {
 			if (carwash.isLogoDispayed()) {
 				test.log(Status.PASS, "Navigate to 'Payment Success' page Successfuly");
@@ -118,7 +118,7 @@ public class TestCarwash extends BaseTest {
 //			carwash.selectDoneAfterSomeTime();
 //			test.log(Status.PASS, "Click on 'Done' button after count down");
 //		} catch (Exception e) {
-//			test.log(Status.FAIL, "Failed to Click on Done button after countdown");
+//			test.log(Status.FAIL, "Failed to Click on Done button after count down");
 //			e.printStackTrace();
 //		}
 		
@@ -143,13 +143,13 @@ public class TestCarwash extends BaseTest {
 			test.log(Status.INFO, carwash.getOrderId());
 			test.log(Status.INFO, "Bill amount :"+carwash.getBillAmmount());
 		}
-		if (carwash.getBillAmmount().equals(excel.getExcelvalueForKey("Amount"))) {
+		if (carwash.getBillAmmount().equals(excel.getExcelvalueForKey(0,"Amount"))) {
 			test.log(Status.PASS, "Ammount selected before payment and Bill-amount is same");
 			
 		} else {
 			test.log(Status.FAIL, "Ammount selected before payment and Bill-amount is different");
 		}
-		Assert.assertTrue(carwash.getBillAmmount().equals(excel.getExcelvalueForKey("Amount")));
+		Assert.assertTrue(carwash.getBillAmmount().equals(excel.getExcelvalueForKey(0,"Amount")));
 		
 
 	}

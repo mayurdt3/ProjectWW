@@ -3,20 +3,19 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testpackage.TestCarwash">
+      <class name="com.Remosys.Wevend.TestLayer.TestHabcoPage">
         <methods>
-          <include name="closereporter"/>
-          <include name="verifySuccessfulPaymentPage"/>
+          <include name="VerifyHabcoLaunch"/>
+          <include name="navigatePaymentPage"/>
+          <include name="navigateCheckoutPageTest"/>
           <include name="startReporter"/>
           <include name="testResult"/>
-          <include name="verifylaunchCarWash"/>
           <include name="close"/>
-          <include name="verifyPaymentGatewaypage"/>
+          <include name="doPayment"/>
+          <include name="closereporter"/>
           <include name="setUp"/>
-          <include name="verifyAmountSelection"/>
-          <include name="verifyCountdownTimerPage"/>
         </methods>
-      </class> <!-- testpackage.TestCarwash -->
+      </class> <!-- com.Remosys.Wevend.TestLayer.TestHabcoPage -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

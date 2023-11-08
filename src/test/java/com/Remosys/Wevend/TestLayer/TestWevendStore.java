@@ -1,12 +1,10 @@
 package com.Remosys.Wevend.TestLayer;
 
 import static org.testng.Assert.assertEquals;
-
 import java.util.Arrays;
 import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import com.Remosys.WeVend.PageLayer.PaymentGateway;
 import com.Remosys.WeVend.PageLayer.WevendStore;
 import com.aventstack.extentreports.Status;
@@ -35,7 +33,7 @@ public class TestWevendStore extends BaseTest {
 	int cartCount;
 	String cartSubtotaltxt;
 	String orderTotaltxt;
-	
+
 	/* tests scripts */
 
 	/**
@@ -44,40 +42,33 @@ public class TestWevendStore extends BaseTest {
 	 * 
 	 */
 	@Test(priority = 0)
-	public void VerifyWevendLaunch() {
-	
-		
+	public void verifyWevendLaunch() {
+
 		wevend = new WevendStore(driver);
 		test = extent.createTest("Verify 'Wevend Store' payment cycle");
 		// test.log(Status.INFO, "Launching the App");
 		driver.get(prop.getProperty("WevendStoreUrl"));
-		if (driver.getTitle().equals(excel.getExcelvalueForKey("WevendHompageTitle"))) {
+		if (driver.getTitle().equals(excel.getExcelvalueForKey(0, "WevendHompageTitle"))) {
 			test.log(Status.PASS, "'WeVend Store' Application launched sucessfully ");
 		} else {
-			test.log(Status.FAIL, "'WeVend Store' Application not launched sucessfully ");
+			test.log(Status.FAIL, "Application is failed to launch");
 		}
-		assertEquals(driver.getCurrentUrl(), excel.getExcelvalueForKey("WevendStoreUrl"));
+		assertEquals(driver.getCurrentUrl(), excel.getExcelvalueForKey(0, "WevendStoreUrl"));
 	}
-	
-	
-	
-
-	
-	
 
 	/**
 	 * This method will verify Add to cart functionality and verify count displayed
 	 * on cart is same as number of products added in the card
 	 */
-	@Test(dependsOnMethods = "VerifyWevendLaunch")
-	public void VerifyAddTocart() {
+	@Test(dependsOnMethods = "verifyWevendLaunch")
+	public void verifyAddTocart() {
 
-		List<String> products = Arrays.asList(excel.getExcelvalueForKey("product1"),
-				excel.getExcelvalueForKey("product2"), excel.getExcelvalueForKey("product3"));
+		List<String> products = Arrays.asList(excel.getExcelvalueForKey(0, "product1"),
+				excel.getExcelvalueForKey(0, "product2"), excel.getExcelvalueForKey(0, "product3"));
 		for (String product : products) {
 			try {
 				wevend.clickOnAddToCart(product);
-		
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -85,7 +76,7 @@ public class TestWevendStore extends BaseTest {
 			if (result) {
 				test.log(Status.PASS, "'" + product + "' is successfully added to the cart");
 			} else {
-				test.log(Status.FAIL, "'" + product + "' is not added to the cart");
+				test.log(Status.FAIL, "'" + product + "' is failed add into the cart");
 			}
 			Assert.assertTrue(result);
 		}
@@ -100,85 +91,96 @@ public class TestWevendStore extends BaseTest {
 							+ cartCount + "'");
 		}
 		Assert.assertEquals(cartCount, NumOfProducsAddedtoCart);
-
 	}
-	
 
 	/**
-	 * This method Verifies successful navigation to Checkout page 
-	 * verifies Cart-subtotal is matching with Order-Total 
-	 * Verifies checkout ItmCount is same as number of Items And 
-	 * verifies the navigation to payment gateway page
+	 * This method Verifies successful navigation to Checkout page verifies
+	 * Cart-subtotal is matching with Order-Total Verifies checkout ItmCount is same
+	 * as number of Items And verifies the navigation to payment gateway page
 	 */
-	@Test(dependsOnMethods = "VerifyAddTocart")
-	public void VerifyCheckoutPage() {
-		
+	@Test(dependsOnMethods = "verifyAddTocart")
+	public void verifyCheckoutPage() {
+
 		wevend.clickOnCartIcon();
 
 		cartSubtotaltxt = wevend.getCartSubtotal();
 		wevend.clickOnProceedToCheckoutBtn();
 
-		if (driver.getTitle().equals(excel.getExcelvalueForKey("CheckoutPageTitle"))) {
+		if (driver.getTitle().equals(excel.getExcelvalueForKey(0, "CheckoutPageTitle"))) {
 			test.log(Status.PASS, "Navigate to 'Checkout' page sucessfully");
 		} else {
-			test.log(Status.FAIL, "Failed to navigated to 'Checkout' page");
+			test.log(Status.FAIL, "Failed to navigate to 'Checkout' page");
 		}
-		Assert.assertEquals(driver.getTitle(), excel.getExcelvalueForKey("CheckoutPageTitle"));
+		Assert.assertEquals(driver.getTitle(), excel.getExcelvalueForKey(0, "CheckoutPageTitle"));
 
 		wevend.getWevendPaymentMethodText();
 		orderTotaltxt = wevend.getCheckoutOrderTotal();
 		if (cartSubtotaltxt.equals(orderTotaltxt)) {
 			wevend.clickOnProceed();
-			test.log(Status.PASS, "Cart-subtotal is matching with Order-Total");
+			test.log(Status.INFO, "Cart-subtotal is matching with Order-Total under OrderSummary");
 		} else {
-			test.log(Status.FAIL, "Cart-subtotal is not matching with Order-Total");
+			test.log(Status.FAIL, "Cart-subtotal is not matching with Order-Total under OrderSummary");
 		}
 		Assert.assertEquals(cartSubtotaltxt, orderTotaltxt);
-		Assert.assertEquals(wevend.getCartItemsCount(), wevend.getCartItemsCount());
 		test.log(Status.PASS, "Cart-itemcount is matching with Order-items");
-		Assert.assertEquals(wevend.getWevendPaymentMethodText(), "weVend Gateway");
+		Assert.assertEquals(wevend.getWevendPaymentMethodText(), excel.getExcelvalueForKey(0, "PaymentMethodName"));
 		test.log(Status.PASS, "Paymet method name is displayed : " + wevend.getWevendPaymentMethodText());
 	}
-	
 
 	/**
 	 * This method verifies The Payment gateway Functionality
 	 */
-	@Test(dependsOnMethods = "VerifyCheckoutPage")
-	public void VerifyPaymentgatway() {
+	@Test(dependsOnMethods = "verifyCheckoutPage")
+	public void verifyPaymentGateway() {
 		try {
 			wevend.clickOnProceed();
 		} catch (Exception e) {
-e.printStackTrace();
+			e.printStackTrace();
 		}
-		Assert.assertEquals(driver.getTitle(), excel.getExcelvalueForKey("PayemtGatwayPageTitle"));
-		test.log(Status.PASS, "Navigate to 'Payment Gateway' page sucessfully");
+		if (driver.getTitle().equals(excel.getExcelvalueForKey(0, "PayemtGatwayPageTitle"))) {
+			test.log(Status.PASS, "Navigated to 'Payment Gateway' page sucessfully");
+		} else {
+			test.log(Status.FAIL, "Failed to Navigate to 'Payment Gateway' page");
+		}
+
+		Assert.assertEquals(driver.getTitle(), excel.getExcelvalueForKey(0, "PayemtGatwayPageTitle"));
+
 		PaymentGateway pay = new PaymentGateway(driver);
-		pay.enterCardNum(excel.getExcelvalueForKey("CardNo"));
-		pay.enterCardExpiryDate(excel.getExcelvalueForKey("CardExpiry"));
-		pay.enterCardCvv(excel.getExcelvalueForKey("CardCvv"));
-		wevend.clickonPayBtn();
-	}
+		pay.enterCardNum(excel.getExcelvalueForKey(0, "CardNo"));
+		pay.enterCardExpiryDate(excel.getExcelvalueForKey(0, "CardExpiry"));
+		pay.enterCardCvv(excel.getExcelvalueForKey(0, "CardCvv"));
+		test.log(Status.INFO, "Card details are entered successfuly");
+		if(pay.isPayBtnEnabled()) {
+			test.log(Status.INFO, "Pay button is Enabled");
+		}
+		else {
+			test.log(Status.FAIL, "Pay button is disabled");
+		}
+		pay.clickOnPayBtn();
 	
+		
+	}
 
 	/**
 	 * this method verifies if Payment is successful, Verifies the Grand-Total is
 	 * same as order-Total
 	 * 
 	 */
-	@Test(dependsOnMethods = "VerifyPaymentgatway")
-	public void VerifySuccessPage() {
+	@Test(dependsOnMethods = "verifyPaymentGateway")
+	public void verifySuccessPage() {
 
 		boolean verify = wevend.verifySuccessfulPayment();
 		if (verify) {
 			test.log(Status.PASS, "Payment is Successfull");
 		} else {
-			test.log(Status.FAIL, "Payment is unsuccessfull");
+			test.log(Status.FAIL, "Payment Failed");
 		}
-		Assert.assertTrue(wevend.verifySuccessfulPayment());
+		Assert.assertTrue(verify);
 		try {
 			if (wevend.getGrandTotal().equals(orderTotaltxt)) {
 				test.log(Status.PASS, "Grand-total displayed is same as Order-total");
+			} else {
+				test.log(Status.FAIL, "Grand-total displayed is not same as Order-total");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -189,11 +191,12 @@ e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		test.log(Status.INFO, "Selection of 'Buy More' button leads to 'Homepage;");
-		Assert.assertEquals(driver.getTitle(), excel.getExcelvalueForKey("WevendHompageTitle"));
+		if (driver.getTitle().equals(excel.getExcelvalueForKey(0, "WevendHompageTitle"))) {
+			test.log(Status.INFO, "Selection of 'Buy More' button leads to 'Homepage;");
+		} else {
+			test.log(Status.INFO, "Selection of 'Buy More' button failed to navigate to 'Homepage;");
+		}
+		Assert.assertEquals(driver.getTitle(), excel.getExcelvalueForKey(0, "WevendHompageTitle"));
 	}
-	
-
-	
 
 }

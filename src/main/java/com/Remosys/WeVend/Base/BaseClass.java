@@ -2,8 +2,10 @@ package com.Remosys.WeVend.Base;
 
 import org.openqa.selenium.WebDriver;
 
-import com.Remosys.WeVend.Manager.DrievrManagerClass;
+import com.Remosys.WeVend.Manager.DriverManagerClass;
 import com.Remosys.WeVend.PageLayer.CarWash;
+import com.Remosys.WeVend.PageLayer.GumBallPage;
+import com.Remosys.WeVend.PageLayer.HabcoPage;
 import com.Remosys.WeVend.PageLayer.PaymentGateway;
 import com.Remosys.WeVend.PageLayer.WevendStore;
 import com.Remosys.WeVend.Reader.ConfigUtil;
@@ -38,9 +40,12 @@ public class BaseClass {
 	public CarWash carwash;
 	public WevendStore wevend ;
 	public PaymentGateway pay;
+	public HabcoPage habco;
+	public GumBallPage gumball;
 	
-	public DrievrManagerClass manager;
+	public DriverManagerClass manager;
 	public static ExtentReports extent;
 	public static ExtentTest test;
 	public static ExtentSparkReporter spark;
+	
 }

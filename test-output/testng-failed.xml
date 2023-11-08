@@ -4,21 +4,20 @@
   <test thread-count="5" name="Wevend(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.Remosys.Wevend.TestLayer.TestCarwash">
+      <class name="com.Remosys.Wevend.TestLayer.TestGumBallPage">
         <methods>
-          <include name="verifyPaymentGatewaypage"/>
-          <include name="verifylaunchCarWash"/>
+          <include name="navigatePaymentPage"/>
+          <include name="doPayment"/>
+          <include name="VerifyAddtocartFunctionality"/>
           <include name="startReporter"/>
           <include name="testResult"/>
-          <include name="verifyAmountSelection"/>
-          <include name="verifySuccessfulPaymentPage"/>
+          <include name="VerifyGumballLaunch"/>
           <include name="close"/>
           <include name="closereporter"/>
           <include name="setUp"/>
-          <include name="verifyCountdownTimerPage"/>
-          <include name="objectmethod"/>
+          <include name="navigateCheckoutPageTest"/>
         </methods>
-      </class> <!-- com.Remosys.Wevend.TestLayer.TestCarwash -->
+      </class> <!-- com.Remosys.Wevend.TestLayer.TestGumBallPage -->
     </classes>
   </test> <!-- Wevend(failed) -->
 </suite> <!-- Failed suite [Suite] -->

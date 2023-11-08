@@ -62,8 +62,8 @@ public class ExcelFileReader extends BaseClass{
 	 * @return
 	 * @throws IOException
 	 */
-	public String getExcelvalueForKey(String excelKey) {
-		sheet = workBook.getSheetAt(0); 
+	public String getExcelvalueForKey(int i, String excelKey) {
+		sheet = workBook.getSheetAt(i); 
 
   HashMap<String, String> testDataMap = new HashMap<>();
 

@@ -4,11 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import com.Remosys.WeVend.Reader.ExcelFileReader;
 import com.Remosys.WeVend.utility.Utility;
 
 /**
  * PaymentGateway class encapsulates the common elements and actions for payment gateway page
- * @author Mayur
+ * @author Mayur Takalikar
  *
  * usage
  * 1.Create an instance of ExcelFileReader to work with Excel files.
@@ -19,10 +20,12 @@ import com.Remosys.WeVend.utility.Utility;
 public class PaymentGateway{
 	protected WebDriver driver;
 	public Utility util;
+	public ExcelFileReader excel;
 	
 	public PaymentGateway(WebDriver driver) {
 	 this.driver= driver;
 		util = new Utility();
+		excel = new ExcelFileReader();
 		PageFactory.initElements(driver, this);
  }
  
@@ -35,6 +38,15 @@ public class PaymentGateway{
 
 	@FindBy(id = "cvv")
 	private WebElement cardCvv;
+	
+	@FindBy(xpath = "//div[@class='paymentMethodHolder']//div[contains(text(),'Method')]")
+	private WebElement paymentMethod;
+	
+	@FindBy(xpath = "//button[contains(text(),'Pay')]")
+	private WebElement payBtn;
+	
+	@FindBy(xpath = "//a[@href='/paymentprocessing']")
+	protected WebElement authorizePayBtn;  
 
 	/**
 	 * This method used to Enters the card number in Card number text field
@@ -65,8 +77,38 @@ public class PaymentGateway{
 		util.waitForVisibilityOfElement(driver, cardCvv);
 		cardCvv.sendKeys(string);
 	}
- 
- 
+	
+	public String getWevendPaymentMethodText() {
+		util.waitForVisibilityOfElement(driver, paymentMethod);
+		if (paymentMethod.isDisplayed()) {
+			return paymentMethod.getText();
+		} else
+			return "Not Available";
+	}
+	
+	
+	
+	
+	public String getPaymentPageTitle()
+	{
+		util.waitForTitle(driver, excel.getExcelvalueForKey(0,"PaymentPageTitle"));
+		return driver.getTitle();
+	}
+	
+	/**
+	 * Clicks on the "Pay" button to initiate a payment
+	 */
+	public void clickOnPayBtn() {
+		util.waitForElementToBeClickable(driver, payBtn);
+	//	payBtn.click();  /// For Preventing it from doing payment
+	}
+	
+	public boolean isPayBtnEnabled() {
+		util.waitForElementToBeClickable(driver, payBtn);
+		return payBtn.isEnabled();
+		
+	}
+
  
  
  

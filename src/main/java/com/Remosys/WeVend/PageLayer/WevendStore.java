@@ -59,7 +59,8 @@ public class WevendStore {
 
 	@FindBy(xpath = "//div[@data-block='minicart']/a/descendant::span[@class='counter-number']")
 	private WebElement cartItemsCount;
-
+	
+	@FindBy(xpath = "//div[@class='actions-primary']/form")
 	private List<WebElement> buyNowButtons;
 
 	@FindBy(xpath = "//span[text()='Add to Cart']")
@@ -177,14 +178,14 @@ public class WevendStore {
 	public void clickOnProceedToCheckoutBtn() {
 		util.waitForVisibilityOfElement(driver, proceedToCheckoutBtn);
 		proceedToCheckoutBtn.click();
-		util.waitForTitle(driver, excel.getExcelvalueForKey("CheckoutPageTitle"));
+		util.waitForTitle(driver, excel.getExcelvalueForKey(0,"CheckoutPageTitle"));
 	}
 
 	/*
 	 * Review and payments page WebelElements
 	 */
 
-	@FindBy(xpath = "//button/span[text()='Proceed']")
+	@FindBy(xpath = "//button[@title='Proceed']")
 	private WebElement proceedButton;
 
 	@FindBy(xpath = "//strong[text()='Order Total']/parent::th/following-sibling::td//span")
@@ -241,8 +242,7 @@ public class WevendStore {
 	 * PaymentGatway page WebelElements
 	 */
 
-	@FindBy(xpath = "//button[contains(text(),'Pay')]")
-	private WebElement payBtn;
+
 
 	@FindBy(xpath = "//b[text()='Card Pay']")
 	private WebElement cardPayOption;
@@ -258,13 +258,7 @@ public class WevendStore {
 
 	}
 
-	/**
-	 * Clicks on the "Pay" button to initiate a payment
-	 */
-	public void clickonPayBtn() {
-		util.waitForElementToBeClickable(driver, payBtn);
-		payBtn.click();
-	}
+	
 
 	/*
 	 * Order Sucsess page WebelElements
@@ -335,7 +329,7 @@ public class WevendStore {
 	public void clickOnBuyMoreBtn() {
 		util.waitForElementToBeClickable(driver, buyMoreBtn);
 		buyMoreBtn.click();
-		util.waitForTitle(driver, excel.getExcelvalueForKey("WevendHompageTitle"));
+		util.waitForTitle(driver, excel.getExcelvalueForKey(0,"WevendHompageTitle"));
 	}
 
 	/* tests scripts */

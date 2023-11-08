@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite" >
+
+<suite name="Suite">
 	<test thread-count="5" name="Wevend">
 		<parameter name="browser" value="chrome" />
 		<classes>
 		<class name="com.Remosys.Wevend.TestLayer.TestWevendStore" />
 		<class name="com.Remosys.Wevend.TestLayer.TestCarwash" />
+		<class name="com.Remosys.Wevend.TestLayer.TestHabcoPage" />
+		<!--<class name="com.Remosys.Wevend.TestLayer.TestGumBallPage" />-->
 		</classes>
 	</test> <!--Test -->
 </suite> <!--Suite -->

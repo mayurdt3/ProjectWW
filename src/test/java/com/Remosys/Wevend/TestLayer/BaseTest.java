@@ -10,8 +10,10 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
 import com.Remosys.WeVend.Base.BaseClass;
-import com.Remosys.WeVend.Manager.DrievrManagerClass;
+import com.Remosys.WeVend.Manager.DriverManagerClass;
 import com.Remosys.WeVend.PageLayer.CarWash;
+import com.Remosys.WeVend.PageLayer.GumBallPage;
+import com.Remosys.WeVend.PageLayer.HabcoPage;
 import com.Remosys.WeVend.PageLayer.WevendStore;
 import com.Remosys.WeVend.Reader.ConfigUtil;
 import com.Remosys.WeVend.Reader.ExcelFileReader;
@@ -27,11 +29,11 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 /**
  * Base test class serving as the foundation for all test classes.
  * 
- * This class provides common setup and teardown methods, EctentRrport
+ * This class provides common setup and tear down methods, EctentRrport
  * configuration, Logs, screenshot on failure configuration and flush methods,
  * property Configuration and Utilities that are shared across multiple test
  * cases. It follows the Test Automation Framework design pattern, promoting
- * code reusability and maintainability.
+ * code re usability and maintainability.
  * 
  * @author Mayur Takalikar
  *
@@ -63,13 +65,13 @@ public class BaseTest extends BaseClass{
 		extent = new ExtentReports();
 		extent.attachReporter(spark);
 
-		/* Extent Environmentals */
+		/* Extent Environmental */
 
 		extent.setSystemInfo("OS", "Windows 11");
 		extent.setSystemInfo("Browser", "chrome");
 		extent.setSystemInfo("Tester", "Mayur");
 
-		/* configuration to cheng looks of the report */
+		/* configuration to change looks of the report */
 
 		spark.config().setDocumentTitle("Extent Report Demo");
 		spark.config().setReportName("Test Rport");
@@ -89,13 +91,19 @@ public class BaseTest extends BaseClass{
 		// String browser = "chrome";
 		
 		
-		manager = new DrievrManagerClass(driver);
+		manager = new DriverManagerClass(driver);
 		driver = manager.initializeDriver(browser);
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-
+		habco = new HabcoPage(driver);
+		util = new Utility();
+		prop = new ConfigUtil();
+		excel = new ExcelFileReader();
+		carwash = new CarWash(driver);
+		wevend = new WevendStore(driver);
+		gumball = new GumBallPage(driver);
 	}
 
 	/**
@@ -130,15 +138,17 @@ public class BaseTest extends BaseClass{
 	 *
 	 */
 
-	@BeforeClass
-	public void objectmethod() {
-
-		util = new Utility();
-		prop = new ConfigUtil();
-		excel = new ExcelFileReader();
-		carwash = new CarWash(driver);
-		wevend = new WevendStore(driver);
-	}
+//	@BeforeClass
+//	public void objectmethod() {
+//
+//		util = new Utility();
+//		prop = new ConfigUtil();
+//		excel = new ExcelFileReader();
+//		carwash = new CarWash(driver);
+//		wevend = new WevendStore(driver);
+//		
+//		gumball = new GumBallPage(driver);
+//	}
 
 
 

@@ -72,12 +72,6 @@ public class CarWash  {
 
 	@FindBy(id = "cardNum")
 	protected WebElement cardNumber;
-//
-//	@FindBy(id = "validTill")
-//	public WebElement cardExpiryDate;
-//
-//	@FindBy(id = "cvv")
-//	public WebElement cardCvv;
 
 	@FindBy(id = "//div[text()='Select Payment Method']")
 	protected WebElement paymentMethodText;
@@ -204,8 +198,8 @@ public class CarWash  {
 	 */
 	public boolean verifyHompageUrl() throws IOException {
 		
-		util.waitForUrlToLoad(driver, excel.getExcelvalueForKey("carWashUrl"));
-		return driver.getCurrentUrl().equals(excel.getExcelvalueForKey("carWashUrl"));
+		util.waitForUrlToLoad(driver, excel.getExcelvalueForKey(0,"carWashUrl"));
+		return driver.getCurrentUrl().equals(excel.getExcelvalueForKey(0,"carWashUrl"));
 	}
 	
 	
@@ -233,7 +227,7 @@ public class CarWash  {
 	public void selectAuthorizeBtn() {
 		
 		util.waitForElementToBeClickable(driver, authorize);
-		authorize.click();
+		//authorize.click();     /// For Preventing it from doing payment
 		util.waitForVisibilityOfElement(driver, timer);
 
 	}
@@ -248,88 +242,7 @@ public class CarWash  {
 		String countdownTime = timerInMin.getText() + ":" + timerInsec.getText();
 		return countdownTime;
 	}
-//
-//	/**
-//	 * This method verifies the launch of Car wash application
-//	 */
-//	public void VerifylaunchUrl() {
-//		
-//		boolean a;
-//		driver.get(prop.getProperty("carWashUrl"));
-//		util.waitForUrlToLoad(driver, prop.getProperty("carWashUrl"));
-//		if (driver.getTitle().equals(prop.getProperty("CarwashHomepagePageTitle"))) {
-//			a = true;
-//		} else {
-//			a = false;
-//		}
-//		test = extent.createTest("Verify 'Car Wash' payment cycle");
-//		Assert.assertTrue(a);
-//		test.log(Status.INFO, "'Car Wash' application launched sucessfully");
-//
-//	}
-//
-	/**
-	 * This method verifies the Selection of given amount using manual selection
-	 * method
-	 * @param amount
-	 */
-//	public void VerifySelectAmount(String amount) {
-//		
-//		util.waitForVisibilityOfElement(driver, manualAmount);
-//		Assert.assertTrue(payUsingManualpayment(amount));
-//		test.log(Status.INFO, "Amount selected");
-//		util.waitForVisibilityOfElement(driver, authorize);
-//		Assert.assertEquals(driver.getTitle(), prop.getProperty("PaymentPageTitle"));
-//		test.log(Status.PASS, "Navigate to 'Payment GateWay' successfuly");
-//	}
-//
-	/**
-	 * This method Verifies the Payment gateway page Functionality
-	 */
-//	public void verifyEntercardDetails() {
-//		
-//		PaymentGateway pay = new PaymentGateway(driver);
-//		pay.enterCardNum(prop.getProperty("CardNo"));
-//		pay.enterCardExpiryDate(prop.getProperty("CardExpiry"));
-//		pay.enterCardCvv(prop.getProperty("CardCvv"));
-//		test.log(Status.INFO, "Card detail entered");
-//		selectAuthorizeBtn();
-//	}
-//
-	/**
-	 * This method verifies the navigation to the count down page.
-	 */
-//	public void verifyNavigationToCountdownPage() {
-//
-//		try {
-//			util.waitForVisibilityOfElement(driver, carwashLogo);
-//			util.waitForVisibilityOfElement(driver, timer);
-//			if (carwashLogo.isDisplayed()) {
-//				test.log(Status.PASS, "Navigate to 'Payment Success' page Successfuly");
-//			}
-//		} catch (Exception e) {
-//			test.log(Status.FAIL, "Failed to navigat to 'payment success' page");
-//			e.printStackTrace();
-//		}
-//
-//	}
 
-	/**
-	 * This method Verifies if successful payment message is displayed.
-	 */
-//	public void verifySuccessfulPayment() {
-//		
-//		try {
-//			if (timer.isDisplayed()) {
-//				test.log(Status.PASS, "Payment successful, and Timer countdown started");
-//			}
-//		} catch (Exception e) {
-//			test.log(Status.FAIL, "Payment Unsuccessful");
-//			e.printStackTrace();
-//
-//		}
-//	}
-//
 	/**
 	 * this method will wait till timer time becomes "04:55" and then will click on
 	 * Done Button. * @return
@@ -368,25 +281,7 @@ public class CarWash  {
 			return false;
 		}
 	}
-//
-//	/**
-//	 * This method Verifies the bill is generated with same amount as the Amount
-//	 * selected before payment.
-//	 */
-//	public void verifyAmount() {
-//	
-//		if (selectDoneAfterSomeTime()) {
-//			test.log(Status.PASS, "Click on 'Done' button after '5' seconds");
-//		} else {
-//			test.log(Status.FAIL, "Failed to Click on Done button after 5 seconds");
-//		}
-//		if (getBillAmmount().equals(prop.getProperty("Amount"))) {
-//			test.log(Status.PASS, "Ammount selected before payment and Bill-amount is same");
-//		} else {
-//			test.log(Status.FAIL, "Ammount selected before payment and Bill-amount is different");
-//		}
-//		Assert.assertEquals(getBillAmmount(), prop.getProperty("Amount"));
-//	}
+
 	
 	/**
 	 * check if Logo is displayed

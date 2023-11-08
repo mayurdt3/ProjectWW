@@ -9,19 +9,19 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Wevend</a></td><td class="num">8</td><td class="num attn">1</td><td class="num">0</td><td class="num attn">1</td><td class="num">86,766</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Wevend</a></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">43,851</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Wevend &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.Remosys.Wevend.TestLayer.TestCarwash</td><td><a href="#m0">verifyCountdownTimerPage</a></td><td rowspan="1">1698904373924</td><td rowspan="1">55454</td></tr><tr><th colspan="4">Wevend &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="1">com.Remosys.Wevend.TestLayer.TestCarwash</td><td><a href="#m1">verifySuccessfulPaymentPage</a></td><td rowspan="1">1698904429392</td><td rowspan="1">0</td></tr><tr><th colspan="4">Wevend &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">com.Remosys.Wevend.TestLayer.TestCarwash</td><td><a href="#m2">verifyAmountSelection</a></td><td rowspan="1">1698904370649</td><td rowspan="1">2876</td></tr><tr class="passedeven"><td><a href="#m3">verifyPaymentGatewaypage</a></td><td rowspan="1">1698904373526</td><td rowspan="1">396</td></tr><tr class="passedeven"><td><a href="#m4">verifylaunchCarWash</a></td><td rowspan="1">1698904369714</td><td rowspan="1">930</td></tr><tr class="passedodd"><td rowspan="5">com.Remosys.Wevend.TestLayer.TestWevendStore</td><td><a href="#m5">VerifyAddTocart</a></td><td rowspan="1">1698904348771</td><td rowspan="1">3531</td></tr><tr class="passedodd"><td><a href="#m6">VerifyCheckoutPage</a></td><td rowspan="1">1698904352304</td><td rowspan="1">2242</td></tr><tr class="passedodd"><td><a href="#m7">VerifyPaymentgatway</a></td><td rowspan="1">1698904354548</td><td rowspan="1">4434</td></tr><tr class="passedodd"><td><a href="#m8">VerifySuccessPage</a></td><td rowspan="1">1698904358984</td><td rowspan="1">8888</td></tr><tr class="passedodd"><td><a href="#m9">VerifyWevendLaunch</a></td><td rowspan="1">1698904346798</td><td rowspan="1">1949</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Wevend &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.Remosys.Wevend.TestLayer.TestGumBallPage</td><td><a href="#m0">doPayment</a></td><td rowspan="1">1699358555936</td><td rowspan="1">23868</td></tr><tr><th colspan="4">Wevend &#8212; passed</th></tr><tr class="passedeven"><td rowspan="4">com.Remosys.Wevend.TestLayer.TestGumBallPage</td><td><a href="#m1">VerifyAddtocartFunctionality</a></td><td rowspan="1">1699358541703</td><td rowspan="1">5473</td></tr><tr class="passedeven"><td><a href="#m2">VerifyGumballLaunch</a></td><td rowspan="1">1699358540302</td><td rowspan="1">1377</td></tr><tr class="passedeven"><td><a href="#m3">navigateCheckoutPageTest</a></td><td rowspan="1">1699358547179</td><td rowspan="1">1205</td></tr><tr class="passedeven"><td><a href="#m4">navigatePaymentPage</a></td><td rowspan="1">1699358548386</td><td rowspan="1">7549</td></tr></tbody>
 </table>
-<h2>Wevend</h2><h3 id="m0">com.Remosys.Wevend.TestLayer.TestCarwash#verifyCountdownTimerPage</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=118.0.5993.118)
+<h2>Wevend</h2><h3 id="m0">com.Remosys.Wevend.TestLayer.TestGumBallPage#doPayment</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.WebDriverException: disconnected: unable to send message to renderer
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=119.0.6045.105)
 Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.7&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [94491ffd7ad4166148dd386ef8f1d9df, findElement {using=xpath, value=//h1[text()=&apos;Thank you!&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 118.0.5993.118, chrome: {chromedriverVersion: 118.0.5993.70 (e52f33f30b91..., userDataDir: C:\Users\Soft\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50662}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50662/devtoo..., se:cdpVersion: 118.0.5993.118, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 94491ffd7ad4166148dd386ef8f1d9df
+Command: [d2a355717b949744796a835eec8cba00, findElement {using=xpath, value=//span[contains(text(),&apos;Thank you&apos;)]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.105, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\Soft\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:59635}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:59635/devtoo..., se:cdpVersion: 119.0.6045.105, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: d2a355717b949744796a835eec8cba00
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
@@ -35,21 +35,20 @@ Session ID: 94491ffd7ad4166148dd386ef8f1d9df
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:353)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at jdk.proxy2/jdk.proxy2.$Proxy17.isDisplayed(Unknown Source)
-	at com.Remosys.WeVend.PageLayer.CarWash.isThankYouMessageDisplayed(CarWash.java:448)
-	at com.Remosys.Wevend.TestLayer.TestCarwash.verifyCountdownTimerPage(TestCarwash.java:132)
+	at jdk.proxy2/jdk.proxy2.$Proxy20.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:304)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:37)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:287)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:205)
+	at com.Remosys.WeVend.utility.Utility.waitForVisibilityOfElement(Utility.java:105)
+	at com.Remosys.WeVend.PageLayer.HabcoPage.verifySuccessfulPayment(HabcoPage.java:220)
+	at com.Remosys.Wevend.TestLayer.TestGumBallPage.doPayment(TestGumBallPage.java:130)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 ... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.Remosys.Wevend.TestLayer.TestCarwash#verifySuccessfulPaymentPage</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method TestCarwash.verifySuccessfulPaymentPage()[pri:0, instance:com.Remosys.Wevend.TestLayer.TestCarwash@75d3a5e0] depends on not successfully finished methods
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">com.Remosys.Wevend.TestLayer.TestCarwash#verifyAmountSelection</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">com.Remosys.Wevend.TestLayer.TestCarwash#verifyPaymentGatewaypage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">com.Remosys.Wevend.TestLayer.TestCarwash#verifylaunchCarWash</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">com.Remosys.Wevend.TestLayer.TestWevendStore#VerifyAddTocart</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m6">com.Remosys.Wevend.TestLayer.TestWevendStore#VerifyCheckoutPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m7">com.Remosys.Wevend.TestLayer.TestWevendStore#VerifyPaymentgatway</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m8">com.Remosys.Wevend.TestLayer.TestWevendStore#VerifySuccessPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m9">com.Remosys.Wevend.TestLayer.TestWevendStore#VerifyWevendLaunch</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.Remosys.Wevend.TestLayer.TestGumBallPage#VerifyAddtocartFunctionality</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.Remosys.Wevend.TestLayer.TestGumBallPage#VerifyGumballLaunch</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">com.Remosys.Wevend.TestLayer.TestGumBallPage#navigateCheckoutPageTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">com.Remosys.Wevend.TestLayer.TestGumBallPage#navigatePaymentPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

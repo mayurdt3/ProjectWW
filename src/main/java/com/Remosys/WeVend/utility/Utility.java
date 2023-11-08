@@ -24,10 +24,10 @@ import org.openqa.selenium.support.ui.FluentWait;
  * Utility class providing a collection of common utility methods.
  * 
  * This class contains a variety of utility methods that can be used across the
- * application for performing common tasks, such as differet kind of waits, date
+ * application for performing common tasks, such as different kind of waits, date
  * or time stamp, string processing, mathematical operations, and more.
  * 
- * @author Mayur takalikar
+ * @author Mayur Takalikar
  * 
  *         Usage: 1. Utilize utility methods in this class for common utility
  *         tasks. 2. Create an instance of Utility class to access the utility
@@ -49,17 +49,17 @@ public class Utility  {
 	
 
 	/**
-	 * Generates a timestamp in a custom format as a string.
+	 * Generates a time stamp in a custom format as a string.
 	 *
-	 * @return A string for current timestamp 
+	 * @return A string for current time stamp 
 	 */
 	public String getTimeStamp() {
 		Instant timestamp = Instant.now();
 
-		// Define a custom timestamp format pattern
+		// Define a custom time stamp format pattern
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy,MM,dd HH.mm.ss.SSS");
 
-		// Format the timestamp as a string
+		// Format the time stamp as a string
 		String timestampString = timestamp.atZone(java.time.ZoneId.systemDefault()).format(formatter);
 
 		return timestampString;

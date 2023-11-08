@@ -1,26 +1,19 @@
 package com.Remosys.WeVend.Manager;
 
-import java.io.File;
-import java.io.IOException;
-import java.time.Instant;
-import java.time.format.DateTimeFormatter;
 
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.io.FileHandler;
-
 import com.Remosys.WeVend.Base.BaseClass;
 
-public class DrievrManagerClass extends BaseClass{
+public class DriverManagerClass extends BaseClass{
 	protected WebDriver driver;
 	
-	public DrievrManagerClass(WebDriver driver){
+	public DriverManagerClass(WebDriver driver){
 		this.driver = driver;
 	}
 	
