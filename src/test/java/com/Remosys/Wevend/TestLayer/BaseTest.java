@@ -95,8 +95,8 @@ public class BaseTest extends BaseClass{
 		driver = manager.initializeDriver(browser);
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 		habco = new HabcoPage(driver);
 		util = new Utility();
 		prop = new ConfigUtil();

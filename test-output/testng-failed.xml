@@ -4,20 +4,64 @@
   <test thread-count="5" name="Wevend(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.Remosys.Wevend.TestLayer.TestGumBallPage">
+      <class name="com.Remosys.Wevend.TestLayer.TestCarwash">
         <methods>
-          <include name="navigatePaymentPage"/>
-          <include name="doPayment"/>
-          <include name="VerifyAddtocartFunctionality"/>
+          <include name="verifyPaymentGatewaypage"/>
+          <include name="verifylaunchCarWash"/>
           <include name="startReporter"/>
           <include name="testResult"/>
-          <include name="VerifyGumballLaunch"/>
+          <include name="verifyAmountSelection"/>
+          <include name="verifySuccessfulPaymentPage"/>
           <include name="close"/>
           <include name="closereporter"/>
           <include name="setUp"/>
+          <include name="verifyCountdownTimerPage"/>
+        </methods>
+      </class> <!-- com.Remosys.Wevend.TestLayer.TestCarwash -->
+      <class name="com.Remosys.Wevend.TestLayer.TestGumBallPage">
+        <methods>
+          <include name="navigatePaymentPage"/>
+          <include name="verifyAddtocartFunctionality"/>
+          <include name="doPayment"/>
+          <include name="verifySuccessPage"/>
+          <include name="startReporter"/>
+          <include name="testResult"/>
+          <include name="close"/>
+          <include name="closereporter"/>
+          <include name="setUp"/>
+          <include name="verifyGumballLaunch"/>
           <include name="navigateCheckoutPageTest"/>
         </methods>
       </class> <!-- com.Remosys.Wevend.TestLayer.TestGumBallPage -->
+      <class name="com.Remosys.Wevend.TestLayer.TestHabcoPage">
+        <methods>
+          <include name="navigatePaymentPage"/>
+          <include name="verifyAddtocartFunctionality"/>
+          <include name="navigateCheckoutPageTest"/>
+          <include name="verifyHabcoLaunch"/>
+          <include name="verifySuccessPage"/>
+          <include name="startReporter"/>
+          <include name="testResult"/>
+          <include name="close"/>
+          <include name="doPayment"/>
+          <include name="closereporter"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.Remosys.Wevend.TestLayer.TestHabcoPage -->
+      <class name="com.Remosys.Wevend.TestLayer.TestWevendStore">
+        <methods>
+          <include name="verifyAddTocart"/>
+          <include name="verifyCheckoutPage"/>
+          <include name="verifyPaymentGateway"/>
+          <include name="verifyWevendLaunch"/>
+          <include name="startReporter"/>
+          <include name="testResult"/>
+          <include name="close"/>
+          <include name="closereporter"/>
+          <include name="setUp"/>
+          <include name="verifySuccessPage"/>
+        </methods>
+      </class> <!-- com.Remosys.Wevend.TestLayer.TestWevendStore -->
     </classes>
   </test> <!-- Wevend(failed) -->
 </suite> <!-- Failed suite [Suite] -->

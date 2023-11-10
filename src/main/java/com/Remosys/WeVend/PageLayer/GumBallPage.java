@@ -89,6 +89,20 @@ private WebElement proceedButton;
 private WebElement orderTotal;
 
 
+@FindBy(xpath = "//span[contains(text(),'Thank you')]")
+private WebElement ThankYouText;
+
+
+@FindBy(xpath = "//td[text()='Grand Total']/following-sibling::td")
+private WebElement grandTotal;
+
+@FindBy(xpath = "//table")
+private WebElement orderDetailTable;
+
+@FindBy(xpath = "//div[text()='Buy More']")
+private WebElement buyMoreBtn;
+
+
 
 
 /**
@@ -212,6 +226,10 @@ public void clickonPayBtn() {
 	// payBtn.click();
 }
 
+/**
+ * will retrieve List of products available 
+ * @return
+ */
 public int getProductListCount() {
 	List<WebElement> count = driver.findElements(countProductList);
 	return count.size();
@@ -226,18 +244,14 @@ public void clickOnProceed() {
 	proceedButton.click();
 }
 
+/**
+ * returns the title of the page
+ * @return
+ */
 public String getTitle() {
 	return driver.getTitle();
 }
 
-/**
- * Retrieves the order Total amount from the Checkout page.
- * 
- * @return
- */
-public String getCheckoutOrderTotal() {
-	return orderTotal.getText();
-}
 
 
 /**
@@ -266,6 +280,47 @@ public String buyNow(String productName) {
 	return productName;
 
 }
+
+/**
+ * Verifies the Thank you text is visible after payment is done
+ * @return
+ */
+public boolean verifySuccessfulPayment() {
+	util.waitForVisibilityOfElement(driver, ThankYouText);
+	if (ThankYouText.isDisplayed()) {
+		return true;
+	} else
+		return false;
+}
+
+
+/**
+ * Retrieves the order Total amount from the Checkout page.
+ * 
+ * @return
+ */
+public String getCheckoutOrderTotal() {
+	return orderTotal.getText();
+}
+
+/**
+ * Retrieves the grand total amount from the Success page.
+ * 
+ * @return
+ */
+public String getGrandTotal() {
+	return grandTotal.getText();
+}
+
+/**
+ * click on Buy More Button
+ */
+public void clickOnBuyMoreBtn() {
+	util.waitForElementToBeClickable(driver, buyMoreBtn);
+	buyMoreBtn.click();
+	util.waitForTitle(driver, excel.getExcelvalueForKey(2,"GumballTitle"));
+}
+
 
 
 

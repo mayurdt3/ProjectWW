@@ -63,7 +63,6 @@ public class Utility  {
 		String timestampString = timestamp.atZone(java.time.ZoneId.systemDefault()).format(formatter);
 
 		return timestampString;
-
 	}
 	
 

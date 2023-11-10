@@ -77,6 +77,24 @@ public class HabcoPage {
 
 	@FindBy(xpath = "//span[contains(text(),'Thank you')]")
 	private WebElement ThankYouText;
+	
+	@FindBy(xpath = "//strong[text()='Order Total']/parent::th/following-sibling::td//span")
+	private WebElement orderTotal;
+	
+	@FindBy(xpath = "//td[text()='Grand Total']/following-sibling::td")
+	private WebElement grandTotal;
+
+	@FindBy(xpath = "//table")
+	private WebElement orderDetailTable;
+
+	@FindBy(xpath = "//div[text()='Buy More']")
+	private WebElement buyMoreBtn;
+	
+	
+	
+	
+	
+	
 	/**
 	 * This method is used to test the logo of the Habco HomePage
 	 * 
@@ -183,9 +201,14 @@ public class HabcoPage {
 		proceedButton.click();
 	}
 
+	/**
+	 * returns the title of the page
+	 * @return
+	 */
 	public String getTitle() {
 		return driver.getTitle();
 	}
+	
 	/**
 	 * Adds a randomly selected product to the shopping cart from a list of
 	 * products.
@@ -214,6 +237,10 @@ public class HabcoPage {
 		return itemCount;
 	}
 	
+	/**
+	 * Verifies the Thank you text is visible after payment is done
+	 * @return
+	 */
 	public boolean verifySuccessfulPayment() {
 		util.waitForVisibilityOfElement(driver, ThankYouText);
 		if (ThankYouText.isDisplayed()) {
@@ -222,5 +249,32 @@ public class HabcoPage {
 			return false;
 	}
 
+
+	/**
+	 * Retrieves the order Total amount from the Checkout page.
+	 * 
+	 * @return
+	 */
+	public String getCheckoutOrderTotal() {
+		return orderTotal.getText();
+	}
+	
+	/**
+	 * Retrieves the grand total amount from the Success page.
+	 * 
+	 * @return
+	 */
+	public String getGrandTotal() {
+		return grandTotal.getText();
+	}
+	
+	/**
+	 * click on Buy More ButtonS
+	 */
+	public void clickOnBuyMoreBtn() {
+		util.waitForElementToBeClickable(driver, buyMoreBtn);
+		buyMoreBtn.click();
+		util.waitForTitle(driver, excel.getExcelvalueForKey(1,"HabcoTitle"));
+	}
 
 }

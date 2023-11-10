@@ -44,6 +44,7 @@ public class BaseClass {
 	public GumBallPage gumball;
 	
 	public DriverManagerClass manager;
+	
 	public static ExtentReports extent;
 	public static ExtentTest test;
 	public static ExtentSparkReporter spark;

@@ -26,17 +26,15 @@ import com.aventstack.extentreports.Status;
  *
  */
 public class TestCarwash extends BaseTest {
-	
-
 
 	/**
 	 * This method verifies the launch of Car wash application
 	 */
 	@Test(priority = 1)
 	public void verifylaunchCarWash() {
-		
+		test = extent.createTest("Verify 'Car Wash' payment cycle");
 		carwash = new CarWash(driver);
-		boolean a;
+		
 		driver.get(prop.getProperty("carWashUrl"));
 		try {
 			carwash.verifyHompageUrl();
@@ -44,14 +42,17 @@ public class TestCarwash extends BaseTest {
 
 			e.printStackTrace();
 		}
-		if (driver.getTitle().equals(excel.getExcelvalueForKey(0,"CarwashHomepagePageTitle"))) {
-			a = true;
+		boolean a = driver.getTitle().equals(excel.getExcelvalueForKey(0, "CarwashHomepagePageTitle"));
+		
+		if (a) {
+			test.log(Status.PASS, "'Car Wash' application launched sucessfully");
 		} else {
-			a = false;
+			test.log(Status.FAIL, "'Failed to launch the application");
 		}
-		test = extent.createTest("Verify 'Car Wash' payment cycle");
+
+	
+		test.log(Status.INFO, "title of Home page : '" + driver.getTitle() + "'");
 		Assert.assertTrue(a);
-		test.log(Status.PASS, "'Car Wash' application launched sucessfully");
 
 	}
 
@@ -63,16 +64,15 @@ public class TestCarwash extends BaseTest {
 	@Test(dependsOnMethods = "verifylaunchCarWash")
 	public void verifyAmountSelection() {
 		try {
-		carwash.payUsingManualpayment(excel.getExcelvalueForKey(0,"Amount"));
-		}
-		catch (Exception e) {
-		e.printStackTrace();
+			carwash.payUsingManualpayment(excel.getExcelvalueForKey(0, "Amount"));
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		test.log(Status.INFO, "Amount selected");
 		Assert.assertTrue(carwash.verifyNavigateToPaymentGateway());
 		test.log(Status.PASS, "Navigate to 'Payment GateWay' successfuly");
 	}
-	
+
 	/**
 	 * This method verifies the successful navigation of Payment Gateway
 	 * 
@@ -83,21 +83,26 @@ public class TestCarwash extends BaseTest {
 
 		PaymentGateway pay = new PaymentGateway(driver);
 		try {
-			Assert.assertEquals(driver.getTitle(), excel.getExcelvalueForKey(0,"PayemtGatwayPageTitle"));
-			test.log(Status.PASS, "Navigate to 'Payment Gateway' page sucessfully");
-			pay.enterCardNum(excel.getExcelvalueForKey(0,"CardNo"));
-			pay.enterCardExpiryDate(excel.getExcelvalueForKey(0,"CardExpiry"));
-			pay.enterCardCvv(excel.getExcelvalueForKey(0,"CardCvv"));
+			if(driver.getTitle().equals(excel.getExcelvalueForKey(0, "PayemtGatwayPageTitle"))) {
+				test.log(Status.PASS, "Navigate to 'Payment Gateway' page sucessfully");
+			}
+			else {
+				test.log(Status.FAIL, "Failed to Navigate to 'Payment Gateway' page");
+			}
+			
+			test.log(Status.INFO, "Title of 'Payment Gateway' page : '" + driver.getTitle() + "'");
+			
+			pay.enterCardNum(excel.getExcelvalueForKey(0, "CardNo"));
+			pay.enterCardExpiryDate(excel.getExcelvalueForKey(0, "CardExpiry"));
+			pay.enterCardCvv(excel.getExcelvalueForKey(0, "CardCvv"));
 		} catch (Exception e) {
 			test.log(Status.INFO, "Failed to enter Card detail");
 		}
+		
 		Assert.assertTrue(carwash.isAuthorizebtnEnabled());
 
 	}
 
-	
-	
-	
 	/**
 	 * Verifies Count down page Functionality.
 	 */
@@ -112,8 +117,7 @@ public class TestCarwash extends BaseTest {
 			test.log(Status.FAIL, "Failed to navigat to 'payment success' page");
 			e.printStackTrace();
 		}
-	
-		
+
 //		try {
 //			carwash.selectDoneAfterSomeTime();
 //			test.log(Status.PASS, "Click on 'Done' button after count down");
@@ -121,7 +125,7 @@ public class TestCarwash extends BaseTest {
 //			test.log(Status.FAIL, "Failed to Click on Done button after count down");
 //			e.printStackTrace();
 //		}
-		
+
 		try {
 			carwash.selectDoneAfterSomeTime();
 			test.log(Status.INFO, "Click on 'Done' button after '5' seconds");
@@ -132,29 +136,24 @@ public class TestCarwash extends BaseTest {
 		Assert.assertTrue(carwash.isThankYouMessageDisplayed());
 	}
 
-	
 	/**
-	 * Verifies the Successful navigation to Payment success page
-	 * Verifies bill amount with selected amount
+	 * Verifies the Successful navigation to Payment success page Verifies bill
+	 * amount with selected amount
 	 */
 	@Test(dependsOnMethods = "verifyCountdownTimerPage")
 	public void verifySuccessfulPaymentPage() {
-		if(carwash.isOrderIdDisplayed()&&carwash.isBillAmmountDisplayed()) {
+		if (carwash.isOrderIdDisplayed() && carwash.isBillAmmountDisplayed()) {
 			test.log(Status.INFO, carwash.getOrderId());
-			test.log(Status.INFO, "Bill amount :"+carwash.getBillAmmount());
+			test.log(Status.INFO, "Bill amount :" + carwash.getBillAmmount());
 		}
-		if (carwash.getBillAmmount().equals(excel.getExcelvalueForKey(0,"Amount"))) {
+		if (carwash.getBillAmmount().equals(excel.getExcelvalueForKey(0, "Amount"))) {
 			test.log(Status.PASS, "Ammount selected before payment and Bill-amount is same");
-			
+
 		} else {
 			test.log(Status.FAIL, "Ammount selected before payment and Bill-amount is different");
 		}
-		Assert.assertTrue(carwash.getBillAmmount().equals(excel.getExcelvalueForKey(0,"Amount")));
-		
+		Assert.assertTrue(carwash.getBillAmmount().equals(excel.getExcelvalueForKey(0, "Amount")));
 
 	}
-	
-	
-
 
 }

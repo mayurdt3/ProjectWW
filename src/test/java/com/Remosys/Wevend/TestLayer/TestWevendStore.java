@@ -53,6 +53,7 @@ public class TestWevendStore extends BaseTest {
 		} else {
 			test.log(Status.FAIL, "Application is failed to launch");
 		}
+		test.log(Status.INFO, "Title of Home page : '"+ driver.getTitle()+"'");
 		assertEquals(driver.getCurrentUrl(), excel.getExcelvalueForKey(0, "WevendStoreUrl"));
 	}
 
@@ -95,7 +96,7 @@ public class TestWevendStore extends BaseTest {
 
 	/**
 	 * This method Verifies successful navigation to Checkout page verifies
-	 * Cart-subtotal is matching with Order-Total Verifies checkout ItmCount is same
+	 * Cart sub-total is matching with Order-Total Verifies checkout ItmCount is same
 	 * as number of Items And verifies the navigation to payment gateway page
 	 */
 	@Test(dependsOnMethods = "verifyAddTocart")
@@ -111,6 +112,7 @@ public class TestWevendStore extends BaseTest {
 		} else {
 			test.log(Status.FAIL, "Failed to navigate to 'Checkout' page");
 		}
+		test.log(Status.INFO, "Title of Checkout page : '"+ driver.getTitle()+"'");
 		Assert.assertEquals(driver.getTitle(), excel.getExcelvalueForKey(0, "CheckoutPageTitle"));
 
 		wevend.getWevendPaymentMethodText();
@@ -142,7 +144,7 @@ public class TestWevendStore extends BaseTest {
 		} else {
 			test.log(Status.FAIL, "Failed to Navigate to 'Payment Gateway' page");
 		}
-
+		test.log(Status.INFO, "Title of Payment Gateway page : '"+ driver.getTitle()+"'");
 		Assert.assertEquals(driver.getTitle(), excel.getExcelvalueForKey(0, "PayemtGatwayPageTitle"));
 
 		PaymentGateway pay = new PaymentGateway(driver);
@@ -175,6 +177,7 @@ public class TestWevendStore extends BaseTest {
 		} else {
 			test.log(Status.FAIL, "Payment Failed");
 		}
+		test.log(Status.INFO, "Title of payment success page : '"+ driver.getTitle()+"'");
 		Assert.assertTrue(verify);
 		try {
 			if (wevend.getGrandTotal().equals(orderTotaltxt)) {
@@ -197,6 +200,7 @@ public class TestWevendStore extends BaseTest {
 			test.log(Status.INFO, "Selection of 'Buy More' button failed to navigate to 'Homepage;");
 		}
 		Assert.assertEquals(driver.getTitle(), excel.getExcelvalueForKey(0, "WevendHompageTitle"));
+		test.log(Status.INFO, "Title of Home page : '"+ driver.getTitle()+"'");
 	}
 
 }
