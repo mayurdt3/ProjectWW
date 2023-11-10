@@ -9,7 +9,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.Remosys.WeVend.Reader.ExcelFileReader;
 import com.Remosys.WeVend.utility.Utility;
-
+/**
+ * This class encapsulates the elements, actions, and functionality related to a
+ * 'Habco' web application.
+ * 
+ * @author Remosys Testing Team.
+ *
+ *         Usage: 1. Create an instance of this class to interact with the web
+ *         page. 2. Implement actions and verifications relevant to the
+ *         applications functionality.
+ * 
+ */
 public class HabcoPage {
 
 	private WebDriver driver;
@@ -25,9 +35,6 @@ public class HabcoPage {
 	}
 
 	private By logoHabco = By.xpath("//a[@class='logo']//img");
-//	private By addToCart = By.xpath("//div[@class='product-item-info']//strong//a[@title='" + productName+ "']/../following-sibling::div[@class='product-item-inner']//button[@title='Add to Cart']");
-
-//	private By buyNow = By.xpath("//div[@class='product-item-info']//strong//a[@title='" + productName	+ "']/../following-sibling::div[@class='product-item-inner']//button[@title='Buy Now']");
 
 	@FindBy(xpath = "//div[contains(text(),'You added ')]")
 	public WebElement cartSuccessText;
@@ -59,28 +66,26 @@ public class HabcoPage {
 	private WebElement avsLogo;
 
 	@FindBy(xpath = "//div[@class='actions-primary']/form")
-	private List<WebElement> AddtoCartButtonContainer;
+	private List<WebElement> addtoCartButtonContainer;
 
 	@FindBy(xpath = "//li[@class ='product-item']")
 	private List<WebElement> productList;
-
-	//private List<WebElement> buyNowButtons;
 
 	@FindBy(xpath = "//span[text()='Add to Cart']")
 	private List<WebElement> addToCartButtons;
 
 	@FindBy(xpath = "//div[contains(text(),'You added ')]")
 	private WebElement addToCartSuccessMsg;
-	
+
 	@FindBy(xpath = "//div[@data-block='minicart']/a/descendant::span[@class='counter-number']")
 	private WebElement cartItemsCount;
 
 	@FindBy(xpath = "//span[contains(text(),'Thank you')]")
-	private WebElement ThankYouText;
-	
+	private WebElement thankYouText;
+
 	@FindBy(xpath = "//strong[text()='Order Total']/parent::th/following-sibling::td//span")
 	private WebElement orderTotal;
-	
+
 	@FindBy(xpath = "//td[text()='Grand Total']/following-sibling::td")
 	private WebElement grandTotal;
 
@@ -89,12 +94,7 @@ public class HabcoPage {
 
 	@FindBy(xpath = "//div[text()='Buy More']")
 	private WebElement buyMoreBtn;
-	
-	
-	
-	
-	
-	
+
 	/**
 	 * This method is used to test the logo of the Habco HomePage
 	 * 
@@ -114,7 +114,7 @@ public class HabcoPage {
 	 */
 
 	public String buyNow(String productName) {
-		
+
 		WebElement buyItem = driver.findElement(By.xpath("//div[@class='product-item-info']//strong//a[@title='"
 				+ productName + "']/../following-sibling::div[@class='product-item-inner']//button[@title='Buy Now']"));
 		util.waitForElementWithFrequency(driver, buyItem, getProductListCount(), 2);
@@ -128,7 +128,7 @@ public class HabcoPage {
 	 * 
 	 * @return Cart Success Text
 	 */
-	public String CartSuccessmsg() {
+	public String cartSuccessmsg() {
 
 		util.waitForVisibilityOfElement(driver, cartSuccessText);
 		return cartSuccessText.getText();
@@ -163,7 +163,7 @@ public class HabcoPage {
 	public void clickOnProceedToCheckoutBtn() {
 		util.waitForVisibilityOfElement(driver, proceedToCheckoutBtn);
 		proceedToCheckoutBtn.click();
-		util.waitForTitle(driver, excel.getExcelvalueForKey(1,"CheckoutPageTitle"));
+		util.waitForTitle(driver, excel.getExcelvalueForKey(1, "CheckoutPageTitle"));
 	}
 
 	/**
@@ -203,23 +203,25 @@ public class HabcoPage {
 
 	/**
 	 * returns the title of the page
+	 * 
 	 * @return
 	 */
 	public String getTitle() {
 		return driver.getTitle();
 	}
-	
+
 	/**
 	 * Adds a randomly selected product to the shopping cart from a list of
 	 * products.
 	 */
-	public void AddProductToCart(String s) {
-		String addtocartbuttonlocator = "//a[@title ='"+s+"']/parent :: strong// following-sibling:: div//button[@title='Add to Cart']";
+	public void addProductToCart(String s) {
+		String addtocartbuttonlocator = "//a[@title ='" + s
+				+ "']/parent :: strong// following-sibling:: div//button[@title='Add to Cart']";
 		WebElement pr = driver.findElement(By.xpath(addtocartbuttonlocator));
 		pr.click();
-		
+
 	}
-	
+
 	/**
 	 * Retrieves the count of items in the shopping cart.
 	 * 
@@ -236,19 +238,19 @@ public class HabcoPage {
 		}
 		return itemCount;
 	}
-	
+
 	/**
 	 * Verifies the Thank you text is visible after payment is done
+	 * 
 	 * @return
 	 */
 	public boolean verifySuccessfulPayment() {
-		util.waitForVisibilityOfElement(driver, ThankYouText);
-		if (ThankYouText.isDisplayed()) {
+		util.waitForVisibilityOfElement(driver, thankYouText);
+		if (thankYouText.isDisplayed()) {
 			return true;
 		} else
 			return false;
 	}
-
 
 	/**
 	 * Retrieves the order Total amount from the Checkout page.
@@ -258,7 +260,7 @@ public class HabcoPage {
 	public String getCheckoutOrderTotal() {
 		return orderTotal.getText();
 	}
-	
+
 	/**
 	 * Retrieves the grand total amount from the Success page.
 	 * 
@@ -267,14 +269,14 @@ public class HabcoPage {
 	public String getGrandTotal() {
 		return grandTotal.getText();
 	}
-	
+
 	/**
 	 * click on Buy More ButtonS
 	 */
 	public void clickOnBuyMoreBtn() {
 		util.waitForElementToBeClickable(driver, buyMoreBtn);
 		buyMoreBtn.click();
-		util.waitForTitle(driver, excel.getExcelvalueForKey(1,"HabcoTitle"));
+		util.waitForTitle(driver, excel.getExcelvalueForKey(1, "HabcoTitle"));
 	}
 
 }

@@ -16,7 +16,7 @@ import com.aventstack.extentreports.Status;
  * Automation Framework design pattern, ensuring structured and repeatable
  * testing.
  * 
- * @author Mayur Takalikar.
+ * @author Remosys Testing Team.
  *
  *         Usage: 1. Create test methods within this class that represent
  *         specific test cases or scenarios. 2. Implement test steps, including
@@ -29,30 +29,30 @@ public class TestCarwash extends BaseTest {
 
 	/**
 	 * This method verifies the launch of Car wash application
+	 * @throws InterruptedException 
 	 */
 	@Test(priority = 1)
 	public void verifylaunchCarWash() {
 		test = extent.createTest("Verify 'Car Wash' payment cycle");
 		carwash = new CarWash(driver);
-		
+
 		driver.get(prop.getProperty("carWashUrl"));
+		
 		try {
 			carwash.verifyHompageUrl();
 		} catch (IOException e) {
-
 			e.printStackTrace();
 		}
-		boolean a = driver.getTitle().equals(excel.getExcelvalueForKey(0, "CarwashHomepagePageTitle"));
-		
+		boolean a = carwash.getTitle().equals(excel.getExcelvalueForKey(0, "CarwashHomepagePageTitle"));
+
 		if (a) {
 			test.log(Status.PASS, "'Car Wash' application launched sucessfully");
 		} else {
 			test.log(Status.FAIL, "'Failed to launch the application");
 		}
 
-	
-		test.log(Status.INFO, "title of Home page : '" + driver.getTitle() + "'");
-		Assert.assertTrue(a);
+		test.log(Status.INFO, "title of Home page : '" + carwash.getTitle() + "'");
+		Assert.assertEquals(carwash.getTitle(),excel.getExcelvalueForKey(0, "CarwashHomepagePageTitle"));
 
 	}
 
@@ -68,8 +68,9 @@ public class TestCarwash extends BaseTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		boolean verify = carwash.verifyNavigateToPaymentGateway();
 		test.log(Status.INFO, "Amount selected");
-		Assert.assertTrue(carwash.verifyNavigateToPaymentGateway());
+		Assert.assertEquals(true, verify);
 		test.log(Status.PASS, "Navigate to 'Payment GateWay' successfuly");
 	}
 
@@ -83,23 +84,22 @@ public class TestCarwash extends BaseTest {
 
 		PaymentGateway pay = new PaymentGateway(driver);
 		try {
-			if(driver.getTitle().equals(excel.getExcelvalueForKey(0, "PayemtGatwayPageTitle"))) {
+			if (carwash.getTitle().equals(excel.getExcelvalueForKey(0, "PayemtGatwayPageTitle"))) {
 				test.log(Status.PASS, "Navigate to 'Payment Gateway' page sucessfully");
-			}
-			else {
+			} else {
 				test.log(Status.FAIL, "Failed to Navigate to 'Payment Gateway' page");
 			}
-			
-			test.log(Status.INFO, "Title of 'Payment Gateway' page : '" + driver.getTitle() + "'");
-			
+
+			test.log(Status.INFO, "Title of 'Payment Gateway' page : '" + carwash.getTitle() + "'");
+
 			pay.enterCardNum(excel.getExcelvalueForKey(0, "CardNo"));
 			pay.enterCardExpiryDate(excel.getExcelvalueForKey(0, "CardExpiry"));
 			pay.enterCardCvv(excel.getExcelvalueForKey(0, "CardCvv"));
 		} catch (Exception e) {
 			test.log(Status.INFO, "Failed to enter Card detail");
 		}
-		
-		Assert.assertTrue(carwash.isAuthorizebtnEnabled());
+		boolean verify =carwash.isAuthorizebtnEnabled();
+		Assert.assertEquals(true, verify);
 
 	}
 
@@ -111,20 +111,12 @@ public class TestCarwash extends BaseTest {
 		carwash.selectAuthorizeBtn();
 		try {
 			if (carwash.isLogoDispayed()) {
-				test.log(Status.PASS, "Navigate to 'Payment Success' page Successfuly");
+				test.log(Status.PASS, "Navigate to 'Payment Success' page Successfully");
 			}
 		} catch (Exception e) {
 			test.log(Status.FAIL, "Failed to navigat to 'payment success' page");
 			e.printStackTrace();
 		}
-
-//		try {
-//			carwash.selectDoneAfterSomeTime();
-//			test.log(Status.PASS, "Click on 'Done' button after count down");
-//		} catch (Exception e) {
-//			test.log(Status.FAIL, "Failed to Click on Done button after count down");
-//			e.printStackTrace();
-//		}
 
 		try {
 			carwash.selectDoneAfterSomeTime();
@@ -133,7 +125,8 @@ public class TestCarwash extends BaseTest {
 			test.log(Status.FAIL, "Failed to Click on Done button after 5 seconds");
 			e.printStackTrace();
 		}
-		Assert.assertTrue(carwash.isThankYouMessageDisplayed());
+		boolean verify = carwash.isThankYouMessageDisplayed();
+		Assert.assertEquals(true, verify);
 	}
 
 	/**
@@ -152,7 +145,7 @@ public class TestCarwash extends BaseTest {
 		} else {
 			test.log(Status.FAIL, "Ammount selected before payment and Bill-amount is different");
 		}
-		Assert.assertTrue(carwash.getBillAmmount().equals(excel.getExcelvalueForKey(0, "Amount")));
+		Assert.assertEquals(carwash.getBillAmmount(),(excel.getExcelvalueForKey(0, "Amount")));
 
 	}
 

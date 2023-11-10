@@ -11,12 +11,11 @@ import org.openqa.selenium.support.PageFactory;
 import com.Remosys.WeVend.Reader.ExcelFileReader;
 import com.Remosys.WeVend.utility.Utility;
 
-
 /**
  * This class encapsulates the elements, actions, and functionality related to a
  * 'Car Wash' web application.
  * 
- * @author Mayur Takalikar.
+ * @author Remosys Testing Team.
  *
  *         Usage: 1. Create an instance of this class to interact with the web
  *         page. 2. Implement actions and verifications relevant to the
@@ -24,11 +23,11 @@ import com.Remosys.WeVend.utility.Utility;
  * 
  */
 
-public class CarWash  {
-		protected WebDriver driver;
-		public ExcelFileReader excel;
-		public Utility util;
-		
+public class CarWash {
+	protected WebDriver driver;
+	public ExcelFileReader excel;
+	public Utility util;
+
 	/**
 	 * this constructor will initialize configFile and Utility class objects so that
 	 * they can be used for this class
@@ -80,22 +79,22 @@ public class CarWash  {
 	protected WebElement authorize;
 
 	@FindBy(xpath = "//div[class='paymentSelectHeading mt-5 mb-3']")
-	protected WebElement gatwayHederText;
+	protected WebElement gatewayHederText;
 
 	@FindBy(xpath = "//div[@class='timer']//span[1]")
 	protected WebElement timerInMin;
 
 	@FindBy(xpath = "//div[@class='timer']//span[3]")
-	protected WebElement timerInsec;
+	protected WebElement timerInSec;
 
 	@FindBy(xpath = "//b[text()='Message from the Device:']//following-sibling::br")
-	protected WebElement messageFromeDevice;
+	protected WebElement messageFromDevice;
 
 	@FindBy(xpath = "//button[text()='Done']")
 	protected WebElement doneBtn;
 
 	@FindBy(xpath = "//h1[text()='Thank you!']")
-	protected WebElement thankYoumessage;
+	protected WebElement thankYouMessage;
 
 	@FindBy(xpath = "//li[1]")
 	protected WebElement orderId;
@@ -104,25 +103,25 @@ public class CarWash  {
 	protected WebElement billAmount;
 
 	@FindBy(xpath = "//input[@name='contact']")
-	protected WebElement mobileNoTextBoxt;
+	protected WebElement mobileNoTextBox;
 
 	@FindBy(xpath = "//input[@name='emailId']")
-	protected WebElement emailIdTextBoxt;
+	protected WebElement emailIdTextBox;
 
 	@FindBy(xpath = "//button[@class='receipt_btn']")
 	protected WebElement getReceiptBtn;
 
 	/******** methods *********/
 
-	
 	/**
-	 * This method will select Amount from the quick payment options and click on pay button
+	 * This method will select Amount from the quick payment options and click on
+	 * pay button
 	 * 
 	 * @param expectedAmount
 	 * @return
 	 */
-	public boolean PayUsingQuickpaymentOption(String expectedAmount) {
-		
+	public boolean payUsingQuickPaymentOption(String expectedAmount) {
+
 		try {
 			for (WebElement amountOption : amountOptions) {
 				String a = amountOption.getText();
@@ -132,7 +131,7 @@ public class CarWash  {
 				}
 			}
 			if (payBtn.getText().contains(expectedAmount)) {
-				ClickOnPayBtn();
+				clickOnPayBtn();
 				return true;
 			}
 		} catch (Exception e) {
@@ -142,22 +141,23 @@ public class CarWash  {
 	}
 
 	/**
-	 * This Method will select Amount manually using increment buttons and click on pay button
+	 * This Method will select Amount manually using increment buttons and click on
+	 * pay button
 	 *
 	 * @param expectedAmount
 	 * @return
 	 */
-	public boolean payUsingManualpayment(String expectedAmount) {// 4.25
-		
+	public boolean payUsingManualPayment(String expectedAmount) {
+
 		try {
 			if ((manualAmount.getText().contains(expectedAmount))) {
-				ClickOnPayBtn();
+				clickOnPayBtn();
 			}
 			while (!(manualAmount.getText().contains(expectedAmount))) {
 				incrementBtn.click();
 				if (payBtn.getText().contains(expectedAmount)) {
-					ClickOnPayBtn();
-					// util.waitForVisibilityOfElement(carwash.cardNumber);
+					clickOnPayBtn();
+
 					break;
 				}
 			}
@@ -167,12 +167,12 @@ public class CarWash  {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * This method returns the string containing selected Amount text
 	 */
 	public String getSelectedAmount() {
-		
+
 		util.waitForVisibilityOfElement(driver, manualAmount);
 		return manualAmount.getText();
 	}
@@ -180,7 +180,7 @@ public class CarWash  {
 	/**
 	 * This method click on pay Button
 	 */
-	public void ClickOnPayBtn() {
+	public void clickOnPayBtn() {
 
 		util.waitForElementToBeClickable(driver, payBtn);
 		try {
@@ -191,29 +191,31 @@ public class CarWash  {
 	}
 
 	/**
-	 * This method verifies the launch of the application and returns a boolean value
+	 * This method verifies the launch of the application and returns a boolean
+	 * value
 	 * 
 	 * @return
 	 * @throws IOException
 	 */
 	public boolean verifyHompageUrl() throws IOException {
-		
-		util.waitForUrlToLoad(driver, excel.getExcelvalueForKey(0,"carWashUrl"));
-		return driver.getCurrentUrl().equals(excel.getExcelvalueForKey(0,"carWashUrl"));
+
+		util.waitForUrlToLoad(driver, excel.getExcelvalueForKey(0, "carWashUrl"));
+		return driver.getCurrentUrl().equals(excel.getExcelvalueForKey(0, "carWashUrl"));
 	}
-	
-	
+
 	/**
 	 * check successful navigation to payment gateway page
+	 * 
 	 * @return
 	 */
 	public boolean verifyNavigateToPaymentGateway() {
 		util.waitForVisibilityOfElement(driver, authorize);
 		return authorize.isDisplayed();
 	}
-	
+
 	/**
-	 * check authorize button is enabled 
+	 * check authorize button is enabled
+	 * 
 	 * @return
 	 */
 	public boolean isAuthorizebtnEnabled() {
@@ -225,9 +227,9 @@ public class CarWash  {
 	 * This method click on Authorize Button present on payment gateway page
 	 */
 	public void selectAuthorizeBtn() {
-		
+
 		util.waitForElementToBeClickable(driver, authorize);
-		//authorize.click();     /// For Preventing it from doing payment
+		// authorize.click(); /// For Preventing it from doing payment
 		util.waitForVisibilityOfElement(driver, timer);
 
 	}
@@ -238,8 +240,8 @@ public class CarWash  {
 	 * @return
 	 */
 	public String getcountdownTime() {
-		
-		String countdownTime = timerInMin.getText() + ":" + timerInsec.getText();
+
+		String countdownTime = timerInMin.getText() + ":" + timerInSec.getText();
 		return countdownTime;
 	}
 
@@ -248,7 +250,7 @@ public class CarWash  {
 	 * Done Button. * @return
 	 */
 	public boolean selectDoneAfterSomeTime() {
-		
+
 		try {
 			while (!(getcountdownTime().equals("04:55"))) {
 			}
@@ -261,13 +263,12 @@ public class CarWash  {
 		}
 	}
 
-	
 	/**
 	 * this method will wait till timer count down is over. and then will click on
 	 * Done Button. * @return
 	 */
 	public boolean selectDoneAfterCountdown() {
-		
+
 		try {
 			while (!(getcountdownTime().equals("00:00"))) {
 				Thread.sleep(5000);
@@ -282,34 +283,37 @@ public class CarWash  {
 		}
 	}
 
-	
 	/**
 	 * check if Logo is displayed
-	 * @return
+	 * 
+	 * @return boolean value if Car wash logo is displayed.
 	 */
 	public boolean isLogoDispayed() {
 		return carwashLogo.isDisplayed();
 	}
-	
+
 	/**
 	 * checks if Bill Amount is displayed
-	 * @return
+	 * 
+	 * @return boolean value if bill amount is displayed.
 	 */
 	public boolean isBillAmmountDisplayed() {
 		return billAmount.isDisplayed();
 	}
-	
+
 	/**
 	 * checks if Order ID is Displayed
-	 * @return
+	 * 
+	 * @return boolean value if order id is displayed.
 	 */
 	public boolean isOrderIdDisplayed() {
 		return orderId.isDisplayed();
 	}
-	
+
 	/**
 	 * Retrieves the Order ID
-	 * @return
+	 * 
+	 * @return orderId
 	 */
 	public String getOrderId() {
 		return orderId.getText();
@@ -319,51 +323,66 @@ public class CarWash  {
 	 * This method will return a string value by removing text before "$" sign from
 	 * the Bill Amount
 	 * 
-	 * @return
+	 * @return AmountString
 	 */
 	public String getBillAmmount() {
 		String s = billAmount.getText();
 		int dollarIndex = s.indexOf('$');
 		if (dollarIndex != -1) {
-			String AmountString = s.substring(dollarIndex + 1).trim();	
-//		  String[] parts = s.split("\\$");        
-//	        if (parts.length == 2) {
-//	            String text = parts[0].trim(); // "Amount"
-//	            String number = parts[1].trim();
+			String AmountString = s.substring(dollarIndex + 1).trim();
+
 			return AmountString;
 		}
 		return s;
 	}
-	
+
 	/**
 	 * Check if Thank You message is Displayed
-	 * @return
+	 * 
+	 * @return thankYoumessage
 	 */
 	public boolean isThankYouMessageDisplayed() {
-		return thankYoumessage.isDisplayed();
+		return thankYouMessage.isDisplayed();
 	}
 
-	//not working
+	/**
+	 * For future implementation
+	 * 
+	 * @return messageFromeDevice
+	 */
 	public String getMessageFormDevice() {
-		return messageFromeDevice.getText();
+		return messageFromDevice.getText();
 	}
 
-	//not working
+	/**
+	 * For future implementation
+	 * 
+	 * @return messageFromeDevice
+	 */
 	public String getDeviceMessageValeforKey(String datakey) {
 		String message = getMessageFormDevice();
 		message = message.replace("{", "").replace("}", "");
 
-		String[] jsonData = message.split("\",\""); // ","
-		// System.out.println(jsonData.length);
+		String[] jsonData = message.split("\",\"");
+
 		for (String keyValue : jsonData) {
 			if (keyValue.contains(datakey)) {
 				String[] data = keyValue.split("\":\"");
-				// System.out.println("key: " + data[0]);
+
 				System.out.println("Value: " + data[1]);
 				return data[1];
 			}
 		}
 		return null;
+	}
+	
+	/**
+	 * returns the title of the page
+	 * 
+	 * @return
+	 */
+	public String getTitle() {
+		return driver.getTitle();
 	}
 
 }

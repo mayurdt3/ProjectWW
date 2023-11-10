@@ -10,330 +10,310 @@ import org.openqa.selenium.support.PageFactory;
 import com.Remosys.WeVend.Reader.ExcelFileReader;
 import com.Remosys.WeVend.utility.Utility;
 
+/**
+ * This class encapsulates the elements, actions, and functionality related to a
+ * 'Gum Ball' web application.
+ * 
+ * @author Remosys Testing Team.
+ *
+ *         Usage: 1. Create an instance of this class to interact with the web
+ *         page. 2. Implement actions and verifications relevant to the
+ *         applications functionality.
+ * 
+ */
+
 public class GumBallPage {
-	
-	
+
 	protected WebDriver driver;
 	public ExcelFileReader excel;
 	public Utility util;
 
-	
-	
-	
 	public GumBallPage(WebDriver driver) {
-			this.driver = driver;
-			util = new Utility();
-			excel = new ExcelFileReader();
-			PageFactory.initElements(driver, this);
+		this.driver = driver;
+		util = new Utility();
+		excel = new ExcelFileReader();
+		PageFactory.initElements(driver, this);
 	}
-	
-	
 
-/**
- * 
- * Home page WebelElements
- * 
- **/
+	/**
+	 * 
+	 * Home page WebelElements
+	 * 
+	 **/
 
-@FindBy(xpath = "//a[@class='logo']")
-private WebElement logoGumball;
+	@FindBy(xpath = "//a[@class='logo']")
+	private WebElement logoGumball;
 
-// "//div[@class='actions-primary']/form[@data-role='tocart-form']")
-@FindBy(xpath = "//div[@class='actions-primary']/form")
-private List<WebElement> AddtoCartButtonContainer;
+	@FindBy(xpath = "//div[@class='actions-primary']/form")
+	private List<WebElement> addtoCartButtonContainer;
 
-@FindBy(xpath = "//li[@class ='product-item']")
-private List<WebElement> productList;
+	@FindBy(xpath = "//li[@class ='product-item']")
+	private List<WebElement> productList;
 
-@FindBy(xpath = "//a//span[@class='counter-number']")
-private WebElement cartItemsCount;
+	@FindBy(xpath = "//a//span[@class='counter-number']")
+	private WebElement cartItemsCount;
 
-@FindBy(xpath = "//div[@data-block='minicart']/a/descendant::span[@class='counter-number']")
-private List<WebElement> buyNowButtons;
+	@FindBy(xpath = "//div[@data-block='minicart']/a/descendant::span[@class='counter-number']")
+	private List<WebElement> buyNowButtons;
 
-@FindBy(xpath = "//span[text()='Add to Cart']")
-private List<WebElement> addToCartButtons;
+	@FindBy(xpath = "//span[text()='Add to Cart']")
+	private List<WebElement> addToCartButtons;
 
-@FindBy(xpath = "//div[contains(text(),'You added ')]")
-private WebElement addToCartSuccessMsg;
-// div[@role='alert']
+	@FindBy(xpath = "//div[contains(text(),'You added ')]")
+	private WebElement addToCartSuccessMsg;
 
-@FindBy(xpath = "//a//span[text()='My Cart']")
-private WebElement cartIcon;
+	@FindBy(xpath = "//a//span[text()='My Cart']")
+	private WebElement cartIcon;
 
-@FindBy(xpath = "//div[contains(text(),'You added ')]")
-public WebElement cartSuccessText;
+	@FindBy(xpath = "//div[contains(text(),'You added ')]")
+	public WebElement cartSuccessText;
 
-@FindBy(xpath = "//div[@class='amount price-container']//span[@class='price']")
-public WebElement cartSubtotal;
+	@FindBy(xpath = "//div[@class='amount price-container']//span[@class='price']")
+	public WebElement cartSubtotal;
 
-@FindBy(xpath = "//button[@id='top-cart-btn-checkout']")
-private WebElement proceedToCheckoutBtn;
+	@FindBy(xpath = "//button[@id='top-cart-btn-checkout']")
+	private WebElement proceedToCheckoutBtn;
 
-@FindBy(xpath = "//div[@class='payment-method _active']//div[contains(@class,'payment-method-title')]/span")
-private WebElement paymentMethod;
+	@FindBy(xpath = "//div[@class='payment-method _active']//div[contains(@class,'payment-method-title')]/span")
+	private WebElement paymentMethod;
 
-@FindBy(xpath = "//button[contains(text(),'Pay')]")
-private WebElement payBtn;
+	@FindBy(xpath = "//button[contains(text(),'Pay')]")
+	private WebElement payBtn;
 
-@FindBy(xpath = "//b[text()='Card Pay']")
-private WebElement cardPayOption;
+	@FindBy(xpath = "//b[text()='Card Pay']")
+	private WebElement cardPayOption;
 
-private By countProductList = By.xpath("//div[@class='products-grid grid']//li");
+	private By countProductList = By.xpath("//div[@class='products-grid grid']//li");
 
-@FindBy(xpath = "//button/span[text()='Proceed']")
-private WebElement proceedButton;
+	@FindBy(xpath = "//button/span[text()='Proceed']")
+	private WebElement proceedButton;
 
+	@FindBy(xpath = "//strong[text()='Order Total']/parent::th/following-sibling::td//span")
+	private WebElement orderTotal;
 
-@FindBy(xpath = "//strong[text()='Order Total']/parent::th/following-sibling::td//span")
-private WebElement orderTotal;
+	@FindBy(xpath = "//span[contains(text(),'Thank you')]")
+	private WebElement thankYouText;
 
+	@FindBy(xpath = "//td[text()='Grand Total']/following-sibling::td")
+	private WebElement grandTotal;
 
-@FindBy(xpath = "//span[contains(text(),'Thank you')]")
-private WebElement ThankYouText;
+	@FindBy(xpath = "//table")
+	private WebElement orderDetailTable;
 
+	@FindBy(xpath = "//div[text()='Buy More']")
+	private WebElement buyMoreBtn;
 
-@FindBy(xpath = "//td[text()='Grand Total']/following-sibling::td")
-private WebElement grandTotal;
+	/**
+	 * Clicks on the "Add to Cart" button for a specific product.
+	 *
+	 * @param product
+	 */
 
-@FindBy(xpath = "//table")
-private WebElement orderDetailTable;
-
-@FindBy(xpath = "//div[text()='Buy More']")
-private WebElement buyMoreBtn;
-
-
-
-
-/**
- * Clicks on the "Add to Cart" button for a specific product.
- *
- * @param product
- */
-
-public void clickOnAddToCart(String product) {
-	// Iterate through the "Add to Cart" button container.
-	System.out.println(AddtoCartButtonContainer.size());
-	for (int i = 0; i < AddtoCartButtonContainer.size(); i++) {
-		WebElement productName = AddtoCartButtonContainer.get(i);
-		String productNameText = productName.getAttribute("data-product-sku");
-		if (product.equalsIgnoreCase(productNameText)) {
-			WebElement itemName = addToCartButtons.get(i);
-			util.waitForElementToBeClickable(driver, itemName);
-			itemName.click();
+	public void clickOnAddToCart(String product) {
+		// Iterate through the "Add to Cart" button container.
+		System.out.println(addtoCartButtonContainer.size());
+		for (int i = 0; i < addtoCartButtonContainer.size(); i++) {
+			WebElement productName = addtoCartButtonContainer.get(i);
+			String productNameText = productName.getAttribute("data-product-sku");
+			if (product.equalsIgnoreCase(productNameText)) {
+				WebElement itemName = addToCartButtons.get(i);
+				util.waitForElementToBeClickable(driver, itemName);
+				itemName.click();
+			}
 		}
 	}
-}
 
-public boolean isLogoDisplayed() {
-	util.waitForVisibilityOfElement(driver, logoGumball);
-	boolean logoFlag = logoGumball.isDisplayed();
-	return logoFlag;
-}
-
-/**
- * Retrieves the success message displayed when an item is added to the cart.
- * 
- * @return
- */
-public String getAddedToCartSuccessmsg() {
-	util.waitForVisibilityOfElement(driver, addToCartSuccessMsg);
-	return addToCartSuccessMsg.getText();
-}
-
-/**
- * Retrieves the count of items in the shopping cart.
- * 
- * @return
- */
-public int getCartItemCount() {
-	util.waitForElementWithFrequency(driver, cartItemsCount,10,3);
-	int itemCount;
-	String cartText = cartItemsCount.getText();
-	//System.out.println(cartText);
-	if (!cartText.isEmpty()) {
-		
-		itemCount = Integer.parseInt(cartText);
-	} else {
-		return 0;
+	public boolean isLogoDisplayed() {
+		util.waitForVisibilityOfElement(driver, logoGumball);
+		boolean logoFlag = logoGumball.isDisplayed();
+		return logoFlag;
 	}
-	return itemCount;
-}
 
+	/**
+	 * Retrieves the success message displayed when an item is added to the cart.
+	 * 
+	 * @return
+	 */
+	public String getAddedToCartSuccessmsg() {
+		util.waitForVisibilityOfElement(driver, addToCartSuccessMsg);
+		return addToCartSuccessMsg.getText();
+	}
 
-/**
- * Adds a randomly selected product to the shopping cart from a list of
- * products.
- */
-public void AddProductToCart(String s) {
-	String addtocartbuttonlocator = "//a[@title ='"+s+"']/parent :: strong// following-sibling:: div//button[@title='Add to Cart']";
-	WebElement pr = driver.findElement(By.xpath(addtocartbuttonlocator));
-	pr.click();
-}
+	/**
+	 * Retrieves the count of items in the shopping cart.
+	 * 
+	 * @return
+	 */
+	public int getCartItemCount() {
+		util.waitForElementWithFrequency(driver, cartItemsCount, 10, 3);
+		int itemCount;
+		String cartText = cartItemsCount.getText();
+		// System.out.println(cartText);
+		if (!cartText.isEmpty()) {
 
+			itemCount = Integer.parseInt(cartText);
+		} else {
+			return 0;
+		}
+		return itemCount;
+	}
 
+	/**
+	 * Adds a randomly selected product to the shopping cart from a list of
+	 * products.
+	 */
+	public void addProductToCart(String s) {
+		String addtocartbuttonlocator = "//a[@title ='" + s
+				+ "']/parent :: strong// following-sibling:: div//button[@title='Add to Cart']";
+		WebElement pr = driver.findElement(By.xpath(addtocartbuttonlocator));
+		pr.click();
+	}
 
-/**
- * Clicks on the cart icon to view the shopping cart.
- */
-public void clickOnCartIcon() {
+	/**
+	 * Clicks on the cart icon to view the shopping cart.
+	 */
+	public void clickOnCartIcon() {
 
-	util.waitForElementToBeClickable(driver, cartIcon);
+		util.waitForElementToBeClickable(driver, cartIcon);
 
-	cartIcon.click();
-}
+		cartIcon.click();
+	}
 
-/**
- * Retrieves the subtotal amount from the shopping cart.
- * 
- * @return
- */
-public String getCartSubtotal() {
-	util.waitForElementToBeClickable(driver, cardPayOption);
+	/**
+	 * Retrieves the subtotal amount from the shopping cart.
+	 * 
+	 * @return
+	 */
+	public String getCartSubtotal() {
+		util.waitForElementToBeClickable(driver, cardPayOption);
 
-	return cartSubtotal.getText();
-}
+		return cartSubtotal.getText();
+	}
 
-/**
- * Clicks on the "Proceed to Checkout" button in the shopping cart and waits for
- * the checkout page to load.
- * 
- */
-public void clickOnProceedToCheckoutBtn() {
-	util.waitForVisibilityOfElement(driver, proceedToCheckoutBtn);
-	proceedToCheckoutBtn.click();
-	util.waitForTitle(driver, excel.getExcelvalueForKey(1,"CheckoutPageTitle"));
-}
+	/**
+	 * Clicks on the "Proceed to Checkout" button in the shopping cart and waits for
+	 * the checkout page to load.
+	 * 
+	 */
+	public void clickOnProceedToCheckoutBtn() {
+		util.waitForVisibilityOfElement(driver, proceedToCheckoutBtn);
+		proceedToCheckoutBtn.click();
+		util.waitForTitle(driver, excel.getExcelvalueForKey(1, "CheckoutPageTitle"));
+	}
 
-/**
- * Retrieves the Text displayed for Payment method(Wevend Payment Method)
- * 
- * @return
- */
-public String getWevendPaymentMethodText() {
-	util.waitForVisibilityOfElement(driver, paymentMethod);
-	if (paymentMethod.isDisplayed()) {
-		return paymentMethod.getText();
-	} else
-		return "Not Available";
-}
+	/**
+	 * Retrieves the Text displayed for Payment method(Wevend Payment Method)
+	 * 
+	 * @return
+	 */
+	public String getWevendPaymentMethodText() {
+		util.waitForVisibilityOfElement(driver, paymentMethod);
+		if (paymentMethod.isDisplayed()) {
+			return paymentMethod.getText();
+		} else
+			return "Not Available";
+	}
 
-/**
- * Clicks on the "Pay" button to initiate a payment
- */
-public void clickonPayBtn() {
-	util.waitForElementToBeClickable(driver, payBtn);
-	// payBtn.click();
-}
+	/**
+	 * Clicks on the "Pay" button to initiate a payment
+	 */
+	public void clickonPayBtn() {
+		util.waitForElementToBeClickable(driver, payBtn);
+		// payBtn.click(); // for now to avoid payment
+	}
 
-/**
- * will retrieve List of products available 
- * @return
- */
-public int getProductListCount() {
-	List<WebElement> count = driver.findElements(countProductList);
-	return count.size();
-}
+	/**
+	 * will retrieve List of products available
+	 * 
+	 * @return
+	 */
+	public int getProductListCount() {
+		List<WebElement> count = driver.findElements(countProductList);
+		return count.size();
+	}
 
-/**
- * Clicks on the "Proceed" button
- *
- */
-public void clickOnProceed() {
-	util.waitForElementToBeClickable(driver, proceedButton);
-	proceedButton.click();
-}
+	/**
+	 * Clicks on the "Proceed" button
+	 *
+	 */
+	public void clickOnProceed() {
+		util.waitForElementToBeClickable(driver, proceedButton);
+		proceedButton.click();
+	}
 
-/**
- * returns the title of the page
- * @return
- */
-public String getTitle() {
-	return driver.getTitle();
-}
+	/**
+	 * returns the title of the page
+	 * 
+	 * @return
+	 */
+	public String getTitle() {
+		return driver.getTitle();
+	}
 
+	/**
+	 * Retrieves the count of items in the shopping cart.
+	 * 
+	 * @return
+	 */
+	public String getCartItemsCount() {
+		util.waitForVisibilityOfElement(driver, cartItemsCount);
+		return cartItemsCount.getText();
+	}
 
+	/**
+	 * Buy now and proceed to the checkout page
+	 * 
+	 * @param itemneeded
+	 */
 
-/**
- * Retrieves the count of items in the shopping cart.
- * 
- * @return
- */
-public String getCartItemsCount() {
-	util.waitForVisibilityOfElement(driver, cartItemsCount);
-	return cartItemsCount.getText();
-}
+	public String buyNow(String productName) {
 
+		WebElement buyItem = driver.findElement(By.xpath("//div[@class='product-item-info']//strong//a[@title='"
+				+ productName + "']/../following-sibling::div[@class='product-item-inner']//button[@title='Buy Now']"));
+		util.waitForElementWithFrequency(driver, buyItem, getProductListCount(), 2);
+		buyItem.click();
+		return productName;
 
-/**
- * Buy now and proceed to the checkout page
- * 
- * @param itemneeded
- */
+	}
 
-public String buyNow(String productName) {
-	
-	WebElement buyItem = driver.findElement(By.xpath("//div[@class='product-item-info']//strong//a[@title='"
-			+ productName + "']/../following-sibling::div[@class='product-item-inner']//button[@title='Buy Now']"));
-	util.waitForElementWithFrequency(driver, buyItem, getProductListCount(), 2);
-	buyItem.click();
-	return productName;
+	/**
+	 * Verifies the Thank you text is visible after payment is done
+	 * 
+	 * @return
+	 */
+	public boolean verifySuccessfulPayment() {
+		util.waitForVisibilityOfElement(driver, thankYouText);
+		if (thankYouText.isDisplayed()) {
+			return true;
+		} else
+			return false;
+	}
 
-}
+	/**
+	 * Retrieves the order Total amount from the Checkout page.
+	 * 
+	 * @return
+	 */
+	public String getCheckoutOrderTotal() {
+		return orderTotal.getText();
+	}
 
-/**
- * Verifies the Thank you text is visible after payment is done
- * @return
- */
-public boolean verifySuccessfulPayment() {
-	util.waitForVisibilityOfElement(driver, ThankYouText);
-	if (ThankYouText.isDisplayed()) {
-		return true;
-	} else
-		return false;
-}
+	/**
+	 * Retrieves the grand total amount from the Success page.
+	 * 
+	 * @return
+	 */
+	public String getGrandTotal() {
+		return grandTotal.getText();
+	}
 
+	/**
+	 * click on Buy More Button
+	 */
+	public void clickOnBuyMoreBtn() {
+		util.waitForElementToBeClickable(driver, buyMoreBtn);
+		buyMoreBtn.click();
+		util.waitForTitle(driver, excel.getExcelvalueForKey(2, "GumballTitle"));
+	}
 
-/**
- * Retrieves the order Total amount from the Checkout page.
- * 
- * @return
- */
-public String getCheckoutOrderTotal() {
-	return orderTotal.getText();
-}
-
-/**
- * Retrieves the grand total amount from the Success page.
- * 
- * @return
- */
-public String getGrandTotal() {
-	return grandTotal.getText();
-}
-
-/**
- * click on Buy More Button
- */
-public void clickOnBuyMoreBtn() {
-	util.waitForElementToBeClickable(driver, buyMoreBtn);
-	buyMoreBtn.click();
-	util.waitForTitle(driver, excel.getExcelvalueForKey(2,"GumballTitle"));
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-	
 }

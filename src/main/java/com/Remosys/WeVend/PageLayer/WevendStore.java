@@ -11,12 +11,11 @@ import com.Remosys.WeVend.Reader.ConfigUtil;
 import com.Remosys.WeVend.Reader.ExcelFileReader;
 import com.Remosys.WeVend.utility.Utility;
 
-
 /**
  * This class encapsulates the elements, actions, and functionality related to a
  * 'WeVend Store' web application.
  * 
- * @author Mayur Takalikar.
+ * @author Remosys Testing Team.
  *
  *         Usage: 1. Create an instance of this class to interact with the web
  *         page. 2. Implement actions and verifications relevant to the
@@ -29,8 +28,7 @@ public class WevendStore {
 	public Utility util;
 	public ConfigUtil prop;
 	public PaymentGateway pay;
-	
-	
+
 	public WevendStore(WebDriver driver) {
 		this.driver = driver;
 		prop = new ConfigUtil();
@@ -50,16 +48,15 @@ public class WevendStore {
 	@FindBy(xpath = "//a[@class='logo']")
 	private WebElement avsLogo;
 
-	// "//div[@class='actions-primary']/form[@data-role='tocart-form']")
 	@FindBy(xpath = "//div[@class='actions-primary']/form")
-	private List<WebElement> AddtoCartButtonContainer;
+	private List<WebElement> addtoCartButtonContainer;
 
 	@FindBy(xpath = "//li[@class ='product-item']")
 	private List<WebElement> productList;
 
 	@FindBy(xpath = "//div[@data-block='minicart']/a/descendant::span[@class='counter-number']")
 	private WebElement cartItemsCount;
-	
+
 	@FindBy(xpath = "//div[@class='actions-primary']/form")
 	private List<WebElement> buyNowButtons;
 
@@ -68,7 +65,6 @@ public class WevendStore {
 
 	@FindBy(xpath = "//div[contains(text(),'You added ')]")
 	private WebElement addToCartSuccessMsg;
-	// div[@role='alert']
 
 	@FindBy(xpath = "//a[@class='action showcart']")
 	private WebElement cartIcon;
@@ -86,8 +82,8 @@ public class WevendStore {
 	 */
 	public void clickOnAddToCart(String product) {
 		// Iterate through the "Add to Cart" button container.
-		for (int i = 0; i < AddtoCartButtonContainer.size(); i++) {
-			WebElement productName = AddtoCartButtonContainer.get(i);
+		for (int i = 0; i < addtoCartButtonContainer.size(); i++) {
+			WebElement productName = addtoCartButtonContainer.get(i);
 			String productNameText = productName.getAttribute("data-product-sku");
 			if (product.equalsIgnoreCase(productNameText)) {
 				WebElement itemName = addToCartButtons.get(i);
@@ -104,8 +100,8 @@ public class WevendStore {
 	 */
 
 	public void clickOnBuyNow(String itemneeded) {
-		for (int i = 0; i < AddtoCartButtonContainer.size(); i++) {
-			WebElement productName = AddtoCartButtonContainer.get(i);
+		for (int i = 0; i < addtoCartButtonContainer.size(); i++) {
+			WebElement productName = addtoCartButtonContainer.get(i);
 			String productNameText = productName.getAttribute("data-product-sku");
 			if (itemneeded.equalsIgnoreCase(productNameText)) {
 				WebElement itemName = buyNowButtons.get(i);
@@ -146,7 +142,7 @@ public class WevendStore {
 	 * Adds a randomly selected product to the shopping cart from a list of
 	 * products.
 	 */
-	public void AddRandomProductToCart() {
+	public void addRandomProductToCart() {
 		int productscount = productList.size();
 		double randomDouble = Math.random();
 		int randomNumber = (int) (randomDouble * productscount) + 1;
@@ -178,7 +174,7 @@ public class WevendStore {
 	public void clickOnProceedToCheckoutBtn() {
 		util.waitForVisibilityOfElement(driver, proceedToCheckoutBtn);
 		proceedToCheckoutBtn.click();
-		util.waitForTitle(driver, excel.getExcelvalueForKey(0,"CheckoutPageTitle"));
+		util.waitForTitle(driver, excel.getExcelvalueForKey(0, "CheckoutPageTitle"));
 	}
 
 	/*
@@ -242,8 +238,6 @@ public class WevendStore {
 	 * PaymentGatway page WebelElements
 	 */
 
-
-
 	@FindBy(xpath = "//b[text()='Card Pay']")
 	private WebElement cardPayOption;
 
@@ -258,14 +252,12 @@ public class WevendStore {
 
 	}
 
-	
-
 	/*
-	 * Order Sucsess page WebelElements
+	 * Order Success page WebelElements
 	 */
 
 	@FindBy(xpath = "//span[contains(text(),'Thank you')]")
-	private WebElement ThankYouText;
+	private WebElement thankYouText;
 
 	@FindBy(xpath = "//div[@class='checkout-success']/p/span")
 	private WebElement orderId;
@@ -285,8 +277,8 @@ public class WevendStore {
 	 * @return
 	 */
 	public boolean verifySuccessfulPayment() {
-		util.waitForVisibilityOfElement(driver, ThankYouText);
-		if (ThankYouText.isDisplayed()) {
+		util.waitForVisibilityOfElement(driver, thankYouText);
+		if (thankYouText.isDisplayed()) {
 			return true;
 		} else
 			return false;
@@ -329,7 +321,10 @@ public class WevendStore {
 	public void clickOnBuyMoreBtn() {
 		util.waitForElementToBeClickable(driver, buyMoreBtn);
 		buyMoreBtn.click();
-		util.waitForTitle(driver, excel.getExcelvalueForKey(0,"WevendHompageTitle"));
+		util.waitForTitle(driver, excel.getExcelvalueForKey(0, "WevendHompageTitle"));
 	}
 
+	public String getTitle() {
+		return driver.getTitle();
+	}
 }

@@ -17,7 +17,7 @@ import com.aventstack.extentreports.Status;
  * Automation Framework design pattern, ensuring structured and repeatable
  * testing.
  * 
- * @author Mayur Takalikar.
+ * @author Remosys Testing Team.
  *
  *         Usage: 1. Create test methods within this class that represent
  *         specific test cases or scenarios. 2. Implement test steps, including
@@ -29,7 +29,7 @@ import com.aventstack.extentreports.Status;
 
 public class TestWevendStore extends BaseTest {
 
-	public int NumOfProducsAddedtoCart;
+	public int numOfProducsAddedtoCart;
 	int cartCount;
 	String cartSubtotaltxt;
 	String orderTotaltxt;
@@ -48,12 +48,12 @@ public class TestWevendStore extends BaseTest {
 		test = extent.createTest("Verify 'Wevend Store' payment cycle");
 		// test.log(Status.INFO, "Launching the App");
 		driver.get(prop.getProperty("WevendStoreUrl"));
-		if (driver.getTitle().equals(excel.getExcelvalueForKey(0, "WevendHompageTitle"))) {
+		if (wevend.getTitle().equals(excel.getExcelvalueForKey(0, "WevendHompageTitle"))) {
 			test.log(Status.PASS, "'WeVend Store' Application launched sucessfully ");
 		} else {
 			test.log(Status.FAIL, "Application is failed to launch");
 		}
-		test.log(Status.INFO, "Title of Home page : '"+ driver.getTitle()+"'");
+		test.log(Status.INFO, "Title of Home page : '"+ wevend.getTitle()+"'");
 		assertEquals(driver.getCurrentUrl(), excel.getExcelvalueForKey(0, "WevendStoreUrl"));
 	}
 
@@ -79,19 +79,19 @@ public class TestWevendStore extends BaseTest {
 			} else {
 				test.log(Status.FAIL, "'" + product + "' is failed add into the cart");
 			}
-			Assert.assertTrue(result);
+			Assert.assertEquals(true, result);
 		}
-		NumOfProducsAddedtoCart = products.size();
+		numOfProducsAddedtoCart = products.size();
 
 		cartCount = wevend.getCartItemCount();
-		if (cartCount == NumOfProducsAddedtoCart) {
+		if (cartCount == numOfProducsAddedtoCart) {
 			test.log(Status.INFO, "Total Number of items displayed on the cart is : '" + cartCount + "'");
 		} else {
 			test.log(Status.FAIL,
 					"Total Number of items displayed on cart is not matching with items added to the cart: '"
 							+ cartCount + "'");
 		}
-		Assert.assertEquals(cartCount, NumOfProducsAddedtoCart);
+		Assert.assertEquals(cartCount, numOfProducsAddedtoCart);
 	}
 
 	/**
@@ -107,13 +107,13 @@ public class TestWevendStore extends BaseTest {
 		cartSubtotaltxt = wevend.getCartSubtotal();
 		wevend.clickOnProceedToCheckoutBtn();
 
-		if (driver.getTitle().equals(excel.getExcelvalueForKey(0, "CheckoutPageTitle"))) {
+		if (wevend.getTitle().equals(excel.getExcelvalueForKey(0, "CheckoutPageTitle"))) {
 			test.log(Status.PASS, "Navigate to 'Checkout' page sucessfully");
 		} else {
 			test.log(Status.FAIL, "Failed to navigate to 'Checkout' page");
 		}
-		test.log(Status.INFO, "Title of Checkout page : '"+ driver.getTitle()+"'");
-		Assert.assertEquals(driver.getTitle(), excel.getExcelvalueForKey(0, "CheckoutPageTitle"));
+		test.log(Status.INFO, "Title of Checkout page : '"+ wevend.getTitle()+"'");
+		Assert.assertEquals(wevend.getTitle(), excel.getExcelvalueForKey(0, "CheckoutPageTitle"));
 
 		wevend.getWevendPaymentMethodText();
 		orderTotaltxt = wevend.getCheckoutOrderTotal();
@@ -139,13 +139,13 @@ public class TestWevendStore extends BaseTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		if (driver.getTitle().equals(excel.getExcelvalueForKey(0, "PayemtGatwayPageTitle"))) {
+		if (wevend.getTitle().equals(excel.getExcelvalueForKey(0, "PayemtGatwayPageTitle"))) {
 			test.log(Status.PASS, "Navigated to 'Payment Gateway' page sucessfully");
 		} else {
 			test.log(Status.FAIL, "Failed to Navigate to 'Payment Gateway' page");
 		}
-		test.log(Status.INFO, "Title of Payment Gateway page : '"+ driver.getTitle()+"'");
-		Assert.assertEquals(driver.getTitle(), excel.getExcelvalueForKey(0, "PayemtGatwayPageTitle"));
+		test.log(Status.INFO, "Title of Payment Gateway page : '"+ wevend.getTitle()+"'");
+		Assert.assertEquals(wevend.getTitle(), excel.getExcelvalueForKey(0, "PayemtGatwayPageTitle"));
 
 		PaymentGateway pay = new PaymentGateway(driver);
 		pay.enterCardNum(excel.getExcelvalueForKey(0, "CardNo"));
@@ -177,8 +177,8 @@ public class TestWevendStore extends BaseTest {
 		} else {
 			test.log(Status.FAIL, "Payment Failed");
 		}
-		test.log(Status.INFO, "Title of payment success page : '"+ driver.getTitle()+"'");
-		Assert.assertTrue(verify);
+		test.log(Status.INFO, "Title of payment success page : '"+ wevend.getTitle()+"'");
+		Assert.assertEquals(true, verify);
 		try {
 			if (wevend.getGrandTotal().equals(orderTotaltxt)) {
 				test.log(Status.PASS, "Grand-total displayed is same as Order-total");
@@ -194,13 +194,13 @@ public class TestWevendStore extends BaseTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		if (driver.getTitle().equals(excel.getExcelvalueForKey(0, "WevendHompageTitle"))) {
+		if (wevend.getTitle().equals(excel.getExcelvalueForKey(0, "WevendHompageTitle"))) {
 			test.log(Status.INFO, "Selection of 'Buy More' button leads to 'Homepage;");
 		} else {
 			test.log(Status.INFO, "Selection of 'Buy More' button failed to navigate to 'Homepage;");
 		}
-		Assert.assertEquals(driver.getTitle(), excel.getExcelvalueForKey(0, "WevendHompageTitle"));
-		test.log(Status.INFO, "Title of Home page : '"+ driver.getTitle()+"'");
+		Assert.assertEquals(wevend.getTitle(), excel.getExcelvalueForKey(0, "WevendHompageTitle"));
+		test.log(Status.INFO, "Title of Home page : '"+ wevend.getTitle()+"'");
 	}
 
 }

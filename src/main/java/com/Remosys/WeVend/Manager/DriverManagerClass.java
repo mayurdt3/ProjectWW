@@ -1,6 +1,5 @@
 package com.Remosys.WeVend.Manager;
 
-
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
@@ -10,13 +9,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import com.Remosys.WeVend.Base.BaseClass;
 
-public class DriverManagerClass extends BaseClass{
+public class DriverManagerClass extends BaseClass {
 	protected WebDriver driver;
-	
-	public DriverManagerClass(WebDriver driver){
+
+	public DriverManagerClass(WebDriver driver) {
 		this.driver = driver;
 	}
-	
+
 	/**
 	 * This method will take a string as browser name and returns WebDriver object
 	 * reference for the selected browser
@@ -44,7 +43,5 @@ public class DriverManagerClass extends BaseClass{
 		}
 		return driver;
 	}
-	
-	
-	
+
 }

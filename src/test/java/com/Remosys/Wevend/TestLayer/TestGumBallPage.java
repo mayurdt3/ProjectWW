@@ -17,7 +17,7 @@ import com.aventstack.extentreports.Status;
  * Automation Framework design pattern, ensuring structured and repeatable
  * testing.
  * 
- * @author Mayur Takalikar.
+ * @author Remosys Testing Team.
  *
  *         Usage: 1. Create test methods within this class that represent
  *         specific test cases or scenarios. 2. Implement test steps, including
@@ -34,7 +34,6 @@ public class TestGumBallPage extends BaseTest {
 	String cartSubtotaltxt;
 	String orderTotaltxt;
 
-	/* tests scripts */
 
 	/**
 	 * 
@@ -47,7 +46,7 @@ public class TestGumBallPage extends BaseTest {
 		driver.get(prop.getProperty("GumballUrl"));
 		test = extent.createTest("Gumball payment cycle");
 
-		if (driver.getTitle().equals(excel.getExcelvalueForKey(2, "GumballTitle"))) {
+		if (gumball.getTitle().equals(excel.getExcelvalueForKey(2, "GumballTitle"))) {
 			test.log(Status.PASS, "Gumball application launched sucessfully ");
 		} else {
 			test.log(Status.FAIL, "Application is failed to launch");
@@ -67,20 +66,19 @@ public class TestGumBallPage extends BaseTest {
 				excel.getExcelvalueForKey(2, "product2"));
 		for (String product : products) {
 			try {
-				gumball.AddProductToCart(product);
-				// test.log(Status.PASS, "'" + product + "' is successfully added to the cart");
+				gumball.addProductToCart(product);
 			} catch (Exception e) {
-				e.printStackTrace();
+		
 			}
-			boolean result = gumball.getAddedToCartSuccessmsg().contains(product);
+			 			boolean result = gumball.getAddedToCartSuccessmsg().contains(product);
 			if (result) {
 				test.log(Status.PASS, "'" + product + "' is successfully added to the cart");
 			} else {
 				test.log(Status.FAIL, "'" + product + "' is failed add into the cart");
 			}
-			Assert.assertTrue(result);
+			Assert.assertEquals(true,result);
 		}
-		// gumball.clickOnCartIcon();
+
 		NumOfProducsAddedtoCart = products.size();
 
 		cartCount = gumball.getCartItemCount();
@@ -107,13 +105,14 @@ public class TestGumBallPage extends BaseTest {
 		String productName = gumball.buyNow(excel.getExcelvalueForKey(2, "product3"));
 		test.log(Status.PASS, productName + " is added to the cart using Buy Now function");
 
-		if (driver.getTitle().equals(excel.getExcelvalueForKey(0, "CheckoutPageTitle"))) {
+		if (gumball.getTitle().equals(excel.getExcelvalueForKey(0, "CheckoutPageTitle"))) {
 			test.log(Status.PASS, "Navigate to 'Checkout' page sucessfully");
 		} else {
 			test.log(Status.FAIL, "Failed to navigated to 'Checkout' page");
 		}
-		Assert.assertEquals(driver.getTitle(), excel.getExcelvalueForKey(0, "CheckoutPageTitle"));
 		test.log(Status.INFO, "Title of Checkout page : '" + gumball.getTitle() + "'");
+		Assert.assertEquals(gumball.getTitle(), excel.getExcelvalueForKey(0, "CheckoutPageTitle"));
+		
 	}
 
 	/**
@@ -128,14 +127,15 @@ public class TestGumBallPage extends BaseTest {
 		pay = new PaymentGateway(driver);
 
 		String title = pay.getPaymentPageTitle();
-		System.out.println(title);
+
 		if (title.equals(excel.getExcelvalueForKey(0, "PaymentPageTitle"))) {
 			test.log(Status.PASS, "User is navigated to the 'Payment Gateway'");
-			Assert.assertTrue(true);
+			
 		} else {
 			test.log(Status.FAIL, "Navigate to the 'Payment Gateway' page has failed");
-			Assert.assertTrue(false);
+			
 		}
+		assertEquals(title, excel.getExcelvalueForKey(0, "PaymentPageTitle"));
 		test.log(Status.INFO, "Title of 'Payment Gateway' page : '" + gumball.getTitle() + "'");
 	}
 
@@ -146,8 +146,6 @@ public class TestGumBallPage extends BaseTest {
 	public void doPayment() {
 
 		pay = new PaymentGateway(driver);
-		String wevendPaymentMethodText = pay.getWevendPaymentMethodText();
-		System.out.println(wevendPaymentMethodText);
 		test.log(Status.INFO, "Selecting the Payment method as : Card Pay");
 		pay.enterCardNum(excel.getExcelvalueForKey(0, "CardNo"));
 		pay.enterCardExpiryDate(excel.getExcelvalueForKey(0, "CardExpiry"));
@@ -167,7 +165,7 @@ public class TestGumBallPage extends BaseTest {
 		} else {
 			test.log(Status.FAIL, "Payment Failed");
 		}
-		Assert.assertTrue(verify);
+		Assert.assertEquals(true, verify);
 	}
 
 	/**
@@ -185,7 +183,7 @@ public class TestGumBallPage extends BaseTest {
 			test.log(Status.FAIL, "Payment Failed");
 		}
 		test.log(Status.INFO, "Title of payment success page : '" + gumball.getTitle() + "'");
-		Assert.assertTrue(verify);
+		Assert.assertEquals(true, verify);
 		try {
 			if (gumball.getGrandTotal().equals(orderTotaltxt)) {
 				test.log(Status.PASS, "Grand-total displayed is same as Order-total");

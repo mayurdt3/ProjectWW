@@ -35,7 +35,7 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
  * cases. It follows the Test Automation Framework design pattern, promoting
  * code re usability and maintainability.
  * 
- * @author Mayur Takalikar
+ * @author Remosys Testing Team
  *
  *         Usage: 1. Extend this class when creating specific test classes for
  *         different test scenarios. 2. Implement test cases by defining methods
@@ -44,21 +44,17 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
  *         application.
  * 
  */
-public class BaseTest extends BaseClass{
+public class BaseTest extends BaseClass {
 
-	
 	/**
 	 * This method used for configuring Extent Reports before TestNG suite
 	 * execution. This method is responsible for setting up and configuring Extent
 	 * Reports to prepare for generating detailed and organized test reports.
 	 */
-	
-	
 
-	
 	@BeforeSuite
 	public void startReporter() {
-		
+
 		util = new Utility();
 		String directory = System.getProperty("user.dir") + "//ExtentReports//";
 		spark = new ExtentSparkReporter(directory + "ExtentReport" + util.getTimeStamp() + ".html");
@@ -69,13 +65,13 @@ public class BaseTest extends BaseClass{
 
 		extent.setSystemInfo("OS", "Windows 11");
 		extent.setSystemInfo("Browser", "chrome");
-		extent.setSystemInfo("Tester", "Mayur");
+		extent.setSystemInfo("Tester", "Remosys Testing Team");
 
 		/* configuration to change looks of the report */
 
-		spark.config().setDocumentTitle("Extent Report Demo");
-		spark.config().setReportName("Test Rport");
-		spark.config().setTheme(Theme.DARK);
+		spark.config().setDocumentTitle("Payment Cycle");
+		spark.config().setReportName("WeVend Apps Payment Cycle");
+		spark.config().setTheme(Theme.STANDARD);
 		spark.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a'('zzz')'");
 	}
 
@@ -89,14 +85,13 @@ public class BaseTest extends BaseClass{
 	public void setUp(String browser) {
 		// public void setUp() {
 		// String browser = "chrome";
-		
-		
+
 		manager = new DriverManagerClass(driver);
 		driver = manager.initializeDriver(browser);
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		habco = new HabcoPage(driver);
 		util = new Utility();
 		prop = new ConfigUtil();
@@ -114,7 +109,7 @@ public class BaseTest extends BaseClass{
 	 */
 	@AfterMethod
 	public void testResult(ITestResult result) {
-		
+
 		if (result.getStatus() == ITestResult.FAILURE) {
 			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + " FAIL", ExtentColor.RED));
 			util.takeSS(driver);
@@ -133,27 +128,6 @@ public class BaseTest extends BaseClass{
 	}
 
 	/**
-	 * Initialize object instances. This method initializes utility, configuration
-	 * reader, Excel file reader, and page object instances.
-	 *
-	 */
-
-//	@BeforeClass
-//	public void objectmethod() {
-//
-//		util = new Utility();
-//		prop = new ConfigUtil();
-//		excel = new ExcelFileReader();
-//		carwash = new CarWash(driver);
-//		wevend = new WevendStore(driver);
-//		
-//		gumball = new GumBallPage(driver);
-//	}
-
-
-
-
-	/**
 	 * This method will close the browser Instance After execution of each test
 	 * Class
 	 */
@@ -167,7 +141,7 @@ public class BaseTest extends BaseClass{
 	 * This Method Will Flush the report and create the .html file
 	 */
 	@AfterSuite
-	public void closereporter() {
+	public void closeReporter() {
 		extent.flush();
 	}
 
