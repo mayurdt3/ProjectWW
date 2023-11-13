@@ -77,7 +77,11 @@ public class PaymentGateway {
 		util.waitForVisibilityOfElement(driver, cardCvv);
 		cardCvv.sendKeys(string);
 	}
-
+	
+	/**
+	 * This method used to retrieve the Payment method name
+	 * 
+	 */
 	public String getWevendPaymentMethodText() {
 		util.waitForVisibilityOfElement(driver, paymentMethod);
 		if (paymentMethod.isDisplayed()) {
@@ -85,6 +89,11 @@ public class PaymentGateway {
 		} else
 			return "Not Available";
 	}
+	
+	/**
+	 * This method used to retrieve the payment page Title
+	 * 
+	 */
 
 	public String getPaymentPageTitle() {
 		util.waitForTitle(driver, excel.getExcelvalueForKey(0, "PaymentPageTitle"));
@@ -99,10 +108,13 @@ public class PaymentGateway {
 		// payBtn.click(); /// For Preventing it from doing payment
 	}
 
+	/**
+	 * Checks if payment button is enabled
+	 */
 	public boolean isPayBtnEnabled() {
 		util.waitForElementToBeClickable(driver, payBtn);
 		return payBtn.isEnabled();
 
 	}
-
+	
 }

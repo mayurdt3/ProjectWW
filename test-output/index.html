@@ -104,12 +104,12 @@
                     <div class="method-list-content failed suite-Suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="com.Remosys.Wevend.TestLayer.TestGumBallPage" class="method navigator-link" hash-for-method="doPayment">doPayment</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="com.Remosys.Wevend.TestLayer.TestHabcoPage" class="method navigator-link" hash-for-method="doPayment">doPayment</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="com.Remosys.Wevend.TestLayer.TestHabcoPage" class="method navigator-link" hash-for-method="doPayment">doPayment</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="com.Remosys.Wevend.TestLayer.TestGumBallPage" class="method navigator-link" hash-for-method="doPayment">doPayment</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -256,19 +256,19 @@
                   <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.className: timer&apos; (tried for 15 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
-	at com.Remosys.WeVend.utility.Utility.waitForVisibilityOfElement(Utility.java:104)
+	at com.Remosys.WeVend.utility.Utility.waitForVisibilityOfElement(Utility.java:125)
 	at com.Remosys.WeVend.PageLayer.CarWash.selectAuthorizeBtn(CarWash.java:233)
 	at com.Remosys.Wevend.TestLayer.TestCarwash.verifyCountdownTimerPage(TestCarwash.java:111)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.timer&quot;}
-  (Session info: chrome=119.0.6045.106)
+  (Session info: chrome=119.0.6045.124)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.7&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [48b52ef082123e8383feff5b9c8c1a22, findElement {using=class name, value=timer}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.106, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\Soft\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52418}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52418/devtoo..., se:cdpVersion: 119.0.6045.106, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 48b52ef082123e8383feff5b9c8c1a22
+Command: [043a0601f86598d5779f0eaf6ac5f674, findElement {using=class name, value=timer}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.124, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\Soft\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52976}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52976/devtoo..., se:cdpVersion: 119.0.6045.124, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 043a0601f86598d5779f0eaf6ac5f674
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
@@ -309,19 +309,19 @@ Session ID: 48b52ef082123e8383feff5b9c8c1a22
                   <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //span[contains(text(),&apos;Thank you&apos;)]&apos; (tried for 15 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
-	at com.Remosys.WeVend.utility.Utility.waitForVisibilityOfElement(Utility.java:104)
+	at com.Remosys.WeVend.utility.Utility.waitForVisibilityOfElement(Utility.java:125)
 	at com.Remosys.WeVend.PageLayer.HabcoPage.verifySuccessfulPayment(HabcoPage.java:248)
 	at com.Remosys.Wevend.TestLayer.TestGumBallPage.doPayment(TestGumBallPage.java:160)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[contains(text(),&apos;Thank you&apos;)]&quot;}
-  (Session info: chrome=119.0.6045.106)
+  (Session info: chrome=119.0.6045.124)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.7&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [35d4d507e904f62989b6a234184853ad, findElement {using=xpath, value=//span[contains(text(),&apos;Thank you&apos;)]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.106, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\Soft\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52537}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52537/devtoo..., se:cdpVersion: 119.0.6045.106, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 35d4d507e904f62989b6a234184853ad
+Command: [32c2cec53cea815adb9032fe1081f753, findElement {using=xpath, value=//span[contains(text(),&apos;Thank you&apos;)]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.124, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\Soft\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53100}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53100/devtoo..., se:cdpVersion: 119.0.6045.124, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 32c2cec53cea815adb9032fe1081f753
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
@@ -362,19 +362,19 @@ Session ID: 35d4d507e904f62989b6a234184853ad
                   <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //span[contains(text(),&apos;Thank you&apos;)]&apos; (tried for 15 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
-	at com.Remosys.WeVend.utility.Utility.waitForVisibilityOfElement(Utility.java:104)
+	at com.Remosys.WeVend.utility.Utility.waitForVisibilityOfElement(Utility.java:125)
 	at com.Remosys.WeVend.PageLayer.HabcoPage.verifySuccessfulPayment(HabcoPage.java:248)
 	at com.Remosys.Wevend.TestLayer.TestHabcoPage.doPayment(TestHabcoPage.java:173)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[contains(text(),&apos;Thank you&apos;)]&quot;}
-  (Session info: chrome=119.0.6045.106)
+  (Session info: chrome=119.0.6045.124)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.7&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [fed4ff720301b68e6a6e42ce4b831dcb, findElement {using=xpath, value=//span[contains(text(),&apos;Thank you&apos;)]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.106, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\Soft\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52478}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52478/devtoo..., se:cdpVersion: 119.0.6045.106, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: fed4ff720301b68e6a6e42ce4b831dcb
+Command: [7fa9731ff5f987af6e71603101109af3, findElement {using=xpath, value=//span[contains(text(),&apos;Thank you&apos;)]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.124, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\Soft\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:53027}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53027/devtoo..., se:cdpVersion: 119.0.6045.124, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7fa9731ff5f987af6e71603101109af3
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
@@ -415,19 +415,19 @@ Session ID: fed4ff720301b68e6a6e42ce4b831dcb
                   <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //span[contains(text(),&apos;Thank you&apos;)]&apos; (tried for 15 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
-	at com.Remosys.WeVend.utility.Utility.waitForVisibilityOfElement(Utility.java:104)
+	at com.Remosys.WeVend.utility.Utility.waitForVisibilityOfElement(Utility.java:125)
 	at com.Remosys.WeVend.PageLayer.WevendStore.verifySuccessfulPayment(WevendStore.java:280)
 	at com.Remosys.Wevend.TestLayer.TestWevendStore.verifySuccessPage(TestWevendStore.java:174)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[contains(text(),&apos;Thank you&apos;)]&quot;}
-  (Session info: chrome=119.0.6045.106)
+  (Session info: chrome=119.0.6045.124)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.7&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [28919430445b70f31a2a80d91f4f57e6, findElement {using=xpath, value=//span[contains(text(),&apos;Thank you&apos;)]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.106, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\Soft\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52361}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52361/devtoo..., se:cdpVersion: 119.0.6045.106, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 28919430445b70f31a2a80d91f4f57e6
+Command: [8081c4e9afd5143cd7f81415d6f80195, findElement {using=xpath, value=//span[contains(text(),&apos;Thank you&apos;)]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.124, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\Soft\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52925}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52925/devtoo..., se:cdpVersion: 119.0.6045.124, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 8081c4e9afd5143cd7f81415d6f80195
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
@@ -707,91 +707,91 @@ data.addColumn('number', 'Time (ms)');
 data.addRows(22);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'doPayment')
-data.setCell(0, 2, 'com.Remosys.Wevend.TestLayer.TestGumBallPage')
-data.setCell(0, 3, 22087);
+data.setCell(0, 2, 'com.Remosys.Wevend.TestLayer.TestHabcoPage')
+data.setCell(0, 3, 21965);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'doPayment')
-data.setCell(1, 2, 'com.Remosys.Wevend.TestLayer.TestHabcoPage')
-data.setCell(1, 3, 21970);
+data.setCell(1, 2, 'com.Remosys.Wevend.TestLayer.TestGumBallPage')
+data.setCell(1, 3, 21758);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'verifySuccessPage')
-data.setCell(2, 2, 'com.Remosys.Wevend.TestLayer.TestWevendStore')
-data.setCell(2, 3, 21234);
+data.setCell(2, 1, 'verifyCountdownTimerPage')
+data.setCell(2, 2, 'com.Remosys.Wevend.TestLayer.TestCarwash')
+data.setCell(2, 3, 21222);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'verifyCountdownTimerPage')
-data.setCell(3, 2, 'com.Remosys.Wevend.TestLayer.TestCarwash')
-data.setCell(3, 3, 21193);
+data.setCell(3, 1, 'verifySuccessPage')
+data.setCell(3, 2, 'com.Remosys.Wevend.TestLayer.TestWevendStore')
+data.setCell(3, 3, 21123);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'verifyAddtocartFunctionality')
-data.setCell(4, 2, 'com.Remosys.Wevend.TestLayer.TestGumBallPage')
-data.setCell(4, 3, 6166);
+data.setCell(4, 1, 'verifyCheckoutPage')
+data.setCell(4, 2, 'com.Remosys.Wevend.TestLayer.TestWevendStore')
+data.setCell(4, 3, 5506);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'verifyPaymentGateway')
-data.setCell(5, 2, 'com.Remosys.Wevend.TestLayer.TestWevendStore')
-data.setCell(5, 3, 5070);
+data.setCell(5, 1, 'verifyAddtocartFunctionality')
+data.setCell(5, 2, 'com.Remosys.Wevend.TestLayer.TestGumBallPage')
+data.setCell(5, 3, 4918);
 data.setCell(6, 0, 6)
 data.setCell(6, 1, 'verifyAddTocart')
 data.setCell(6, 2, 'com.Remosys.Wevend.TestLayer.TestWevendStore')
-data.setCell(6, 3, 4277);
+data.setCell(6, 3, 4003);
 data.setCell(7, 0, 7)
 data.setCell(7, 1, 'navigatePaymentPage')
 data.setCell(7, 2, 'com.Remosys.Wevend.TestLayer.TestHabcoPage')
-data.setCell(7, 3, 3989);
+data.setCell(7, 3, 3623);
 data.setCell(8, 0, 8)
 data.setCell(8, 1, 'navigatePaymentPage')
 data.setCell(8, 2, 'com.Remosys.Wevend.TestLayer.TestGumBallPage')
-data.setCell(8, 3, 3290);
+data.setCell(8, 3, 3386);
 data.setCell(9, 0, 9)
-data.setCell(9, 1, 'verifyAmountSelection')
-data.setCell(9, 2, 'com.Remosys.Wevend.TestLayer.TestCarwash')
-data.setCell(9, 3, 2791);
+data.setCell(9, 1, 'verifyPaymentGateway')
+data.setCell(9, 2, 'com.Remosys.Wevend.TestLayer.TestWevendStore')
+data.setCell(9, 3, 3258);
 data.setCell(10, 0, 10)
-data.setCell(10, 1, 'verifyCheckoutPage')
-data.setCell(10, 2, 'com.Remosys.Wevend.TestLayer.TestWevendStore')
-data.setCell(10, 3, 2553);
+data.setCell(10, 1, 'verifyAddtocartFunctionality')
+data.setCell(10, 2, 'com.Remosys.Wevend.TestLayer.TestHabcoPage')
+data.setCell(10, 3, 2981);
 data.setCell(11, 0, 11)
-data.setCell(11, 1, 'verifyAddtocartFunctionality')
-data.setCell(11, 2, 'com.Remosys.Wevend.TestLayer.TestHabcoPage')
-data.setCell(11, 3, 2255);
+data.setCell(11, 1, 'verifyAmountSelection')
+data.setCell(11, 2, 'com.Remosys.Wevend.TestLayer.TestCarwash')
+data.setCell(11, 3, 2284);
 data.setCell(12, 0, 12)
-data.setCell(12, 1, 'navigateCheckoutPageTest')
-data.setCell(12, 2, 'com.Remosys.Wevend.TestLayer.TestGumBallPage')
-data.setCell(12, 3, 1410);
+data.setCell(12, 1, 'verifyWevendLaunch')
+data.setCell(12, 2, 'com.Remosys.Wevend.TestLayer.TestWevendStore')
+data.setCell(12, 3, 1664);
 data.setCell(13, 0, 13)
-data.setCell(13, 1, 'verifyHabcoLaunch')
+data.setCell(13, 1, 'navigateCheckoutPageTest')
 data.setCell(13, 2, 'com.Remosys.Wevend.TestLayer.TestHabcoPage')
-data.setCell(13, 3, 1356);
+data.setCell(13, 3, 1472);
 data.setCell(14, 0, 14)
-data.setCell(14, 1, 'verifyGumballLaunch')
+data.setCell(14, 1, 'navigateCheckoutPageTest')
 data.setCell(14, 2, 'com.Remosys.Wevend.TestLayer.TestGumBallPage')
-data.setCell(14, 3, 1189);
+data.setCell(14, 3, 1168);
 data.setCell(15, 0, 15)
 data.setCell(15, 1, 'verifylaunchCarWash')
 data.setCell(15, 2, 'com.Remosys.Wevend.TestLayer.TestCarwash')
-data.setCell(15, 3, 1187);
+data.setCell(15, 3, 1003);
 data.setCell(16, 0, 16)
-data.setCell(16, 1, 'navigateCheckoutPageTest')
+data.setCell(16, 1, 'verifyHabcoLaunch')
 data.setCell(16, 2, 'com.Remosys.Wevend.TestLayer.TestHabcoPage')
-data.setCell(16, 3, 1128);
+data.setCell(16, 3, 976);
 data.setCell(17, 0, 17)
-data.setCell(17, 1, 'verifyWevendLaunch')
-data.setCell(17, 2, 'com.Remosys.Wevend.TestLayer.TestWevendStore')
-data.setCell(17, 3, 1106);
+data.setCell(17, 1, 'verifyGumballLaunch')
+data.setCell(17, 2, 'com.Remosys.Wevend.TestLayer.TestGumBallPage')
+data.setCell(17, 3, 861);
 data.setCell(18, 0, 18)
 data.setCell(18, 1, 'verifyPaymentGatewaypage')
 data.setCell(18, 2, 'com.Remosys.Wevend.TestLayer.TestCarwash')
-data.setCell(18, 3, 732);
+data.setCell(18, 3, 454);
 data.setCell(19, 0, 19)
 data.setCell(19, 1, 'verifySuccessPage')
-data.setCell(19, 2, 'com.Remosys.Wevend.TestLayer.TestHabcoPage')
-data.setCell(19, 3, 1);
+data.setCell(19, 2, 'com.Remosys.Wevend.TestLayer.TestGumBallPage')
+data.setCell(19, 3, 0);
 data.setCell(20, 0, 20)
-data.setCell(20, 1, 'verifySuccessPage')
-data.setCell(20, 2, 'com.Remosys.Wevend.TestLayer.TestGumBallPage')
+data.setCell(20, 1, 'verifySuccessfulPaymentPage')
+data.setCell(20, 2, 'com.Remosys.Wevend.TestLayer.TestCarwash')
 data.setCell(20, 3, 0);
 data.setCell(21, 0, 21)
-data.setCell(21, 1, 'verifySuccessfulPaymentPage')
-data.setCell(21, 2, 'com.Remosys.Wevend.TestLayer.TestCarwash')
+data.setCell(21, 1, 'verifySuccessPage')
+data.setCell(21, 2, 'com.Remosys.Wevend.TestLayer.TestHabcoPage')
 data.setCell(21, 3, 0);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
@@ -857,223 +857,223 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-class before">
                 <span class="method-name">setUp(chrome)</span>
-                <span class="method-start">233 ms</span>
+                <span class="method-start">284 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">verifyWevendLaunch</span>
-                <span class="method-start">4461 ms</span>
+                <span class="method-start">3644 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=verifyWevendLaunch status=SUCCESS method=TestWevendStore.verifyWevendLaunch()[pri:0...)</span>
-                <span class="method-start">5574 ms</span>
+                <span class="method-start">5313 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">verifyAddTocart</span>
-                <span class="method-start">5596 ms</span>
+                <span class="method-start">5329 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=verifyAddTocart status=SUCCESS method=TestWevendStore.verifyAddTocart()[pri:0, inst...)</span>
-                <span class="method-start">9874 ms</span>
+                <span class="method-start">9332 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">verifyCheckoutPage</span>
-                <span class="method-start">9875 ms</span>
+                <span class="method-start">9333 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=verifyCheckoutPage status=SUCCESS method=TestWevendStore.verifyCheckoutPage()[pri:0...)</span>
-                <span class="method-start">12429 ms</span>
+                <span class="method-start">14845 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">verifyPaymentGateway</span>
-                <span class="method-start">12430 ms</span>
+                <span class="method-start">14846 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=verifyPaymentGateway status=SUCCESS method=TestWevendStore.verifyPaymentGateway()[p...)</span>
-                <span class="method-start">17501 ms</span>
+                <span class="method-start">18105 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">verifySuccessPage</span>
-                <span class="method-start">17503 ms</span>
+                <span class="method-start">18106 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=verifySuccessPage status=FAILURE method=TestWevendStore.verifySuccessPage()[pri:0, ...)</span>
-                <span class="method-start">38740 ms</span>
+                <span class="method-start">39234 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">close</span>
-                <span class="method-start">38878 ms</span>
+                <span class="method-start">39408 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.Remosys.Wevend.TestLayer.TestCarwash</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setUp(chrome)</span>
-                <span class="method-start">39382 ms</span>
+                <span class="method-start">39718 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">verifylaunchCarWash</span>
-                <span class="method-start">41504 ms</span>
+                <span class="method-start">41178 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verifyAmountSelection</span>
+                <span class="method-start">42182 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=verifylaunchCarWash status=SUCCESS method=TestCarwash.verifylaunchCarWash()[pri:1, ...)</span>
-                <span class="method-start">42691 ms</span>
+                <span class="method-start">42182 ms</span>
               </div> <!-- configuration-method after -->
-              <div class="test-method">
-                <span class="method-name">verifyAmountSelection</span>
-                <span class="method-start">42692 ms</span>
-              </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=verifyAmountSelection status=SUCCESS method=TestCarwash.verifyAmountSelection()[pri...)</span>
-                <span class="method-start">45484 ms</span>
+                <span class="method-start">44467 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">verifyPaymentGatewaypage</span>
-                <span class="method-start">45485 ms</span>
+                <span class="method-start">44468 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=verifyPaymentGatewaypage status=SUCCESS method=TestCarwash.verifyPaymentGatewaypage...)</span>
-                <span class="method-start">46218 ms</span>
+                <span class="method-start">44923 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">verifyCountdownTimerPage</span>
-                <span class="method-start">46220 ms</span>
+                <span class="method-start">44924 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=verifyCountdownTimerPage status=FAILURE method=TestCarwash.verifyCountdownTimerPage...)</span>
-                <span class="method-start">67416 ms</span>
+                <span class="method-start">66149 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">verifySuccessfulPaymentPage</span>
-                <span class="method-start">67649 ms</span>
+                <span class="method-start">66321 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">close</span>
-                <span class="method-start">67650 ms</span>
+                <span class="method-start">66324 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.Remosys.Wevend.TestLayer.TestHabcoPage</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setUp(chrome)</span>
-                <span class="method-start">68027 ms</span>
+                <span class="method-start">66629 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">verifyHabcoLaunch</span>
-                <span class="method-start">69920 ms</span>
+                <span class="method-start">68451 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=verifyHabcoLaunch status=SUCCESS method=TestHabcoPage.verifyHabcoLaunch()[pri:0, in...)</span>
-                <span class="method-start">71277 ms</span>
+                <span class="method-start">69428 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">verifyAddtocartFunctionality</span>
-                <span class="method-start">71279 ms</span>
+                <span class="method-start">69429 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=verifyAddtocartFunctionality status=SUCCESS method=TestHabcoPage.verifyAddtocartFun...)</span>
-                <span class="method-start">73534 ms</span>
+                <span class="method-start">72411 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">navigateCheckoutPageTest</span>
-                <span class="method-start">73535 ms</span>
+                <span class="method-start">72412 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=navigateCheckoutPageTest status=SUCCESS method=TestHabcoPage.navigateCheckoutPageTe...)</span>
-                <span class="method-start">74664 ms</span>
+                <span class="method-start">73886 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">navigatePaymentPage</span>
-                <span class="method-start">74666 ms</span>
+                <span class="method-start">73891 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=navigatePaymentPage status=SUCCESS method=TestHabcoPage.navigatePaymentPage()[pri:0...)</span>
-                <span class="method-start">78655 ms</span>
+                <span class="method-start">77515 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">doPayment</span>
-                <span class="method-start">78657 ms</span>
+                <span class="method-start">77516 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=doPayment status=FAILURE method=TestHabcoPage.doPayment()[pri:0, instance:com.Remos...)</span>
-                <span class="method-start">100629 ms</span>
+                <span class="method-start">99483 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">verifySuccessPage</span>
-                <span class="method-start">100836 ms</span>
+                <span class="method-start">99624 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">close</span>
-                <span class="method-start">100841 ms</span>
+                <span class="method-start">99626 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.Remosys.Wevend.TestLayer.TestGumBallPage</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setUp(chrome)</span>
-                <span class="method-start">101330 ms</span>
+                <span class="method-start">100007 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">verifyGumballLaunch</span>
-                <span class="method-start">103349 ms</span>
+                <span class="method-start">101457 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=verifyGumballLaunch status=SUCCESS method=TestGumBallPage.verifyGumballLaunch()[pri...)</span>
-                <span class="method-start">104540 ms</span>
+                <span class="method-start">102319 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">verifyAddtocartFunctionality</span>
-                <span class="method-start">104542 ms</span>
+                <span class="method-start">102321 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=verifyAddtocartFunctionality status=SUCCESS method=TestGumBallPage.verifyAddtocartF...)</span>
-                <span class="method-start">110708 ms</span>
+                <span class="method-start">107239 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">navigateCheckoutPageTest</span>
-                <span class="method-start">110709 ms</span>
+                <span class="method-start">107240 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=navigateCheckoutPageTest status=SUCCESS method=TestGumBallPage.navigateCheckoutPage...)</span>
-                <span class="method-start">112121 ms</span>
+                <span class="method-start">108411 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">navigatePaymentPage</span>
-                <span class="method-start">112123 ms</span>
+                <span class="method-start">108414 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=navigatePaymentPage status=SUCCESS method=TestGumBallPage.navigatePaymentPage()[pri...)</span>
-                <span class="method-start">115414 ms</span>
+                <span class="method-start">111801 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">doPayment</span>
-                <span class="method-start">115415 ms</span>
+                <span class="method-start">111802 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">testResult([TestResult name=doPayment status=FAILURE method=TestGumBallPage.doPayment()[pri:0, instance:com.Rem...)</span>
-                <span class="method-start">137503 ms</span>
+                <span class="method-start">133562 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">verifySuccessPage</span>
-                <span class="method-start">137698 ms</span>
+                <span class="method-start">133733 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">close</span>
-                <span class="method-start">137702 ms</span>
+                <span class="method-start">133735 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.Remosys.Wevend.TestLayer.TestWevendStore</div> <!-- chronological-class-name -->
               <div class="configuration-suite after">
                 <span class="method-name">closeReporter</span>
-                <span class="method-start">138264 ms</span>
+                <span class="method-start">134156 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -218,7 +218,7 @@ public class CarWash {
 	 * 
 	 * @return
 	 */
-	public boolean isAuthorizebtnEnabled() {
+	public boolean isAuthorizeBtnEnabled() {
 		util.waitForElementToBeClickable(driver, authorize);
 		return authorize.isEnabled();
 	}
@@ -231,7 +231,6 @@ public class CarWash {
 		util.waitForElementToBeClickable(driver, authorize);
 		// authorize.click(); /// For Preventing it from doing payment
 		util.waitForVisibilityOfElement(driver, timer);
-
 	}
 
 	/**
@@ -239,7 +238,7 @@ public class CarWash {
 	 * 
 	 * @return
 	 */
-	public String getcountdownTime() {
+	public String getCountdownTime() {
 
 		String countdownTime = timerInMin.getText() + ":" + timerInSec.getText();
 		return countdownTime;
@@ -252,7 +251,7 @@ public class CarWash {
 	public boolean selectDoneAfterSomeTime() {
 
 		try {
-			while (!(getcountdownTime().equals("04:55"))) {
+			while (!(getCountdownTime().equals("04:55"))) {
 			}
 			doneBtn.click();
 			util.waitForElementWithFrequency(driver, billAmount, 20, 2);
@@ -270,10 +269,10 @@ public class CarWash {
 	public boolean selectDoneAfterCountdown() {
 
 		try {
-			while (!(getcountdownTime().equals("00:00"))) {
+			while (!(getCountdownTime().equals("00:00"))) {
 				Thread.sleep(5000);
 			}
-			if (getcountdownTime().equals("00:00")) {
+			if (getCountdownTime().equals("00:00")) {
 				doneBtn.click();
 			}
 			return true;
@@ -288,7 +287,8 @@ public class CarWash {
 	 * 
 	 * @return boolean value if Car wash logo is displayed.
 	 */
-	public boolean isLogoDispayed() {
+	
+	public boolean isLogoDisplayed() {
 		return carwashLogo.isDisplayed();
 	}
 
@@ -297,7 +297,7 @@ public class CarWash {
 	 * 
 	 * @return boolean value if bill amount is displayed.
 	 */
-	public boolean isBillAmmountDisplayed() {
+	public boolean isBillAmountDisplayed() {
 		return billAmount.isDisplayed();
 	}
 
@@ -325,7 +325,7 @@ public class CarWash {
 	 * 
 	 * @return AmountString
 	 */
-	public String getBillAmmount() {
+	public String getBillAmount() {
 		String s = billAmount.getText();
 		int dollarIndex = s.indexOf('$');
 		if (dollarIndex != -1) {
@@ -359,7 +359,7 @@ public class CarWash {
 	 * 
 	 * @return messageFromeDevice
 	 */
-	public String getDeviceMessageValeforKey(String datakey) {
+	public String getDeviceMessageValeForKey(String datakey) {
 		String message = getMessageFormDevice();
 		message = message.replace("{", "").replace("}", "");
 
@@ -376,10 +376,10 @@ public class CarWash {
 		return null;
 	}
 	
-	/**
+	/** 
 	 * returns the title of the page
 	 * 
-	 * @return
+	 * @return string title
 	 */
 	public String getTitle() {
 		return driver.getTitle();

@@ -182,7 +182,7 @@ public class HabcoPage {
 	/**
 	 * Clicks on the "Pay" button to initiate a payment
 	 */
-	public void clickonPayBtn() {
+	public void clickOnPayBtn() {
 		util.waitForElementToBeClickable(driver, payBtn);
 		// payBtn.click();
 	}

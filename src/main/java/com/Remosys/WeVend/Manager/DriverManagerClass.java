@@ -21,7 +21,7 @@ public class DriverManagerClass extends BaseClass {
 	 * reference for the selected browser
 	 * 
 	 * @param browserName
-	 * @return
+	 * @return driver
 	 * @throws IOException
 	 */
 	public WebDriver initializeDriver(String browser) {

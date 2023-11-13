@@ -7,7 +7,7 @@
 		<classes>
 		<class name="com.Remosys.Wevend.TestLayer.TestWevendStore"/>
 		<class name="com.Remosys.Wevend.TestLayer.TestCarwash" />
-		<class name="com.Remosys.Wevend.TestLayer.TestHabcoPage" />
+		<class name="com.Remosys.Wevend.TestLayer.TestHabcoPage"/>
 		<class name="com.Remosys.Wevend.TestLayer.TestGumBallPage" />
 		</classes>
 	</test> <!--Test -->

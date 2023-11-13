@@ -64,7 +64,7 @@ public class TestCarwash extends BaseTest {
 	@Test(dependsOnMethods = "verifylaunchCarWash")
 	public void verifyAmountSelection() {
 		try {
-			carwash.payUsingManualpayment(excel.getExcelvalueForKey(0, "Amount"));
+			carwash.payUsingManualPayment(excel.getExcelvalueForKey(0, "Amount"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -98,7 +98,7 @@ public class TestCarwash extends BaseTest {
 		} catch (Exception e) {
 			test.log(Status.INFO, "Failed to enter Card detail");
 		}
-		boolean verify =carwash.isAuthorizebtnEnabled();
+		boolean verify =carwash.isAuthorizeBtnEnabled();
 		Assert.assertEquals(true, verify);
 
 	}
@@ -110,7 +110,7 @@ public class TestCarwash extends BaseTest {
 	public void verifyCountdownTimerPage() {
 		carwash.selectAuthorizeBtn();
 		try {
-			if (carwash.isLogoDispayed()) {
+			if (carwash.isLogoDisplayed()) {
 				test.log(Status.PASS, "Navigate to 'Payment Success' page Successfully");
 			}
 		} catch (Exception e) {
@@ -135,17 +135,17 @@ public class TestCarwash extends BaseTest {
 	 */
 	@Test(dependsOnMethods = "verifyCountdownTimerPage")
 	public void verifySuccessfulPaymentPage() {
-		if (carwash.isOrderIdDisplayed() && carwash.isBillAmmountDisplayed()) {
+		if (carwash.isOrderIdDisplayed() && carwash.isBillAmountDisplayed()) {
 			test.log(Status.INFO, carwash.getOrderId());
-			test.log(Status.INFO, "Bill amount :" + carwash.getBillAmmount());
+			test.log(Status.INFO, "Bill amount :" + carwash.getBillAmount());
 		}
-		if (carwash.getBillAmmount().equals(excel.getExcelvalueForKey(0, "Amount"))) {
+		if (carwash.getBillAmount().equals(excel.getExcelvalueForKey(0, "Amount"))) {
 			test.log(Status.PASS, "Ammount selected before payment and Bill-amount is same");
 
 		} else {
 			test.log(Status.FAIL, "Ammount selected before payment and Bill-amount is different");
 		}
-		Assert.assertEquals(carwash.getBillAmmount(),(excel.getExcelvalueForKey(0, "Amount")));
+		Assert.assertEquals(carwash.getBillAmount(),(excel.getExcelvalueForKey(0, "Amount")));
 
 	}
 
