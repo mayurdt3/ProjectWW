@@ -32,7 +32,7 @@ public class TestCarwash extends BaseTest {
 	 * @throws InterruptedException 
 	 */
 	@Test(priority = 1)
-	public void verifylaunchCarWash() {
+	public void testCarWashLaunch() {
 		test = extent.createTest("Verify 'Car Wash' payment cycle");
 		carwash = new CarWash(driver);
 
@@ -51,7 +51,7 @@ public class TestCarwash extends BaseTest {
 			test.log(Status.FAIL, "'Failed to launch the application");
 		}
 
-		test.log(Status.INFO, "title of Home page : '" + carwash.getTitle() + "'");
+	//	test.log(Status.INFO, "title of Home page : '" + carwash.getTitle() + "'");
 		Assert.assertEquals(carwash.getTitle(),excel.getExcelvalueForKey(0, "CarwashHomepagePageTitle"));
 
 	}
@@ -61,8 +61,8 @@ public class TestCarwash extends BaseTest {
 	 * method
 	 * 
 	 */
-	@Test(dependsOnMethods = "verifylaunchCarWash")
-	public void verifyAmountSelection() {
+	@Test(dependsOnMethods = "testCarWashLaunch")
+	public void testAmountSelection() {
 		try {
 			carwash.payUsingManualPayment(excel.getExcelvalueForKey(0, "Amount"));
 		} catch (Exception e) {
@@ -79,8 +79,8 @@ public class TestCarwash extends BaseTest {
 	 * 
 	 */
 
-	@Test(dependsOnMethods = "verifyAmountSelection")
-	public void verifyPaymentGatewaypage() {
+	@Test(dependsOnMethods = "testAmountSelection")
+	public void TestPaymentGatewayPage() {
 
 		PaymentGateway pay = new PaymentGateway(driver);
 		try {
@@ -90,7 +90,7 @@ public class TestCarwash extends BaseTest {
 				test.log(Status.FAIL, "Failed to Navigate to 'Payment Gateway' page");
 			}
 
-			test.log(Status.INFO, "Title of 'Payment Gateway' page : '" + carwash.getTitle() + "'");
+		//	test.log(Status.INFO, "Title of 'Payment Gateway' page : '" + carwash.getTitle() + "'");
 
 			pay.enterCardNum(excel.getExcelvalueForKey(0, "CardNo"));
 			pay.enterCardExpiryDate(excel.getExcelvalueForKey(0, "CardExpiry"));
@@ -106,8 +106,8 @@ public class TestCarwash extends BaseTest {
 	/**
 	 * Verifies Count down page Functionality.
 	 */
-	@Test(dependsOnMethods = "verifyPaymentGatewaypage")
-	public void verifyCountdownTimerPage() {
+	@Test(dependsOnMethods = "TestPaymentGatewayPage")
+	public void testCountdownTimerPage() {
 		carwash.selectAuthorizeBtn();
 		try {
 			if (carwash.isLogoDisplayed()) {
@@ -133,8 +133,8 @@ public class TestCarwash extends BaseTest {
 	 * Verifies the Successful navigation to Payment success page Verifies bill
 	 * amount with selected amount
 	 */
-	@Test(dependsOnMethods = "verifyCountdownTimerPage")
-	public void verifySuccessfulPaymentPage() {
+	@Test(dependsOnMethods = "testCountdownTimerPage")
+	public void testSuccessfulPaymentPage() {
 		if (carwash.isOrderIdDisplayed() && carwash.isBillAmountDisplayed()) {
 			test.log(Status.INFO, carwash.getOrderId());
 			test.log(Status.INFO, "Bill amount :" + carwash.getBillAmount());

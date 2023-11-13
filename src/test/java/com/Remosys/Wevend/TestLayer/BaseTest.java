@@ -112,17 +112,17 @@ public class BaseTest extends BaseClass {
 	public void testResult(ITestResult result) {
 
 		if (result.getStatus() == ITestResult.FAILURE) {
-			// test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + " FAIL",
-			// ExtentColor.RED));
-			// util.takeSS(driver);
 			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + " FAIL", ExtentColor.RED));
 			String path = util.takeScreenshot(driver);
-			try {
-				test.addScreenCaptureFromPath(path);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
+			
+				try {
+					test.addScreenCaptureFromPath(path);
+				} catch (IOException e) {
+					
+					e.printStackTrace();
+				}
+			
+			
 		} else if (result.getStatus() == ITestResult.SUCCESS) {
 			test.log(Status.PASS, MarkupHelper.createLabel(result.getName() + " PASS", ExtentColor.GREEN));
 			// test.pass(result.getName());

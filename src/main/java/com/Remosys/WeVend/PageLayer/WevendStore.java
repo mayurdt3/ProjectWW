@@ -192,7 +192,7 @@ public class WevendStore {
 
 	@FindBy(xpath = "//span[@data-bind='text: getCartSummaryItemsCount()']")
 	private WebElement checkoutItmCount;
-
+	
 	/**
 	 * Retrieves the count of items in the shopping cart.
 	 * 
@@ -210,6 +210,7 @@ public class WevendStore {
 	public void clickOnProceed() {
 		util.waitForElementToBeClickable(driver, proceedButton);
 		proceedButton.click();
+		util.waitForTitle(driver, excel.getExcelvalueForKey(0, "PayemtGatwayPageTitle"));
 	}
 
 	/**
@@ -244,7 +245,7 @@ public class WevendStore {
 	/**
 	 * Retrieves the payment option for "Card Payment" as text.
 	 *
-	 * @return
+	 * @return card payment option
 	 */
 	public String getCardPayAsPaymentOption() {
 		util.waitForVisibilityOfElement(driver, cardPayOption);
@@ -274,7 +275,7 @@ public class WevendStore {
 	/**
 	 * Verifies if a successful payment confirmation message is displayed.
 	 * 
-	 * @return
+	 * @return boolean value if payment successful
 	 */
 	public boolean verifySuccessfulPayment() {
 		util.waitForVisibilityOfElement(driver, thankYouText);
@@ -287,7 +288,7 @@ public class WevendStore {
 	/**
 	 * Checks if the order ID is displayed on the web page
 	 * 
-	 * @return
+	 * @return boolean value if order id is displayed
 	 */
 	public boolean isOrderIdDisplayed() {
 		util.waitForVisibilityOfElement(driver, orderId);
@@ -298,11 +299,12 @@ public class WevendStore {
 	}
 
 	/**
-	 * Retrives Order ID from the Success page.
+	 * Retrieves Order ID from the Success page.
 	 * 
-	 * @return
+	 * @return order Id
 	 */
 	public String getOrderId() {
+		
 		return orderId.getText();
 	}
 
@@ -324,6 +326,10 @@ public class WevendStore {
 		util.waitForTitle(driver, excel.getExcelvalueForKey(0, "WevendHompageTitle"));
 	}
 
+	/**
+	 * Retrieves page Title
+	 * @return Page title
+	 */
 	public String getTitle() {
 		return driver.getTitle();
 	}

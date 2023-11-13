@@ -29,10 +29,10 @@ import com.aventstack.extentreports.Status;
 
 public class TestHabcoPage extends BaseTest {
 
-	public int numOfProducsAddedtoCart;
+	public int numOfProducsAddedToCart;
 	int cartCount;
-	String cartSubtotaltxt;
-	String orderTotaltxt;
+	String cartSubtotalTxt;
+	String orderTotalTxt;
 	String productName;
 
 	/* tests scripts */
@@ -43,7 +43,7 @@ public class TestHabcoPage extends BaseTest {
 	 * 
 	 */
 	@Test(priority = 0)
-	public void verifyHabcoLaunch() {
+	public void testHabcoLaunch() {
 
 		driver.get(prop.getProperty("habcoUrl"));
 		test = extent.createTest("Habco payment cycle");
@@ -53,7 +53,7 @@ public class TestHabcoPage extends BaseTest {
 		} else {
 			test.log(Status.FAIL, "Application is failed to launch");
 		}
-		test.log(Status.INFO, "Title of Home page : '" + habco.getTitle() + "'");
+		// test.log(Status.INFO, "Title of Home page : '" + habco.getTitle() + "'");
 		assertEquals(driver.getCurrentUrl(), excel.getExcelvalueForKey(1, "habcoUrl"));
 	}
 
@@ -61,15 +61,14 @@ public class TestHabcoPage extends BaseTest {
 	 * This method will verify Add to cart functionality and verify count displayed
 	 * on cart is same as number of products added in the card
 	 */
-	@Test(dependsOnMethods = "verifyHabcoLaunch")
-	public void verifyAddtocartFunctionality() {
+	@Test(dependsOnMethods = "testHabcoLaunch")
+	public void testAddTSoCartFunctionality() {
 
 		List<String> products = Arrays.asList(excel.getExcelvalueForKey(1, "product1"),
 				excel.getExcelvalueForKey(1, "product2"));
 		for (String product : products) {
 			try {
 				habco.addProductToCart(product);
-				// test.log(Status.PASS, "'" + product + "' is successfully added to the cart");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -82,22 +81,17 @@ public class TestHabcoPage extends BaseTest {
 			Assert.assertEquals(true, result);
 		}
 
-		numOfProducsAddedtoCart = products.size();
+		numOfProducsAddedToCart = products.size();
 
 		cartCount = habco.getCartItemCount();
 
-		if (cartCount == numOfProducsAddedtoCart) {
-			test.log(Status.INFO, "Total Number of items displayed on the cart is : '" + cartCount + "'");
-		} else {
+		if (!(cartCount == numOfProducsAddedToCart)) {
 			test.log(Status.FAIL,
 					"Total Number of items displayed on cart is not matching with items added to the cart: '"
 							+ cartCount + "'");
 		}
-		
-			//Assert.assertEquals(cartCount, numOfProducsAddedtoCart);    //holding assert from execution pov, since app under dev.
-		
-		
-		
+//		Assert.assertEquals(cartCount, numOfProducsAddedtoCart);    //holding assert from execution pov, since app under dev.
+
 	}
 
 	/**
@@ -106,8 +100,8 @@ public class TestHabcoPage extends BaseTest {
 	 * number of Items And verifies the navigation to payment gateway page
 	 */
 
-	@Test(dependsOnMethods = "verifyAddtocartFunctionality")
-	public void navigateCheckoutPageTest() {
+	@Test(dependsOnMethods = "testAddTSoCartFunctionality")
+	public void testNavigationToCheckoutPage() {
 
 		productName = habco.buyNow(excel.getExcelvalueForKey(1, "product3"));
 
@@ -122,7 +116,7 @@ public class TestHabcoPage extends BaseTest {
 			test.log(Status.FAIL, "Navigation to the checkout page has failed");
 
 		}
-		test.log(Status.INFO, "Title of Checkout page : '" + habco.getTitle() + "'");
+		// test.log(Status.INFO, "Title of Checkout page : '" + habco.getTitle() + "'");
 		assertEquals(title, excel.getExcelvalueForKey(1, "CheckoutPageTitle"));
 
 	}
@@ -130,23 +124,24 @@ public class TestHabcoPage extends BaseTest {
 	/**
 	 * This method verifies The Payment gateway Functionality
 	 */
-	@Test(dependsOnMethods = "navigateCheckoutPageTest")
-	public void navigatePaymentPage() {
+	@Test(dependsOnMethods = "testNavigationToCheckoutPage")
+	public void testNavigationToPaymentPage() {
 
-		orderTotaltxt = habco.getCheckoutOrderTotal();
+		orderTotalTxt = habco.getCheckoutOrderTotal();
 		habco.clickOnProceed();
 		pay = new PaymentGateway(driver);
 
 		String title = pay.getPaymentPageTitle();
 
 		if (title.equals(excel.getExcelvalueForKey(0, "PaymentPageTitle"))) {
-			test.log(Status.PASS, "User is navigated to the Payment Gateway Page");
+			test.log(Status.PASS, "User is navigated to the 'Payment Gateway' Page");
 
 		} else {
 			test.log(Status.FAIL, "Nvigation to the Payment Gateway Page has failed");
 
 		}
-		test.log(Status.INFO, "Title of 'Payment Gateway' page : '" + habco.getTitle() + "'");
+		// test.log(Status.INFO, "Title of 'Payment Gateway' page : '" +
+		// habco.getTitle() + "'");
 		assertEquals(title, excel.getExcelvalueForKey(0, "PaymentPageTitle"));
 	}
 
@@ -154,15 +149,19 @@ public class TestHabcoPage extends BaseTest {
 	 * This method verifies The Payment gateway Functionality
 	 */
 
-	@Test(dependsOnMethods = "navigatePaymentPage")
-	public void doPayment() throws InterruptedException {
+	@Test(dependsOnMethods = "testNavigationToPaymentPage")
+	public void testPaymentProcess() throws InterruptedException {
 
 		pay = new PaymentGateway(driver);
-
-		test.log(Status.INFO, "Selecting the Payment method as : Card Pay");
-		pay.enterCardNum(excel.getExcelvalueForKey(0, "CardNo"));
-		pay.enterCardExpiryDate(excel.getExcelvalueForKey(0, "CardExpiry"));
-		pay.enterCardCvv(excel.getExcelvalueForKey(0, "CardCvv"));
+		try {
+			//test.log(Status.INFO, "Selecting the Payment method as : Card Pay");
+			pay.enterCardNum(excel.getExcelvalueForKey(0, "CardNo"));
+			pay.enterCardExpiryDate(excel.getExcelvalueForKey(0, "CardExpiry"));
+			pay.enterCardCvv(excel.getExcelvalueForKey(0, "CardCvv"));
+			
+		} catch (Exception e) {
+			test.log(Status.INFO, "Failed to enter Card detail");
+		}
 		if (pay.isPayBtnEnabled()) {
 			test.log(Status.INFO, "Pay button is Enabled");
 		} else {
@@ -170,14 +169,6 @@ public class TestHabcoPage extends BaseTest {
 		}
 		pay.clickOnPayBtn();
 
-		boolean verify = habco.verifySuccessfulPayment();
-
-		if (verify) {
-			test.log(Status.PASS, "Payment is Successfull");
-		} else {
-			test.log(Status.FAIL, "Payment Failed");
-		}
-		Assert.assertEquals(true, verify);
 	}
 
 	/**
@@ -185,8 +176,8 @@ public class TestHabcoPage extends BaseTest {
 	 * same as order-Total
 	 * 
 	 */
-	@Test(dependsOnMethods = "doPayment")
-	public void verifySuccessPage() {
+	@Test(dependsOnMethods = "testPaymentProcess")
+	public void testSuccessfullPayment() {
 
 		boolean verify = habco.verifySuccessfulPayment();
 		if (verify) {
@@ -194,30 +185,27 @@ public class TestHabcoPage extends BaseTest {
 		} else {
 			test.log(Status.FAIL, "Payment Failed");
 		}
-		test.log(Status.INFO, "Title of payment success page : '" + habco.getTitle() + "'");
+		// test.log(Status.INFO, "Title of payment success page : '" + habco.getTitle()
+		// + "'");
 		Assert.assertEquals(true, verify);
 		try {
-			if (habco.getGrandTotal().equals(orderTotaltxt)) {
-				test.log(Status.PASS, "Grand-total displayed is same as Order-total");
-			} else {
+			if (!(habco.getGrandTotal().equals(orderTotalTxt))) {
 				test.log(Status.FAIL, "Grand-total displayed is not same as Order-total");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		Assert.assertEquals(habco.getGrandTotal(), orderTotaltxt);
+		Assert.assertEquals(habco.getGrandTotal(), orderTotalTxt);
 		try {
 			habco.clickOnBuyMoreBtn();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		if (habco.getTitle().equals(excel.getExcelvalueForKey(1, "WevendHompageTitle"))) {
-			test.log(Status.INFO, "Selection of 'Buy More' button leads to 'Homepage;");
-		} else {
+		if (!(habco.getTitle().equals(excel.getExcelvalueForKey(1, "WevendHompageTitle")))) {
 			test.log(Status.INFO, "Selection of 'Buy More' button failed to navigate to 'Homepage;");
 		}
 		Assert.assertEquals(habco.getTitle(), excel.getExcelvalueForKey(1, "WevendHompageTitle"));
-		test.log(Status.INFO, "Title of Home page : '" + habco.getTitle() + "'");
+		// test.log(Status.INFO, "Title of Home page : '" + habco.getTitle() + "'");
 	}
 
 }
