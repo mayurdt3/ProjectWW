@@ -66,23 +66,6 @@ public class Utility  {
 	}
 	
 
-	/**
-	 * configure take screenshot
-	 */
-	public String takeSS(WebDriver driver) {
-		String directory = System.getProperty("user.dir") + "//ScreenShot//SS ";
-		TakesScreenshot ss = (TakesScreenshot) driver;
-		
-		String ssPath = directory + getTimeStamp() + ".png";
-		try {
-			FileHandler.copy(ss.getScreenshotAs(OutputType.FILE), new File(ssPath));
-		} catch (WebDriverException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return ssPath;
-	}
 	
 	
 	/**
@@ -93,7 +76,6 @@ public class Utility  {
 		TakesScreenshot ss = (TakesScreenshot) driver;
 		String ssPath= directory + getTimeStamp() + ".png";
 		try {
-			//FileHandler.copy(ss.getScreenshotAs(OutputType.FILE), new File(directory + getTimeStamp() + ".png"));
 			FileHandler.copy(ss.getScreenshotAs(OutputType.FILE), new File(ssPath));
 
 		} catch (WebDriverException | IOException e) {
