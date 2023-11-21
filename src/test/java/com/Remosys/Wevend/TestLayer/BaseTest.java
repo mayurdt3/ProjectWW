@@ -58,7 +58,7 @@ public class BaseTest extends BaseClass {
 
 		util = new Utility();
 		String directory = System.getProperty("user.dir") + "//ExtentReports//";
-		spark = new ExtentSparkReporter(directory + "ExtentReport" + util.getTimeStamp() + ".html");
+		spark = new ExtentSparkReporter(directory + "ExtentReport.html");
 		extent = new ExtentReports();
 		extent.attachReporter(spark);
 

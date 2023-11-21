@@ -1,5 +1,10 @@
-C:\Users\Soft\git\ProjectWW\src\main\java\carwash\base\BaseClass.java
-C:\Users\Soft\git\ProjectWW\src\main\java\configuration\ConfigFileReader.java
-C:\Users\Soft\git\ProjectWW\src\main\java\utility\ExtentReportClass.java
-C:\Users\Soft\git\ProjectWW\src\main\java\carwash\base\CarWash.java
-C:\Users\Soft\git\ProjectWW\src\main\java\utility\Utility.java
+C:\Users\Soft\git\ProjectWW\src\main\java\com\Remosys\WeVend\Reader\ConfigUtil.java
+C:\Users\Soft\git\ProjectWW\src\main\java\com\Remosys\WeVend\Manager\DriverManagerClass.java
+C:\Users\Soft\git\ProjectWW\src\main\java\com\Remosys\WeVend\PageLayer\GumBallPage.java
+C:\Users\Soft\git\ProjectWW\src\main\java\com\Remosys\WeVend\Base\BaseClass.java
+C:\Users\Soft\git\ProjectWW\src\main\java\com\Remosys\WeVend\utility\Utility.java
+C:\Users\Soft\git\ProjectWW\src\main\java\com\Remosys\WeVend\PageLayer\WevendStore.java
+C:\Users\Soft\git\ProjectWW\src\main\java\com\Remosys\WeVend\PageLayer\HabcoPage.java
+C:\Users\Soft\git\ProjectWW\src\main\java\com\Remosys\WeVend\Reader\ExcelFileReader.java
+C:\Users\Soft\git\ProjectWW\src\main\java\com\Remosys\WeVend\PageLayer\PaymentGateway.java
+C:\Users\Soft\git\ProjectWW\src\main\java\com\Remosys\WeVend\PageLayer\CarWash.java

@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
 import com.Remosys.WeVend.PageLayer.PaymentGateway;
 import com.Remosys.WeVend.PageLayer.WevendStore;
 import com.aventstack.extentreports.Status;
@@ -33,9 +35,9 @@ public class TestWevendStore extends BaseTest {
 	int cartCount;
 	String cartSubtotalTxt;
 	String orderTotaltxt;
+	SoftAssert softAssert;
 
 	/* tests scripts */
-
 	/**
 	 * 
 	 * This method will launch and verify the WeVend Store URL
@@ -45,6 +47,8 @@ public class TestWevendStore extends BaseTest {
 	public void testLaunchWevend() {
 
 		wevend = new WevendStore(driver);
+		softAssert = new SoftAssert();
+		
 		test = extent.createTest("Verify 'Wevend Store' payment cycle");
 		driver.get(prop.getProperty("WevendStoreUrl"));
 		if (wevend.getTitle().equals(excel.getExcelvalueForKey(0, "WevendHompageTitle"))) {
@@ -54,6 +58,7 @@ public class TestWevendStore extends BaseTest {
 		}
 		//test.log(Status.INFO, "Title of Home page : '"+ wevend.getTitle()+"'");
 		assertEquals(driver.getCurrentUrl(), excel.getExcelvalueForKey(0, "WevendStoreUrl"));
+		softAssert.assertAll();
 	}
 
 	/**
@@ -77,7 +82,8 @@ public class TestWevendStore extends BaseTest {
 			} else {
 				test.log(Status.FAIL, "'" + product + "' is failed add into the cart");
 			}
-			Assert.assertEquals(true, result);
+			softAssert.assertEquals(true, result);
+			softAssert.assertAll();
 		}
 		
 		numOfProducsAddedtoCart = products.size();
@@ -88,7 +94,9 @@ public class TestWevendStore extends BaseTest {
 		"Total Number of items displayed on cart is not matching with items added to the cart: '"
 		+ cartCount + "'");
 		}
-		Assert.assertEquals(cartCount, numOfProducsAddedtoCart);
+		softAssert.assertEquals(cartCount, numOfProducsAddedtoCart);
+		softAssert.assertAll();
+		
 	}
 
 	/**
@@ -110,18 +118,19 @@ public class TestWevendStore extends BaseTest {
 		}
 		
 		//test.log(Status.INFO, "Title of Checkout page : '"+ wevend.getTitle()+"'");
-		Assert.assertEquals(wevend.getTitle(), excel.getExcelvalueForKey(0, "CheckoutPageTitle"));
-
+		softAssert.assertEquals(wevend.getTitle(), excel.getExcelvalueForKey(0, "CheckoutPageTitle"));
+		
 		wevend.getWevendPaymentMethodText();
 		orderTotaltxt = wevend.getCheckoutOrderTotal();
 		
 		if (!(cartSubtotalTxt.equals(orderTotaltxt))){
 			test.log(Status.FAIL, "Cart-subtotal is not matching with Order-Total under OrderSummary");
 		}
-		Assert.assertEquals(cartSubtotalTxt, orderTotaltxt);
+		softAssert.assertEquals(cartSubtotalTxt, orderTotaltxt);
 		
-		Assert.assertEquals(wevend.getWevendPaymentMethodText(), excel.getExcelvalueForKey(0, "PaymentMethodName"));
+		softAssert.assertEquals(wevend.getWevendPaymentMethodText(), excel.getExcelvalueForKey(0, "PaymentMethodName"));
 		test.log(Status.PASS, "Paymet method name is displayed : " + wevend.getWevendPaymentMethodText());
+		softAssert.assertAll();
 	}
 
 	/**
@@ -142,7 +151,7 @@ public class TestWevendStore extends BaseTest {
 			test.log(Status.FAIL, "Failed to Navigate to 'Payment Gateway' page");
 		}
 		//test.log(Status.INFO, "Title of Payment Gateway page : '"+ wevend.getTitle()+"'");
-		Assert.assertEquals(title, excel.getExcelvalueForKey(0, "PayemtGatwayPageTitle"));
+		softAssert.assertEquals(title, excel.getExcelvalueForKey(0, "PayemtGatwayPageTitle"));
 		PaymentGateway pay = new PaymentGateway(driver);
 		
 		try {
@@ -162,6 +171,7 @@ public class TestWevendStore extends BaseTest {
 			test.log(Status.FAIL, "Pay button is disabled");
 		}
 		pay.clickOnPayBtn();
+		softAssert.assertAll();
 	
 		
 	}
@@ -181,7 +191,7 @@ public class TestWevendStore extends BaseTest {
 			test.log(Status.FAIL, "Payment Failed");
 		}
 		test.log(Status.INFO, "Title of payment success page : '"+ wevend.getTitle()+"'");
-		Assert.assertEquals(true, verify);
+		softAssert.assertEquals(true, verify);
 		
 		try {
 			if (!(wevend.getGrandTotal().equals(orderTotaltxt))) {
@@ -190,7 +200,7 @@ public class TestWevendStore extends BaseTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		Assert.assertEquals(wevend.getGrandTotal(), orderTotaltxt);
+		softAssert.assertEquals(wevend.getGrandTotal(), orderTotaltxt);
 		try {
 			wevend.clickOnBuyMoreBtn();
 		} catch (Exception e) {
@@ -199,8 +209,9 @@ public class TestWevendStore extends BaseTest {
 		if (!(wevend.getTitle().equals(excel.getExcelvalueForKey(0, "WevendHompageTitle")))) {
 			test.log(Status.INFO, "Selection of 'Buy More' button failed to navigate to 'Homepage;");
 		}
-		Assert.assertEquals(wevend.getTitle(), excel.getExcelvalueForKey(0, "WevendHompageTitle"));
+		softAssert.assertEquals(wevend.getTitle(), excel.getExcelvalueForKey(0, "WevendHompageTitle"));
 		//test.log(Status.INFO, "Title of Home page : '"+ wevend.getTitle()+"'");
+		softAssert.assertAll();
 	}
 
 }

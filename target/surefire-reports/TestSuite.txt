@@ -1,4 +1,28 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 44.272 s - in TestSuite
+Tests run: 35, Failures: 4, Errors: 0, Skipped: 31, Time elapsed: 0.958 s <<< FAILURE! - in TestSuite
+setUp(com.Remosys.Wevend.TestLayer.TestCarwash)  Time elapsed: 0.738 s  <<< FAILURE!
+org.testng.TestNGException: 
+
+Parameter 'browser' is required by BeforeClass on method setUp but has not been marked @Optional or defined
+
+
+setUp(com.Remosys.Wevend.TestLayer.TestGumBallPage)  Time elapsed: 0.002 s  <<< FAILURE!
+org.testng.TestNGException: 
+
+Parameter 'browser' is required by BeforeClass on method setUp but has not been marked @Optional or defined
+
+
+setUp(com.Remosys.Wevend.TestLayer.TestHabcoPage)  Time elapsed: 0.001 s  <<< FAILURE!
+org.testng.TestNGException: 
+
+Parameter 'browser' is required by BeforeClass on method setUp but has not been marked @Optional or defined
+
+
+setUp(com.Remosys.Wevend.TestLayer.TestWevendStore)  Time elapsed: 0.001 s  <<< FAILURE!
+org.testng.TestNGException: 
+
+Parameter 'browser' is required by BeforeClass on method setUp but has not been marked @Optional or defined
+
+

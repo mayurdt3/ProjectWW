@@ -4,6 +4,8 @@ package com.Remosys.Wevend.TestLayer;
 import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
 import com.Remosys.WeVend.PageLayer.CarWash;
 import com.Remosys.WeVend.PageLayer.PaymentGateway;
 import com.aventstack.extentreports.Status;
@@ -26,7 +28,7 @@ import com.aventstack.extentreports.Status;
  *
  */
 public class TestCarwash extends BaseTest {
-
+	SoftAssert softAssert;
 	/**
 	 * This method verifies the launch of Car wash application
 	 * @throws InterruptedException 
@@ -35,6 +37,7 @@ public class TestCarwash extends BaseTest {
 	public void testCarWashLaunch() {
 		test = extent.createTest("Verify 'Car Wash' payment cycle");
 		carwash = new CarWash(driver);
+		softAssert = new SoftAssert();
 
 		driver.get(prop.getProperty("carWashUrl"));
 		
@@ -50,10 +53,11 @@ public class TestCarwash extends BaseTest {
 		} else {
 			test.log(Status.FAIL, "'Failed to launch the application");
 		}
+		
 
 	//	test.log(Status.INFO, "title of Home page : '" + carwash.getTitle() + "'");
-		Assert.assertEquals(carwash.getTitle(),excel.getExcelvalueForKey(0, "CarwashHomepagePageTitle"));
-
+		softAssert.assertEquals(carwash.getTitle(),excel.getExcelvalueForKey(0, "CarwashHomepagePageTitle"));
+		softAssert.assertAll();
 	}
 
 	/**
@@ -72,6 +76,7 @@ public class TestCarwash extends BaseTest {
 		test.log(Status.INFO, "Amount selected");
 		Assert.assertEquals(true, verify);
 		test.log(Status.PASS, "Navigate to 'Payment GateWay' successfuly");
+		softAssert.assertAll();
 	}
 
 	/**
@@ -99,7 +104,8 @@ public class TestCarwash extends BaseTest {
 			test.log(Status.INFO, "Failed to enter Card detail");
 		}
 		boolean verify =carwash.isAuthorizeBtnEnabled();
-		Assert.assertEquals(true, verify);
+		softAssert.assertEquals(true, verify);
+		softAssert.assertAll();
 
 	}
 
@@ -126,7 +132,8 @@ public class TestCarwash extends BaseTest {
 			e.printStackTrace();
 		}
 		boolean verify = carwash.isThankYouMessageDisplayed();
-		Assert.assertEquals(true, verify);
+		softAssert.assertEquals(true, verify);
+		softAssert.assertAll();
 	}
 
 	/**
@@ -145,8 +152,8 @@ public class TestCarwash extends BaseTest {
 		} else {
 			test.log(Status.FAIL, "Ammount selected before payment and Bill-amount is different");
 		}
-		Assert.assertEquals(carwash.getBillAmount(),(excel.getExcelvalueForKey(0, "Amount")));
-
+		softAssert.assertEquals(carwash.getBillAmount(),(excel.getExcelvalueForKey(0, "Amount")));
+		softAssert.assertAll();
 	}
 
 }

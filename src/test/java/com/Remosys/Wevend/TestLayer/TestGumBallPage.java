@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
 import com.Remosys.WeVend.PageLayer.PaymentGateway;
 import com.aventstack.extentreports.Status;
 
@@ -33,6 +35,7 @@ public class TestGumBallPage extends BaseTest {
 	int cartCount;
 	String cartSubtotaltxt;
 	String orderTotaltxt;
+	SoftAssert 	softAssert;
 
 	/**
 	 * 
@@ -44,6 +47,7 @@ public class TestGumBallPage extends BaseTest {
 
 		driver.get(prop.getProperty("GumballUrl"));
 		test = extent.createTest("Gumball payment cycle");
+		softAssert = new SoftAssert();
 
 		if (gumball.getTitle().equals(excel.getExcelvalueForKey(2, "GumballTitle"))) {
 			test.log(Status.PASS, "Gumball application launched sucessfully ");
@@ -52,6 +56,7 @@ public class TestGumBallPage extends BaseTest {
 		}
 		// test.log(Status.INFO, "Title of Home page : '" + gumball.getTitle() + "'");
 		assertEquals(driver.getCurrentUrl(), excel.getExcelvalueForKey(2, "GumballUrl"));
+		softAssert.assertAll();
 	}
 
 	/**
@@ -75,7 +80,8 @@ public class TestGumBallPage extends BaseTest {
 			} else {
 				test.log(Status.FAIL, "'" + product + "' is failed add into the cart");
 			}
-			Assert.assertEquals(true, result);
+			softAssert.assertEquals(true, result);
+			softAssert.assertAll();
 		}
 
 		NumOfProducsAddedtoCart = products.size();
@@ -87,9 +93,10 @@ public class TestGumBallPage extends BaseTest {
 					"Total Number of items displayed on cart is not matching with items added to the cart: '"
 							+ cartCount + "'");
 		}
+		
 
-		//Assert.assertEquals(cartCount, NumOfProducsAddedtoCart);  //holding assert from execution pov, since app under dev.
-
+		softAssert.assertEquals(cartCount, NumOfProducsAddedtoCart);  //holding assert from execution pov, since app under dev.
+		softAssert.assertAll();
 	}
 
 	/**
@@ -113,8 +120,8 @@ public class TestGumBallPage extends BaseTest {
 			test.log(Status.FAIL, "Failed to navigated to 'Checkout' page");
 		}
 		//test.log(Status.INFO, "Title of Checkout page : '" + gumball.getTitle() + "'");
-		Assert.assertEquals(title, excel.getExcelvalueForKey(0, "CheckoutPageTitle"));
-
+		softAssert.assertEquals(title, excel.getExcelvalueForKey(0, "CheckoutPageTitle"));
+		softAssert.assertAll();
 	}
 
 	/**
@@ -138,7 +145,8 @@ public class TestGumBallPage extends BaseTest {
 
 		}
 		//test.log(Status.INFO, "Title of 'Payment Gateway' page : '" + gumball.getTitle() + "'");
-		assertEquals(title, excel.getExcelvalueForKey(0, "PaymentPageTitle"));
+		softAssert.assertEquals(title, excel.getExcelvalueForKey(0, "PaymentPageTitle"));
+		softAssert.assertAll();
 	}
 
 	/**
@@ -163,7 +171,7 @@ public class TestGumBallPage extends BaseTest {
 			test.log(Status.FAIL, "Pay button is disabled");
 		}
 		pay.clickOnPayBtn();
-		
+		softAssert.assertAll();
 	}
 
 	/**
@@ -181,7 +189,7 @@ public class TestGumBallPage extends BaseTest {
 			test.log(Status.FAIL, "Payment Failed");
 		}
 		//test.log(Status.INFO, "Title of payment success page : '" + gumball.getTitle() + "'");
-		Assert.assertEquals(true, verify);
+		softAssert.assertEquals(true, verify);
 		try {
 			if (!(gumball.getGrandTotal().equals(orderTotaltxt))) {
 				test.log(Status.FAIL, "Grand-total displayed is not same as Order-total");
@@ -189,7 +197,7 @@ public class TestGumBallPage extends BaseTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		Assert.assertEquals(gumball.getGrandTotal(), orderTotaltxt);
+		softAssert.assertEquals(gumball.getGrandTotal(), orderTotaltxt);
 		try {
 			gumball.clickOnBuyMoreBtn();
 		} catch (Exception e) {
@@ -198,8 +206,9 @@ public class TestGumBallPage extends BaseTest {
 		if (!(gumball.getTitle().equals(excel.getExcelvalueForKey(2, "GumballTitle")))) {
 			test.log(Status.INFO, "Selection of 'Buy More' button failed to navigate to 'Homepage;");
 		}
-		Assert.assertEquals(gumball.getTitle(), excel.getExcelvalueForKey(2, "GumballTitle"));
+		softAssert.assertEquals(gumball.getTitle(), excel.getExcelvalueForKey(2, "GumballTitle"));
 		//test.log(Status.INFO, "Title of Home page : '" + gumball.getTitle() + "'");
+		softAssert.assertAll();
 
 	}
 

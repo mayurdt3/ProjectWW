@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
 import com.Remosys.WeVend.PageLayer.PaymentGateway;
 import com.aventstack.extentreports.Status;
 
@@ -34,6 +36,7 @@ public class TestHabcoPage extends BaseTest {
 	String cartSubtotalTxt;
 	String orderTotalTxt;
 	String productName;
+	SoftAssert softAssert;
 
 	/* tests scripts */
 
@@ -47,6 +50,7 @@ public class TestHabcoPage extends BaseTest {
 
 		driver.get(prop.getProperty("habcoUrl"));
 		test = extent.createTest("Habco payment cycle");
+		softAssert = new SoftAssert();
 
 		if (habco.getTitle().equals(excel.getExcelvalueForKey(1, "HabcoTitle"))) {
 			test.log(Status.PASS, "Habco application launched sucessfully ");
@@ -54,7 +58,8 @@ public class TestHabcoPage extends BaseTest {
 			test.log(Status.FAIL, "Application is failed to launch");
 		}
 		// test.log(Status.INFO, "Title of Home page : '" + habco.getTitle() + "'");
-		assertEquals(driver.getCurrentUrl(), excel.getExcelvalueForKey(1, "habcoUrl"));
+		softAssert.assertEquals(driver.getCurrentUrl(), excel.getExcelvalueForKey(1, "habcoUrl"));
+		softAssert.assertAll();
 	}
 
 	/**
@@ -78,7 +83,7 @@ public class TestHabcoPage extends BaseTest {
 			} else {
 				test.log(Status.FAIL, "'" + product + "' is failed add into the cart");
 			}
-			Assert.assertEquals(true, result);
+			softAssert.assertEquals(true, result);
 		}
 
 		numOfProducsAddedToCart = products.size();
@@ -90,8 +95,8 @@ public class TestHabcoPage extends BaseTest {
 					"Total Number of items displayed on cart is not matching with items added to the cart: '"
 							+ cartCount + "'");
 		}
-//		Assert.assertEquals(cartCount, numOfProducsAddedtoCart);    //holding assert from execution pov, since app under dev.
-
+	//	softAssert.assertEquals(cartCount, numOfProducsAddedToCart);    //holding assert from execution pov, since app under dev.
+		softAssert.assertAll();
 	}
 
 	/**
@@ -117,8 +122,8 @@ public class TestHabcoPage extends BaseTest {
 
 		}
 		// test.log(Status.INFO, "Title of Checkout page : '" + habco.getTitle() + "'");
-		assertEquals(title, excel.getExcelvalueForKey(1, "CheckoutPageTitle"));
-
+		softAssert.assertEquals(title, excel.getExcelvalueForKey(1, "CheckoutPageTitle"));
+		softAssert.assertAll();
 	}
 
 	/**
@@ -142,7 +147,8 @@ public class TestHabcoPage extends BaseTest {
 		}
 		// test.log(Status.INFO, "Title of 'Payment Gateway' page : '" +
 		// habco.getTitle() + "'");
-		assertEquals(title, excel.getExcelvalueForKey(0, "PaymentPageTitle"));
+		softAssert.assertEquals(title, excel.getExcelvalueForKey(0, "PaymentPageTitle"));
+		softAssert.assertAll();
 	}
 
 	/**
@@ -168,6 +174,7 @@ public class TestHabcoPage extends BaseTest {
 			test.log(Status.FAIL, "Pay button is disabled");
 		}
 		pay.clickOnPayBtn();
+		softAssert.assertAll();
 
 	}
 
@@ -187,7 +194,7 @@ public class TestHabcoPage extends BaseTest {
 		}
 		// test.log(Status.INFO, "Title of payment success page : '" + habco.getTitle()
 		// + "'");
-		Assert.assertEquals(true, verify);
+		softAssert.assertEquals(true, verify);
 		try {
 			if (!(habco.getGrandTotal().equals(orderTotalTxt))) {
 				test.log(Status.FAIL, "Grand-total displayed is not same as Order-total");
@@ -195,7 +202,7 @@ public class TestHabcoPage extends BaseTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		Assert.assertEquals(habco.getGrandTotal(), orderTotalTxt);
+		softAssert.assertEquals(habco.getGrandTotal(), orderTotalTxt);
 		try {
 			habco.clickOnBuyMoreBtn();
 		} catch (Exception e) {
@@ -204,8 +211,9 @@ public class TestHabcoPage extends BaseTest {
 		if (!(habco.getTitle().equals(excel.getExcelvalueForKey(1, "WevendHompageTitle")))) {
 			test.log(Status.INFO, "Selection of 'Buy More' button failed to navigate to 'Homepage;");
 		}
-		Assert.assertEquals(habco.getTitle(), excel.getExcelvalueForKey(1, "WevendHompageTitle"));
+		softAssert.assertEquals(habco.getTitle(), excel.getExcelvalueForKey(1, "WevendHompageTitle"));
 		// test.log(Status.INFO, "Title of Home page : '" + habco.getTitle() + "'");
+		softAssert.assertAll();
 	}
 
 }

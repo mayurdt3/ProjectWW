@@ -1,5 +1,10 @@
-utility\ExtentReportClass.class
-configuration\ConfigFileReader.class
-carwash\base\CarWash.class
-utility\Utility.class
-carwash\base\BaseClass.class
+com\Remosys\WeVend\PageLayer\GumBallPage.class
+com\Remosys\WeVend\utility\Utility.class
+com\Remosys\WeVend\Reader\ConfigUtil.class
+com\Remosys\WeVend\Manager\DriverManagerClass.class
+com\Remosys\WeVend\PageLayer\HabcoPage.class
+com\Remosys\WeVend\PageLayer\PaymentGateway.class
+com\Remosys\WeVend\PageLayer\CarWash.class
+com\Remosys\WeVend\Reader\ExcelFileReader.class
+com\Remosys\WeVend\PageLayer\WevendStore.class
+com\Remosys\WeVend\Base\BaseClass.class

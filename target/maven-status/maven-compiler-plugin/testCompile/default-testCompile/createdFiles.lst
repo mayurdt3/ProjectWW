@@ -1,3 +1,5 @@
-scripts\CarwashScript.class
-testpacakage\TestCarwash.class
-testpacakage\BaseTest.class
+com\Remosys\Wevend\TestLayer\BaseTest.class
+com\Remosys\Wevend\TestLayer\TestWevendStore.class
+com\Remosys\Wevend\TestLayer\TestCarwash.class
+com\Remosys\Wevend\TestLayer\TestGumBallPage.class
+com\Remosys\Wevend\TestLayer\TestHabcoPage.class
