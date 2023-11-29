@@ -39,9 +39,6 @@ public class HabcoPage {
 	@FindBy(xpath = "//div[contains(text(),'You added ')]")
 	public WebElement cartSuccessText;
 
-	@FindBy(xpath = "//a[@class='action showcart']")
-	public WebElement cartIcon;
-
 	@FindBy(xpath = "//div[@class='amount price-container']//span[@class='price']")
 	public WebElement cartSubtotal;
 
@@ -94,6 +91,18 @@ public class HabcoPage {
 
 	@FindBy(xpath = "//div[text()='Buy More']")
 	private WebElement buyMoreBtn;
+	
+	@FindBy(xpath = "//a[@class='action showcart']")
+	private WebElement cartIcon;
+	
+	@FindBy(xpath="//span[@class='count']")
+	private WebElement itemsInCart;
+	
+	@FindBy(xpath="//button[@id='btn-minicart-close']")
+	private WebElement closeCartButton;
+	
+	
+	
 
 	/**
 	 * This method is used to test the logo of the Habco HomePage
@@ -218,6 +227,7 @@ public class HabcoPage {
 		String addtocartbuttonlocator = "//a[@title ='" + s
 				+ "']/parent :: strong// following-sibling:: div//button[@title='Add to Cart']";
 		WebElement pr = driver.findElement(By.xpath(addtocartbuttonlocator));
+		util.waitForElementToBeClickable(driver, pr);
 		pr.click();
 
 	}
@@ -277,6 +287,39 @@ public class HabcoPage {
 		util.waitForElementToBeClickable(driver, buyMoreBtn);
 		buyMoreBtn.click();
 		util.waitForTitle(driver, excel.getExcelvalueForKey(1, "HabcoTitle"));
+	}
+
+	
+	/**
+	 * This method will wait for cart count to update
+	 */
+	public void waitForCartCountToUpdate(int count) {
+		String cartCountLocator="//span[@class='counter-number' and text()='"+count+"']";
+		util.waitForPrecensOfElementByLocator(driver, cartCountLocator);
+	}
+	
+	
+	/**
+	 * will retrieve items in the cart of int time
+	 */
+	public int itemsInTheCart() {
+		util.waitForElementWithFrequency(driver, itemsInCart, 10, 1);
+		int itemCount;
+		String cartText = itemsInCart.getText();
+		
+		if (!cartText.isEmpty()) {
+			itemCount = Integer.parseInt(cartText);
+		} else {
+			return 0;
+		}
+		return itemCount;
+	}
+	
+	/**
+	 * click on close Button of cart
+	 */
+	public void clickOnClose() {
+		closeCartButton.click();
 	}
 
 }

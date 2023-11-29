@@ -287,7 +287,7 @@ public class CarWash {
 	 * 
 	 * @return boolean value if Car wash logo is displayed.
 	 */
-	
+
 	public boolean isLogoDisplayed() {
 		return carwashLogo.isDisplayed();
 	}
@@ -375,8 +375,8 @@ public class CarWash {
 		}
 		return null;
 	}
-	
-	/** 
+
+	/**
 	 * returns the title of the page
 	 * 
 	 * @return string title

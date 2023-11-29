@@ -5,15 +5,17 @@
     <classes>
       <class name="com.Remosys.Wevend.TestLayer.TestHabcoPage">
         <methods>
-          <include name="VerifyHabcoLaunch"/>
-          <include name="navigatePaymentPage"/>
-          <include name="navigateCheckoutPageTest"/>
+          <include name="testPaymentProcess"/>
+          <include name="closeReporter"/>
+          <include name="testNavigationToCheckoutPage"/>
           <include name="startReporter"/>
           <include name="testResult"/>
           <include name="close"/>
-          <include name="doPayment"/>
-          <include name="closereporter"/>
+          <include name="testAddTSoCartFunctionality"/>
+          <include name="testHabcoLaunch"/>
+          <include name="testSuccessfullPayment"/>
           <include name="setUp"/>
+          <include name="testNavigationToPaymentPage"/>
         </methods>
       </class> <!-- com.Remosys.Wevend.TestLayer.TestHabcoPage -->
     </classes>

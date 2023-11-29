@@ -2,6 +2,7 @@ package com.Remosys.WeVend.PageLayer;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -333,4 +334,10 @@ public class WevendStore {
 	public String getTitle() {
 		return driver.getTitle();
 	}
+	
+	public void checkCartItemCount(int count) {
+		WebElement cartCount = driver.findElement(By.xpath("//span[@class='counter-number' and text()='"+count+"']"));
+		util.waitForVisibilityOfElement(driver, cartCount);
+	}
+
 }

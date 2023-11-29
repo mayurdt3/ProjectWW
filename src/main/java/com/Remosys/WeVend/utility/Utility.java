@@ -7,6 +7,8 @@ import java.time.Duration;
 import java.time.Instant;
 import java.time.format.DateTimeFormatter;
 
+
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
@@ -118,9 +120,7 @@ public class Utility  {
 	}
 
 	/**
-	 * Waits for a WebElement to become clickable on the web page, which means it is
-	 * both visible and enabled, allowing it to receive user interactions like
-	 * clicks.
+	 * Waits for a WebElement to become Present on Dom, 
 	 *
 	 * @param element
 	 */
@@ -199,7 +199,28 @@ public class Utility  {
 				.ignoring(NoSuchElementException.class);
 
 		wait.until(ExpectedConditions.visibilityOf(element));
-
+		
+		
 	}
+	/**
+	 * Waits till presence of element on DOM using locator.
+	 *
+	 * @param title 
+	 */
+	public void waitForPrecensOfElementByLocator(WebDriver driver, String locator) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
+	}
+	
+	/**
+	 * Waits till DOM is loaded completely
+	 */
+	public void waitForDomToLoad(WebDriver driver) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.jsReturnsValue("return document.readyState === 'complete';"));
+	}
+	
+	
+	
 
 }

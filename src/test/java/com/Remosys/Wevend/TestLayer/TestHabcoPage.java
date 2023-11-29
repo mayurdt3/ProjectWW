@@ -1,10 +1,7 @@
 package com.Remosys.Wevend.TestLayer;
 
-import static org.testng.Assert.assertEquals;
-
 import java.util.Arrays;
 import java.util.List;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -57,7 +54,6 @@ public class TestHabcoPage extends BaseTest {
 		} else {
 			test.log(Status.FAIL, "Application is failed to launch");
 		}
-		// test.log(Status.INFO, "Title of Home page : '" + habco.getTitle() + "'");
 		softAssert.assertEquals(driver.getCurrentUrl(), excel.getExcelvalueForKey(1, "habcoUrl"));
 		softAssert.assertAll();
 	}
@@ -73,13 +69,24 @@ public class TestHabcoPage extends BaseTest {
 				excel.getExcelvalueForKey(1, "product2"));
 		for (String product : products) {
 			try {
+				util.waitForDomToLoad(driver);
+				//Thread.sleep(5000);
 				habco.addProductToCart(product);
+				//Thread.sleep(3000);
+				 habco.waitForCartCountToUpdate(products.indexOf(product)+1);
+				 //habco.waitForCountToBePresentWithFrequency(products.indexOf(product) + 1);
+				habco.clickOnCartIcon();
+				cartCount = habco.itemsInTheCart();
+				habco.clickOnClose();
+
 			} catch (Exception e) {
-				e.printStackTrace();
+				e.printStackTrace();	
 			}
+
 			boolean result = wevend.getAddedToCartSuccessmsg().contains(product);
 			if (result) {
 				test.log(Status.PASS, "'" + product + "' is successfully added to the cart");
+
 			} else {
 				test.log(Status.FAIL, "'" + product + "' is failed add into the cart");
 			}
@@ -95,7 +102,9 @@ public class TestHabcoPage extends BaseTest {
 					"Total Number of items displayed on cart is not matching with items added to the cart: '"
 							+ cartCount + "'");
 		}
-	//	softAssert.assertEquals(cartCount, numOfProducsAddedToCart);    //holding assert from execution pov, since app under dev.
+
+		softAssert.assertEquals(cartCount, numOfProducsAddedToCart); // holding assert from execution pov, since app
+																		// under dev.
 		softAssert.assertAll();
 	}
 
@@ -121,7 +130,7 @@ public class TestHabcoPage extends BaseTest {
 			test.log(Status.FAIL, "Navigation to the checkout page has failed");
 
 		}
-		// test.log(Status.INFO, "Title of Checkout page : '" + habco.getTitle() + "'");
+
 		softAssert.assertEquals(title, excel.getExcelvalueForKey(1, "CheckoutPageTitle"));
 		softAssert.assertAll();
 	}
@@ -143,10 +152,8 @@ public class TestHabcoPage extends BaseTest {
 
 		} else {
 			test.log(Status.FAIL, "Nvigation to the Payment Gateway Page has failed");
-
 		}
-		// test.log(Status.INFO, "Title of 'Payment Gateway' page : '" +
-		// habco.getTitle() + "'");
+
 		softAssert.assertEquals(title, excel.getExcelvalueForKey(0, "PaymentPageTitle"));
 		softAssert.assertAll();
 	}
@@ -160,11 +167,11 @@ public class TestHabcoPage extends BaseTest {
 
 		pay = new PaymentGateway(driver);
 		try {
-			//test.log(Status.INFO, "Selecting the Payment method as : Card Pay");
+			// test.log(Status.INFO, "Selecting the Payment method as : Card Pay");
 			pay.enterCardNum(excel.getExcelvalueForKey(0, "CardNo"));
 			pay.enterCardExpiryDate(excel.getExcelvalueForKey(0, "CardExpiry"));
 			pay.enterCardCvv(excel.getExcelvalueForKey(0, "CardCvv"));
-			
+
 		} catch (Exception e) {
 			test.log(Status.INFO, "Failed to enter Card detail");
 		}
@@ -192,8 +199,7 @@ public class TestHabcoPage extends BaseTest {
 		} else {
 			test.log(Status.FAIL, "Payment Failed");
 		}
-		// test.log(Status.INFO, "Title of payment success page : '" + habco.getTitle()
-		// + "'");
+
 		softAssert.assertEquals(true, verify);
 		try {
 			if (!(habco.getGrandTotal().equals(orderTotalTxt))) {
@@ -212,7 +218,6 @@ public class TestHabcoPage extends BaseTest {
 			test.log(Status.INFO, "Selection of 'Buy More' button failed to navigate to 'Homepage;");
 		}
 		softAssert.assertEquals(habco.getTitle(), excel.getExcelvalueForKey(1, "WevendHompageTitle"));
-		// test.log(Status.INFO, "Title of Home page : '" + habco.getTitle() + "'");
 		softAssert.assertAll();
 	}
 

@@ -29,9 +29,11 @@ import com.aventstack.extentreports.Status;
  */
 public class TestCarwash extends BaseTest {
 	SoftAssert softAssert;
+
 	/**
 	 * This method verifies the launch of Car wash application
-	 * @throws InterruptedException 
+	 * 
+	 * @throws InterruptedException
 	 */
 	@Test(priority = 1)
 	public void testCarWashLaunch() {
@@ -40,7 +42,7 @@ public class TestCarwash extends BaseTest {
 		softAssert = new SoftAssert();
 
 		driver.get(prop.getProperty("carWashUrl"));
-		
+
 		try {
 			carwash.verifyHompageUrl();
 		} catch (IOException e) {
@@ -53,10 +55,8 @@ public class TestCarwash extends BaseTest {
 		} else {
 			test.log(Status.FAIL, "'Failed to launch the application");
 		}
-		
 
-	//	test.log(Status.INFO, "title of Home page : '" + carwash.getTitle() + "'");
-		softAssert.assertEquals(carwash.getTitle(),excel.getExcelvalueForKey(0, "CarwashHomepagePageTitle"));
+		softAssert.assertEquals(carwash.getTitle(), excel.getExcelvalueForKey(0, "CarwashHomepagePageTitle"));
 		softAssert.assertAll();
 	}
 
@@ -85,7 +85,7 @@ public class TestCarwash extends BaseTest {
 	 */
 
 	@Test(dependsOnMethods = "testAmountSelection")
-	public void TestPaymentGatewayPage() {
+	public void testPaymentProcess() {
 
 		PaymentGateway pay = new PaymentGateway(driver);
 		try {
@@ -95,16 +95,18 @@ public class TestCarwash extends BaseTest {
 				test.log(Status.FAIL, "Failed to Navigate to 'Payment Gateway' page");
 			}
 
-		//	test.log(Status.INFO, "Title of 'Payment Gateway' page : '" + carwash.getTitle() + "'");
-
 			pay.enterCardNum(excel.getExcelvalueForKey(0, "CardNo"));
 			pay.enterCardExpiryDate(excel.getExcelvalueForKey(0, "CardExpiry"));
 			pay.enterCardCvv(excel.getExcelvalueForKey(0, "CardCvv"));
 		} catch (Exception e) {
 			test.log(Status.INFO, "Failed to enter Card detail");
 		}
-		boolean verify =carwash.isAuthorizeBtnEnabled();
+		boolean verify = carwash.isAuthorizeBtnEnabled();
+		if (!verify) {
+			test.log(Status.FAIL, "Pay button is disabled");
+		}
 		softAssert.assertEquals(true, verify);
+		carwash.selectAuthorizeBtn();
 		softAssert.assertAll();
 
 	}
@@ -112,9 +114,9 @@ public class TestCarwash extends BaseTest {
 	/**
 	 * Verifies Count down page Functionality.
 	 */
-	@Test(dependsOnMethods = "TestPaymentGatewayPage")
+	@Test(dependsOnMethods = "testPaymentProcess")
 	public void testCountdownTimerPage() {
-		carwash.selectAuthorizeBtn();
+
 		try {
 			if (carwash.isLogoDisplayed()) {
 				test.log(Status.PASS, "Navigate to 'Payment Success' page Successfully");
@@ -152,7 +154,7 @@ public class TestCarwash extends BaseTest {
 		} else {
 			test.log(Status.FAIL, "Ammount selected before payment and Bill-amount is different");
 		}
-		softAssert.assertEquals(carwash.getBillAmount(),(excel.getExcelvalueForKey(0, "Amount")));
+		softAssert.assertEquals(carwash.getBillAmount(), (excel.getExcelvalueForKey(0, "Amount")));
 		softAssert.assertAll();
 	}
 

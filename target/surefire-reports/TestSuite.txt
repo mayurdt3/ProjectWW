@@ -1,28 +1,34 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 35, Failures: 4, Errors: 0, Skipped: 31, Time elapsed: 0.958 s <<< FAILURE! - in TestSuite
-setUp(com.Remosys.Wevend.TestLayer.TestCarwash)  Time elapsed: 0.738 s  <<< FAILURE!
-org.testng.TestNGException: 
+Tests run: 12, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 81.47 s <<< FAILURE! - in TestSuite
+com.Remosys.Wevend.TestLayer.TestHabcoPage.testSuccessfullPayment  Time elapsed: 21.18 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //span[contains(text(),'Thank you')]' (tried for 15 second(s) with 500 milliseconds interval)
+	at com.Remosys.Wevend.TestLayer.TestHabcoPage.testSuccessfullPayment(TestHabcoPage.java:195)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//span[contains(text(),'Thank you')]"}
+  (Session info: chrome=119.0.6045.160)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.20'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [3eb24f1b34fcb3a1a24d3605e7945620, findElement {using=xpath, value=//span[contains(text(),'Thank you')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.160, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\Soft\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54250}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54250/devtoo..., se:cdpVersion: 119.0.6045.160, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 3eb24f1b34fcb3a1a24d3605e7945620
+	at com.Remosys.Wevend.TestLayer.TestHabcoPage.testSuccessfullPayment(TestHabcoPage.java:195)
 
-Parameter 'browser' is required by BeforeClass on method setUp but has not been marked @Optional or defined
-
-
-setUp(com.Remosys.Wevend.TestLayer.TestGumBallPage)  Time elapsed: 0.002 s  <<< FAILURE!
-org.testng.TestNGException: 
-
-Parameter 'browser' is required by BeforeClass on method setUp but has not been marked @Optional or defined
-
-
-setUp(com.Remosys.Wevend.TestLayer.TestHabcoPage)  Time elapsed: 0.001 s  <<< FAILURE!
-org.testng.TestNGException: 
-
-Parameter 'browser' is required by BeforeClass on method setUp but has not been marked @Optional or defined
-
-
-setUp(com.Remosys.Wevend.TestLayer.TestWevendStore)  Time elapsed: 0.001 s  <<< FAILURE!
-org.testng.TestNGException: 
-
-Parameter 'browser' is required by BeforeClass on method setUp but has not been marked @Optional or defined
-
+com.Remosys.Wevend.TestLayer.TestGumBallPage.testSuccessfullPayment  Time elapsed: 21.157 s  <<< FAILURE!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //span[contains(text(),'Thank you')]' (tried for 15 second(s) with 500 milliseconds interval)
+	at com.Remosys.Wevend.TestLayer.TestGumBallPage.testSuccessfullPayment(TestGumBallPage.java:193)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"xpath","selector":"//span[contains(text(),'Thank you')]"}
+  (Session info: chrome=119.0.6045.160)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.20'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [c5a6e16c3f3a51e91724562cb7ed3618, findElement {using=xpath, value=//span[contains(text(),'Thank you')]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.160, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\Soft\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:54324}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54324/devtoo..., se:cdpVersion: 119.0.6045.160, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: c5a6e16c3f3a51e91724562cb7ed3618
+	at com.Remosys.Wevend.TestLayer.TestGumBallPage.testSuccessfullPayment(TestGumBallPage.java:193)
 

@@ -4,20 +4,6 @@
   <test thread-count="5" name="Wevend(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.Remosys.Wevend.TestLayer.TestCarwash">
-        <methods>
-          <include name="testAmountSelection"/>
-          <include name="TestPaymentGatewayPage"/>
-          <include name="testSuccessfulPaymentPage"/>
-          <include name="closeReporter"/>
-          <include name="testCountdownTimerPage"/>
-          <include name="startReporter"/>
-          <include name="testResult"/>
-          <include name="close"/>
-          <include name="testCarWashLaunch"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.Remosys.Wevend.TestLayer.TestCarwash -->
       <class name="com.Remosys.Wevend.TestLayer.TestGumBallPage">
         <methods>
           <include name="testSuccessfullPayment"/>
@@ -48,20 +34,6 @@
           <include name="testNavigationToPaymentPage"/>
         </methods>
       </class> <!-- com.Remosys.Wevend.TestLayer.TestHabcoPage -->
-      <class name="com.Remosys.Wevend.TestLayer.TestWevendStore">
-        <methods>
-          <include name="testSuccessfullPayment"/>
-          <include name="testPaymentGatewayPage"/>
-          <include name="testAddTocartFunctionality"/>
-          <include name="closeReporter"/>
-          <include name="testLaunchWevend"/>
-          <include name="testCheckoutPage"/>
-          <include name="startReporter"/>
-          <include name="testResult"/>
-          <include name="close"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- com.Remosys.Wevend.TestLayer.TestWevendStore -->
     </classes>
   </test> <!-- Wevend(failed) -->
 </suite> <!-- Failed suite [Suite] -->

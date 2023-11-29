@@ -8,6 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import com.Remosys.WeVend.Base.BaseClass;
@@ -83,16 +84,14 @@ public class BaseTest extends BaseClass {
 	 */
 	@BeforeClass
 	@Parameters("browser")
-	public void setUp(String browser) {
-		// public void setUp() {
-		// String browser = "chrome";
+	public void setUp(@Optional("chrome") String browser) {
 
 		manager = new DriverManagerClass(driver);
 		driver = manager.initializeDriver(browser);
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		habco = new HabcoPage(driver);
 		util = new Utility();
 		prop = new ConfigUtil();

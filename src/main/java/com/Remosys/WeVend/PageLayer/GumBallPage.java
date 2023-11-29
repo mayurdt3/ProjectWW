@@ -1,12 +1,18 @@
 package com.Remosys.WeVend.PageLayer;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+
 import com.Remosys.WeVend.Reader.ExcelFileReader;
 import com.Remosys.WeVend.utility.Utility;
 
@@ -62,9 +68,6 @@ public class GumBallPage {
 	@FindBy(xpath = "//div[contains(text(),'You added ')]")
 	private WebElement addToCartSuccessMsg;
 
-	@FindBy(xpath = "//a//span[text()='My Cart']")
-	private WebElement cartIcon;
-
 	@FindBy(xpath = "//div[contains(text(),'You added ')]")
 	public WebElement cartSuccessText;
 
@@ -103,16 +106,27 @@ public class GumBallPage {
 	@FindBy(xpath = "//div[text()='Buy More']")
 	private WebElement buyMoreBtn;
 
+	@FindBy(xpath = "//a[@class='action showcart']")
+	private WebElement cartIcon;
+
+	@FindBy(xpath = "//span[@class='count']")
+	private WebElement itemsInCart;
+
+	@FindBy(xpath = "//button[@id='btn-minicart-close']")
+	private WebElement closeCartButton;
+
 	/**
 	 * Clicks on the "Add to Cart" button for a specific product.
 	 *
 	 * @param product
+	 * @throws InterruptedException
 	 */
 
-	public void clickOnAddToCart(String product) {
+	public void clickOnAddToCart(String product) throws InterruptedException {
 		// Iterate through the "Add to Cart" button container.
 		System.out.println(addtoCartButtonContainer.size());
 		for (int i = 0; i < addtoCartButtonContainer.size(); i++) {
+			Thread.sleep(2000);
 			WebElement productName = addtoCartButtonContainer.get(i);
 			String productNameText = productName.getAttribute("data-product-sku");
 			if (product.equalsIgnoreCase(productNameText)) {
@@ -148,7 +162,6 @@ public class GumBallPage {
 		util.waitForElementWithFrequency(driver, cartItemsCount, 10, 3);
 		int itemCount;
 		String cartText = cartItemsCount.getText();
-		// System.out.println(cartText);
 		if (!cartText.isEmpty()) {
 
 			itemCount = Integer.parseInt(cartText);
@@ -163,9 +176,11 @@ public class GumBallPage {
 	 * products.
 	 */
 	public void addProductToCart(String s) {
+
 		String addtocartbuttonlocator = "//a[@title ='" + s
 				+ "']/parent :: strong// following-sibling:: div//button[@title='Add to Cart']";
 		WebElement pr = driver.findElement(By.xpath(addtocartbuttonlocator));
+		util.waitForElementToBeClickable(driver, pr);
 		pr.click();
 	}
 
@@ -175,7 +190,6 @@ public class GumBallPage {
 	public void clickOnCartIcon() {
 
 		util.waitForElementToBeClickable(driver, cartIcon);
-
 		cartIcon.click();
 	}
 
@@ -314,6 +328,52 @@ public class GumBallPage {
 		util.waitForElementToBeClickable(driver, buyMoreBtn);
 		buyMoreBtn.click();
 		util.waitForTitle(driver, excel.getExcelvalueForKey(2, "GumballTitle"));
+	}
+
+	/**
+	 * This method will wait for cartcount to update
+	 */
+	public void waitForCartCountToUpdate(int count) {
+		String cartCountLocator = "//span[@class='counter-number' and text()='" + count + "']";
+		util.waitForPrecensOfElementByLocator(driver, cartCountLocator);
+	}
+
+	/**
+	 * will retrieve items in the cart of int time
+	 */
+	public int itemsInTheCart() {
+		util.waitForElementWithFrequency(driver, itemsInCart, 10, 2);
+		int itemCount = 0;
+		String cartText;
+		try {
+			cartText = itemsInCart.getText();
+
+			if (!cartText.isEmpty()) {
+				itemCount = Integer.parseInt(cartText);
+			} else {
+				return itemCount;
+			}
+			return itemCount;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return itemCount;
+	}
+
+	/**
+	 * click on close Button of cart
+	 */
+	public void clickOnClose() {
+		closeCartButton.click();
+	}
+
+	public void waitForCountToBePresentWithFrequency(int count) {
+		Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(10))
+				.pollingEvery(Duration.ofSeconds(2)) // Adjust the polling interval as needed
+				.ignoring(NoSuchElementException.class);
+
+		String locator = "//span[@class='counter-number' and text()='" + count + "']";
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
 	}
 
 }
